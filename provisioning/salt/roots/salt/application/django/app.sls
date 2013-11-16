@@ -1,6 +1,9 @@
 
 include:
   - pkg.git
+{% if 'develop' in grains['roles'] %}
+  - postgresql-server.93
+{% endif %}
 
 {% set apps = [] %}
 {% for k,v in pillar.items() %}
@@ -12,6 +15,31 @@ include:
 {% for app in apps %}
 
 {% set app_name = app['friendly_name'] %}
+
+{% if 'develop' in grains['roles'] %}
+{{ app_name }}_postgres_pg_hba:
+  file.managed:
+    - name: /var/lib/pgsql/9.3/data/pg_hba.conf
+    - source: salt://application/django/config/test-pg_hba.conf
+    - user: postgres
+    - group: postgres
+    - mode: 600
+
+{{ app_name }}_dev_postgres_user:
+  postgres_user.present:
+    - name: bookwork
+    - password: bookwork
+    - user: postgres
+    - require:
+      - service: postgresql-9.3
+
+{{ app_name }}_postgres_database:
+  postgres_database.present:
+    - name: bookwork
+    - owner: bookwork
+    - require:
+      - postgres_user: bookwork
+{% endif %}
 
 {{ app_name }}-python-deps:
   pkg.installed:
