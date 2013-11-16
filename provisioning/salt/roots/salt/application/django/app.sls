@@ -83,15 +83,29 @@ github.com-{{ app_name }}:
     - name: /home/{{ app_name }}/app/env
     - system_site_packages: False
     - runas: {{ app_name }}
+    - cwd: /home/{{ app_name }}/app
+    - no_chown: True
+{% if 'develop' in grains['roles'] %}
+    - requirements: /home/{{ app_name }}/app/develop-requirements.txt
+{% else %}
     - requirements: /home/{{ app_name }}/app/requirements.txt
-
+{% endif %}
+    - require:
+      - git: {{ app_name }}-source
+      - pkg: {{ app_name }}-python-deps
 {% if 'system-deps' in app %}
+      - pkg: {{ app_name }}-system-deps
+
 {{ app_name }}-system-deps:
   pkg.installed:
     - pkgs:
       {% for package in app['system-deps'] %}
       - {{ package }}
       {% endfor %}
+{% endif %}
+
+{% if 'develop' in grains['roles'] %}
+
 {% endif %}
 
 {% endfor %}
