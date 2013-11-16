@@ -5,4 +5,4 @@ file_roots:
 grains:
   roles:
     - develop
-    - bookwork
+    - django-app-bookwork
