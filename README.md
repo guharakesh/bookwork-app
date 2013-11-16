@@ -15,7 +15,7 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r develop-requirements.txt
-honcho start
+honcho -e .env start
 ```
 
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
@@ -44,9 +44,22 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `honcho start`
+  - `honcho -e .env start`
 
 10. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
+
+#### Note
+
+If you'd like to perform git commits and pushes from within your Vagrant environment, before performing such operations:
+
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+
+Replacing the name and email address with your preferred name/email (match to github for fun)
+
+**You'll need to do this after every vagrant destroy/vagrant up cycle**
 
 ### Vagrant on OS X or Linux
 
@@ -66,7 +79,7 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `honcho start`
+  - `honcho -e .env start`
 
 7. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
 

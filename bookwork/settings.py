@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Load Environment variables from .env file in the Root of the checkout
+
+with open('.env') as f:
+    for line in f.read().splitlines():
+        (key, value) = (line.split('=', 1)[0], line.split('=', 1)[1])
+        print key, value
+        os.environ[key] = value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
