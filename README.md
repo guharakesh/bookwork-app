@@ -43,7 +43,7 @@ Use Vagrant!
   - `cd app`
   - `honcho start`
 
-7. You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
+7. You can now navigate to [http://192.168.50.2:5000](http://192.168.50.2:5000) to view the application.
 
 ### Configurable Environment Variables
 

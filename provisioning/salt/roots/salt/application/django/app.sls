@@ -42,6 +42,12 @@ include:
     - owner: bookwork
     - require:
       - postgres_user: bookwork
+
+{{ app_name }}-iptables:
+  service:
+    - name: iptables
+    - dead
+    - disable: True
 {% endif %}
 
 {{ app_name }}-python-deps:
