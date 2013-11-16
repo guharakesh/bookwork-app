@@ -24,6 +24,9 @@ include:
     - user: postgres
     - group: postgres
     - mode: 600
+    - require:
+      - pkg: postgresql93-server
+      - cmd: postgresql93-server
 
 {{ app_name }}_dev_postgres_user:
   postgres_user.present:
