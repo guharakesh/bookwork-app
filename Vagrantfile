@@ -12,10 +12,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "provisioning/salt/roots/", "/srv/"
 
-  config.vm.network "forwarded_port", guest: 5000, host: 5000
-
   config.vm.define "bookwork" do |bookwork|
-    bookwork.vm.network "private_network", ip: "192.168.50.2"
+    bookwork.vm.network "forwarded_port", guest: 5000, host: 5000
 
     bookwork.vm.provision :salt do |s|
       s.verbose = true
