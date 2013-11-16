@@ -41,6 +41,7 @@ Use Vagrant!
   - `vagrant ssh`
   - `sudo su - bookwork`
   - `cd app`
+  - `source env/bin/activate`
   - `honcho start`
 
 7. You can now navigate to [http://192.168.50.2:5000](http://192.168.50.2:5000) to view the application.
