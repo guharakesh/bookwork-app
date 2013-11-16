@@ -33,3 +33,10 @@ django-app-bookwork:
     -----END RSA PRIVATE KEY-----
   system-deps:
     - postgresql-devel
+  database:
+    - type: postgres
+    - name: bookwork
+    - user: bookwork
+    - pass: bookwork
+    - host: localhost
+    - port: 5432
