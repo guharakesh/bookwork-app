@@ -5,9 +5,8 @@
 ### \*nix
 
 The following are needed:
-  - Python 2.7
+  - Python 2.6 or greater
   - virtualenv
-  - heroku toolbelt
   - Postgres Development Libraries and Server
 
 ```
@@ -16,7 +15,7 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r requirements.txt
-foreman start
+honcho start
 ```
 
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
