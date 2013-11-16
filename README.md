@@ -27,7 +27,6 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
 2. Download and Install [Vagrant](http://downloads.vagrantup.com/) version 1.3.0 or greater.
 
 3. Download and Install [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-
   - `putty.exe` needs to be available on your `Path` for step 9 to work.
 
 4. Download and Install [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
@@ -41,7 +40,6 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
 8. `vagrant up`
 
 9. Login and change to application user
-
   - `vagrant putty` 
   - `sudo su - bookwork`
   - `cd app`
