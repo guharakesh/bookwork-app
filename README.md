@@ -2,7 +2,7 @@
 
 ## Setup
 
-### \*nix
+### local \*nix
 
 The following are needed:
   - Python 2.6 or greater
@@ -21,7 +21,29 @@ honcho start
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
 
 ### Windows
-*(shrug)*
+
+Use Vagrant!
+
+### Vagrant
+
+1. Download and Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads).
+
+2. Download and Install [Vagrant](http://downloads.vagrantup.com/) version 1.3.0 or greater.
+
+3. `git clone git@github.com:guharakesh/bookwork-app.git`
+
+4. `cd bookwork-app`
+
+5. `vagrant up`
+
+6. Login and change to application user
+
+  - `vagrant ssh`
+  - `sudo su - bookwork`
+  - `cd app`
+  - `honcho start`
+
+7. You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
 
 ### Configurable Environment Variables
 
