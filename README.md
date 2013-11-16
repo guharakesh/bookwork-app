@@ -14,7 +14,7 @@ git clone git@github.com:guharakesh/bookwork-app.git
 cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
-pip install -r requirements.txt
+pip install -r develop-requirements.txt
 honcho start
 ```
 
