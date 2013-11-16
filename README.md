@@ -15,7 +15,7 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r develop-requirements.txt
-honcho start
+honcho -e .env start
 ```
 
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
@@ -44,7 +44,7 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `honcho start`
+  - `honcho -e .env start`
 
 10. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
 
@@ -79,7 +79,7 @@ Replacing the name and email address with your preferred name/email (match to gi
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `honcho start`
+  - `honcho -e .env start`
 
 7. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
 
