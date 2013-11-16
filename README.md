@@ -15,7 +15,7 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r develop-requirements.txt
-honcho start
+honcho -e .env start
 ```
 
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
@@ -41,7 +41,7 @@ Use Vagrant!
   - `vagrant ssh`
   - `sudo su - bookwork`
   - `cd app`
-  - `honcho start`
+  - `honcho -e .env start`
 
 7. You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
 
