@@ -10,7 +10,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/login/$', login),
-    url(r'^accounts/logout/$', logout),
-    url(r'^accounts/profile/$', include('homepage.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 )
