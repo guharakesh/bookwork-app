@@ -10,9 +10,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'bookwork.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     # url(r'^polls/', include('polls.urls', namespace="polls")),
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
-    # url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 )
