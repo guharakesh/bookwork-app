@@ -1,0 +1,260 @@
+.navbar-brand {
+	font-family: ubuntu_titlingbold;
+	font-size: 1.6em;
+}
+
+.gray {
+	color: #c6c5c3;
+}
+
+.blue {
+	color: #6ac3d7;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-family: open_sanslight;
+	color: #FFF;
+	font-size: 85.7%;
+}
+
+.navbar-default {
+  background-color: #58595b;
+  border-color: #c6c5c3;
+  overflow: hidden;
+  border-bottom-width: 0px;
+  box-shadow: 0px 1px 5px #000000;
+}
+
+.block1 {
+	padding-top: 10%;
+	background-color: #6ac3d7;
+	padding-bottom: 10%;
+	color: #FFF;
+	max-height: 500px;
+	overflow:hidden;
+}
+
+.getbest {
+	font-family: open_sanslight;
+	font-size: 4em;
+}
+
+.bebest {
+	font-family: open_sanssemibold;
+	font-size: 4.1em;
+}
+
+.block2 {
+	background-color: rgb(245,244,244);
+	max-height: 700px;
+	padding-top: 2%;
+	padding-bottom: 1%;
+	font-family: open_sanslight_italic;
+	color: #c6c5c3;
+	font-size: 2em;
+}
+
+.splash {
+	max-height: 500px;
+}
+
+.madeeasy {
+	font-family: open_sanssemibold_italic;
+	color: #6ac3d7;
+}
+
+.block3 {
+	color: #c6c5c3;
+	max-height: 400px;
+}
+
+.block3-back{
+	background-image: url(../img/line.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: auto 100%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.block3-text {
+	font-family: open_sanslight;
+	font-size: 1.43em;
+	padding-top: 10%;
+}
+
+.block3-img {
+	max-height: 100%;
+}
+
+.block3-register {
+	font-family: ubuntu_titlingbold;
+	font-size: 2em;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.block4 {
+	background-color: rgb(177,182,197);
+	max-height: 1680px;
+	/*margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;*/
+}
+
+.block5 {
+	text-align: center;
+	margin-top: 7%;
+	font-family: ubuntu_titlingbold;
+	font-size: 2.7em;
+	color: #ffcb6b;
+	width: 100%;
+	
+}
+
+.block5-back{
+	background-image: url(../img/line.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+	background-size: auto 100%;
+	margin-top: 2%;
+}
+
+.block5-text {
+	text-align: center;
+	font-family: open_sanslight_italic;
+	font-size: 3em;
+	color: #58595b;
+}
+
+.ubuntuBI {
+	font-family: open_sanssemibold_italic;
+}
+
+.btn {
+	font-family: ubuntu_titlingbold;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.signup {
+	font-size: 2em;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #6ac3d7;
+  border-color: #6ac3d7;
+  margin: 2%;
+}
+
+.footer {
+	background-color: #c6c5c3;
+	font-family: open_sanslight;
+	color: #fff;
+	font-size: 85.7%;
+	margin-top: 3%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: right;
+	padding-right: 5%;
+}
+
+.footer-student {
+	background-color: #c6c5c3;
+	font-family: open_sanslight;
+	color: #fff;
+	font-size: 85.7%;
+	margin-top: 3%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: right;
+	padding-right: 5%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.thankyou-title {
+	font-family: ubuntu_titlingbold;
+	color: #fff;
+	font-size: 3em;
+	padding-top: 8%;
+	text-align: center;
+}
+
+.block1-thankyou {
+	padding-top: 10%;
+	background-color: #6ac3d7;
+	padding-bottom: 10%;
+	color: #FFF;
+	max-height: 500px;
+	overflow: visible;
+	z-index: -1;
+}
+
+.whatnext {
+	font-family: ubuntu_titlingbold;
+	text-align: center;
+	overflow: hidden;
+	z-index: 100;
+	background-color: #fff;
+	position: relative;
+	right: 18%;
+	margin-top: 5%;
+}
+
+.whatnext-title {
+	font-size: 2.9em;
+	color: #c6c5c3;
+	position: relative;
+	right: 8%;
+	margin-bottom: 2%;
+}
+
+
+#wrap {
+	min-height: 100%;
+}
+
+#main {
+	overflow:auto;
+	padding-bottom:50px; /* this needs to be bigger than footer height*/
+	max-width: 100%;
+}
+
+.footer {
+	position: relative;
+	margin-top: -50px; /* negative value of footer height */
+	height: 50px;
+	clear:both;
+	padding-top:20px;
+}

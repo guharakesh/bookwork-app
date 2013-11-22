@@ -1,0 +1,85 @@
+{% extends "base/base.html" %}
+
+{% block title %} | Welcome{% endblock %}
+
+{% block content %}
+
+<!-- FIRST BLOCK
+================================================== -->
+<div class="row block1">
+	<div class="container">
+		<div class="col-lg-6">
+			<div class="getbest">Get the best.</div>
+			<div class="bebest">Be the best.</div>
+		</div>
+		<div class="col-lg-6">
+			<img src="{{STATIC_URL}}img/bowtie_all.png" class="img-responsive" width="100%">
+		</div>
+	</div>
+</div>
+
+<!-- SECOND BLOCK
+================================================== -->
+<div class="row block2">
+	<div class="container text-center">				
+		<img src="{{STATIC_URL}}img/splash_all.png" class="image-responsive" width="100%">
+		A place where students and employers can come together to get work done. Connecting shouldn't be hard. <span class="madeeasy">So we made it easy.</span>
+	</div>
+</div>
+
+<!-- THIRD BLOCK
+================================================== -->
+<div class="row block3" id="register">
+	<div class="container block3-back">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-6"><a href="registration/employer">
+					<img src="{{STATIC_URL}}img/briefcase.png" width="90%" class="block3-img img-responsive"></a>
+				</div>
+				<div class="col-sm-6 block3-text">
+					Are you a business looking to hire the most talented young college students from around the country?
+				</div>
+			</div>
+			<div class="block3-register"><a href="registration/employer">
+				Register Your Business</a>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-6"><a href="registration/employee">
+					<img src="{{STATIC_URL}}img/gradhat.png" width="90%" class="block3-img img-responsive"></a>
+				</div>
+				<div class="col-sm-6 block3-text">
+					Or are you a college student looking to gain experience and make connections in your field of study?
+				</div>
+			</div>
+			<div class="block3-register"><a href="/registration/employee">
+				Register As A Student</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- FOURTH BLOCK
+================================================== -->
+<div class="row block4" id="how">
+	<div class="container">
+		<img src="{{STATIC_URL}}img/how.png" class="img-responsive">
+	</div>
+</div>
+
+<!-- FIFTH BLOCK
+================================================== -->
+<div class="row block5" id="price">
+<!-- 	Pricing
+	</div>
+	<div class="container block5-text">				
+		Results first, pay later.<br>
+		No subscription fees.<br>
+		<span class="ubuntuBI">No surprises.</span>
+	</div> -->
+	<div class="row text-center">
+		<a href="#register"><button type="button" class="btn btn-primary btn-lg signup">Sign Up Now</button></a>
+	</div>
+</div>
+{% endblock %}

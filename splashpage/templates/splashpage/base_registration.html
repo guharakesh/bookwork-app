@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+
+{% block title %} | Register{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container text-center" id="new-acct-head"><h1>Create a New Account</h1></div>
+
+<div class="container text-center" id="signup-type"><h4>You are registering as an <strong>employer<strong>.</h4></div>
+	<div class="container"> <!-- Container for form -->
+		<form class="form-horizontal" action = "/registration/emr_confirm" method="POST"> {% csrf_token %}
+			<fieldset>
+				<!-- Form Name -->
+				<!-- <legend>Basic Account Information</legend> -->
+				{% for message in error %}
+				{% if message != None %}
+				<div>
+					<strong>{{message}}</strong>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<!-- Text input-->
+				<div class="form-group"> 
+					<div class="col-xs-7 col-sm-offset-2">
+						<label for="emr_first_name" class="control-label col-xs-4">First Name</label>
+						<input type="text" class="form-control col-xs-3" id="emr_first_name" name="emr_first_name" placeholder="So what's your first name?">
+					</div>
+				</div><!-- /.form-group -->
+
+				<div class="form-group">
+					<div class="col-xs-7 col-sm-offset-2">
+						<label for="emr_last_name" class="control-label col-xs-4">Last Name</label>
+						<input type="text" class="form-control col-xs-3" id="emr_last_name" name="emr_last_name" placeholder="...and your last name?">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-7 col-sm-offset-2">
+						<label for="emr_email_address" class="control-label col-xs-4">Email </label>
+						<input type="text" class="form-control col-xs-3" id="emr_email_address" name="emr_email_address" placeholder="Your email goes here.">
+					</div>
+				</div><!-- /.form-group -->
+
+				<div class="form-group">
+					<div class="col-xs-7 col-sm-offset-2">
+						<label for="emr_password1" class="control-label col-xs-4">Password</label>
+						<input type="password" class="form-control col-xs-3" id="emr_password1" name="emr_password1" placeholder="Make it a good one...">
+					</div>
+				</div><!-- /.form-group -->
+
+				<div class="form-group">
+					<div class="col-xs-7 col-sm-offset-2">
+						<label for="emr_password2" class="control-label col-xs-4">Re-Enter Password</label>
+						<input type="password" class="form-control col-xs-3" id="emr_password2" name="emr_password2" placeholder="Don't mess up!">
+					</div>
+				</div>
+
+				<div class="col-xs-2 col-sm-offset-5">
+					<button type="submit" value="Submit" class="btn btn-success">Submit</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+<div class="container text-center" id="loginQ">
+	<h4>Already have an account? <strong><a data-toggle="modal" href="#loginModal">Login.</a></strong></h4>
+</div>
+
+
+{% endblock %}
