@@ -31,6 +31,7 @@ SECRET_KEY = 'q$==u(qg2hurhgeywgigprszv3o1ulw@9n6(nz=7dxm%22!1s$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -49,7 +50,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'homepage',
-    'registration',
+    # 'registration',
+    'splashpage'
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
