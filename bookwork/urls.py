@@ -14,5 +14,5 @@ urlpatterns = patterns('',
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
-    url(r'^accounts/', include('registration.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 )
