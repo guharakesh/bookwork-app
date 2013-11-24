@@ -258,3 +258,8 @@ a:focus {
 	clear:both;
 	padding-top:20px;
 }
+
+.container {
+	padding-right: 0;
+	padding-left: 0;
+}
