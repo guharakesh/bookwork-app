@@ -246,7 +246,7 @@ a:focus {
 }
 
 #main {
-	overflow:auto;
+	overflow:hidden;
 	padding-bottom:50px; /* this needs to be bigger than footer height*/
 	max-width: 100%;
 }

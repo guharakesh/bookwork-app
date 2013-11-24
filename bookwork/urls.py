@@ -14,6 +14,6 @@ urlpatterns = patterns('',
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
-    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls',namespace="accounts"))
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )
