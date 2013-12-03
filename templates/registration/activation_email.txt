@@ -1,1 +1,3 @@
 booooOOOooOOoo00ooOOkwerkkkkkk
+
+{{ site }}/accounts/activate/{{ activation_key }}/

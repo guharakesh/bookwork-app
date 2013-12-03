@@ -1,1 +1,45 @@
-Aww yiss
+{% extends "base/base.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}"admin/css/login.css" %}" />
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">{% endblock %}
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		
+<!-- Custom styles for this template -->
+<link href="css/custom.css" rel="stylesheet">
+		
+<link rel="stylesheet" href="fonts/ubuntutitling_bold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="fonts/opensans_light_macroman/stylesheet.css" type="text/css" charset="utf-8" />		
+<link rel="stylesheet" href="fonts/opensans_semibold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="fonts/opensans_lightitalic_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="fonts/opensans_semibolditalic_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+
+
+{% block content %}
+
+<div class="row block1-thankyou">
+    <div class="container">
+        <div class="col-lg-6">
+            <img src="img/goldstar.png" class="img-responsive" width="100%">
+        </div>
+        <div class="col-lg-6 thankyou-title">Thank You!
+        </div>
+    </div>
+</div>
+
+
+<!-- THIRD BLOCK
+================================================== -->
+<div class="row whatnext">
+    <div class="container">
+        <div class="whatnext-title">
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+document.getElementById('id_username').focus()
+</script>
+</div>
+{% endblock %}
