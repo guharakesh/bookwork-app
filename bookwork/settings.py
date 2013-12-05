@@ -55,7 +55,8 @@ INSTALLED_APPS = (
     'polls',
     'homepage',
     'registration',
-    'splashpage'
+    'splashpage',
+    'student'
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
