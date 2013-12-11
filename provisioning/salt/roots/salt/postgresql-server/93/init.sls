@@ -1,14 +1,19 @@
 
-postgresql-93-repo:
-  pkg.installed:
-    - sources:
-      - pgdg-centos93: http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
+/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93:
+  file.managed:
+    - source: salt://postgresql-server/93/config/RPM-GPG-KEY-PGDG-93
+
+/etc/yum.repos.d/pgdg-93-centos.repo:
+  file.managed:
+    - source: salt://postgresql-server/93/config/pgdg-93-centos.repo
+    - requre:
+      - file: /etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93
 
 postgresql93-server:
   pkg:
     - installed
     - require:
-      - pkg: postgresql-93-repo
+      - file: /etc/yum.repos.d/pgdg-93-centos.repo
   service:
     - name: postgresql-9.3
     - running
@@ -16,7 +21,7 @@ postgresql93-server:
     - watch:
       - file: /var/lib/pgsql/9.3/data/pg_hba.conf
     - require:
-      - pkg: postgresql93-server
+      - file: /etc/yum.repos.d/pgdg-93-centos.repo
   cmd.wait:
     - name: service postgresql-9.3 initdb
     - watch:
