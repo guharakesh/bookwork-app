@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import socket
+from django.conf import global_settings
 
 # Load Environment variables from .env file in the Root of the checkout
 
@@ -19,6 +21,10 @@ with open('.env') as f:
         print key, value
         os.environ[key] = value
 
+try:
+    HOSTNAME = socket.gethostname()
+except:
+    HOSTNAME = '127.0.0.1:5000'
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -29,6 +35,7 @@ MAILGUN_SERVER_NAME = 'sandbox2391.mailgun.org'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -50,7 +57,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
+#   'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
