@@ -4,7 +4,10 @@ from django.http import HttpResponse
 # Create your views here.
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
-    return render(request, 'splashpage/base_splashpage.html',{})
+    if request.user.is_authenticated():
+        return HttpResponse("Hey you're on the splashpage")
+    else:
+        return render(request, 'splashpage/base_splashpage.html',{})
 
 def login(request):
     # return HttpResponse("Hey you're on the splaspage")

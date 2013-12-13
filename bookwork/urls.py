@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'bookwork.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    # url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^$', 'splashpage.views.splash', name='splash'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
