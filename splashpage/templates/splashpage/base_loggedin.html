@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %} | Register{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
+
+<a href="/accounts/logout">Logout</a>
+{% endblock %}

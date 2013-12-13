@@ -5,7 +5,7 @@ from django.http import HttpResponse
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
     if request.user.is_authenticated():
-        return HttpResponse("Hey you're on the splashpage")
+        return render(request, 'splashpage/base_loggedin.html',{})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
