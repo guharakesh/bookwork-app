@@ -7,7 +7,7 @@ class Student(models.Model):
     user = models.OneToOneField(User)
 
     def __unicode__(self):
-        return u"%s %s" % self.first_name, self.last_name
+        return u"%s" % self.user.email
 
     FRESHMAN = 'FR'
     SOPHOMORE = 'SO'
