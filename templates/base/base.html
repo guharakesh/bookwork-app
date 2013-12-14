@@ -48,9 +48,13 @@
 					
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/#how">How It Works</a></li>
-							<li><a href="/accounts/register">Register</a></li>
-							<li><a href="/accounts/login">Login</a></li>
+							{% if user.is_authenticated %}
+								<li><a href="/accounts/logout">Logout</a></li>
+							{% else %}
+								<li><a href="/#how">How It Works</a></li>
+								<li><a href="/accounts/register">Register</a></li>
+								<li><a href="/accounts/login">Login</a></li>
+							{% endif %}
 						</ul><!-- nav navbar-nav navbar-right -->
 					</div><!-- collapse navbar-collapse navbar-ex1-collapse -->
 				</div><!-- navbar navbar-default navbar-fixed-top -->
