@@ -267,3 +267,22 @@ html, body {
 	padding-left: 0;
 }
 
+/*footer stuff*/
+
+.footer_container strong{
+    font-weight: bold;
+}
+.footer_container div.container{
+    width: 320px;
+    float: left;
+}
+.footer_container ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float:right;
+}
+.footer_container ul li {
+	float: left;
+	padding: 0 10px;
+}
