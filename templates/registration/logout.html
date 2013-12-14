@@ -1,1 +1,18 @@
-kthxbye
+{% extends "base/base.html" %}
+
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}You have logged out{% endblock %}
+
+{% block content %}
+<div class="container text-center" id="new-acct-head"><h1>kthxbye</h1></div>
+
+
+<div class="container text-center" id="signup-type"><h4>You have successfully logged out of bookwork. We can't wait for you to come back!</h4></div>
+
+
+
+{% endblock %}
