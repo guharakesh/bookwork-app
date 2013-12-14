@@ -4,6 +4,8 @@
 		<title>Bookwork{% block title %} | Page Subtitle{% endblock %}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="{{STATIC_URL}}/img/favicon.ico" />
 		<!-- Bootstrap -->
 		<link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
 		
@@ -60,24 +62,16 @@
 		</div>
 	</div>
 
-		<!-- <div class="row footer">
-			{% block footer %}
-			&copy; Bookwork 2013
-			{% endblock %}
-		</div> -->
-		<footer class="footer navbar navbar-default navbar-fixed-bottom">
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav navbar-right">
+		<div id="footer" class="footer_container footer navbar navbar-default navbar-fixed-bottom">
+			<div id="container">
+				<ul>
 					<li>© Bookwork 2013</li>
-					<li> | </li>
-					<li>Terms of Service</li>
-					<li> | </li>
-					<li>Privacy Policy</li>
+					<!-- <li>Terms of Service</li>
+					<li>Privacy Policy</li> -->
 				</ul>
-			</div>
-		</footer>
+			</div><!-- container -->
+		</div>
 		<!-- This isn't working right need to look at http://getbootstrap.com/examples/sticky-footer-->
-
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="http://code.jquery.com/jquery.js"></script>
