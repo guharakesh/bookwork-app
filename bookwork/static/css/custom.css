@@ -194,7 +194,7 @@
 
 a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover,
@@ -285,4 +285,8 @@ html, body {
 .footer_container ul li {
 	float: left;
 	padding: 0 10px;
+}
+
+.link {
+	text-decoration: underline;
 }
