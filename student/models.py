@@ -14,7 +14,7 @@ class Skill(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User)
 
-    skill = models.ManyToManyField(Skill)
+#   skill = models.ManyToManyField(Skill)
 
     def __unicode__(self):
         return u"%s" % self.user.email
