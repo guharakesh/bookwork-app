@@ -13,10 +13,10 @@ def splash(request):
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
         if request.method == "POST":
-            formset = StudentForm(request.POST)
+            formset = StudentForm(request.POST or None, instance=new_student)
             if formset.is_valid():
                 link = formset.save(commit=False)
-                link.user = request.user
+
                 link.save()
         else:
             formset = StudentForm()
