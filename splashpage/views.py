@@ -2,21 +2,24 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from student.models import Student
-from django.forms.models import modelformset_factory
+from student.forms import StudentForm
+from django import forms
+from django.forms import ModelForm
 
 # Create your views here.
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
-    StudentFormSet = modelformset_factory(Student)
     if request.user.is_authenticated():
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
         if request.method == "POST":
-            formset = StudentFormSet(request.POST, request.FILES, queryset=Student.objects.filter(user=request.user))
+            formset = StudentForm(request.POST)
             if formset.is_valid():
-                formset.save()
+                link = formset.save(commit=False)
+                link.user = request.user
+                link.save()
         else:
-            formset = StudentFormSet(queryset=Student.objects.filter(user=request.user))
+            formset = StudentForm()
         return render(request, 'splashpage/base_loggedin.html',{"formset": formset})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})

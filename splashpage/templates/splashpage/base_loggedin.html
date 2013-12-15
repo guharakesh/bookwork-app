@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 
-{% block title %} | Register{% endblock %}
+{% block title %} | Update Profile{% endblock %}
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
@@ -9,9 +9,11 @@
 {% block content %}
 
 <div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
-<a href="/accounts/logout">Logout</a>
 
 <div>
+    <form action="#" method="post">
+    {% csrf_token %}
     {{ formset }}
-</div>
+    <input type="submit" value="Save" />
+    </form>
 {% endblock %}
