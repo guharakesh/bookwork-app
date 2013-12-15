@@ -28,6 +28,9 @@ except:
 
 LOGIN_REDIRECT_URL = '/'
 
+EMAIL_HOST = 'bookwork.co'
+DEFAULT_FROM_EMAIL = 'iamthekeymaster@bookwork.co' 
+
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = 'key-4cfari9mza2gsi9cfhioird0qjgj-0o8'
 MAILGUN_SERVER_NAME = 'sandbox2391.mailgun.org'
