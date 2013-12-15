@@ -10,10 +10,11 @@
 
 <div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
 
-<div>
+<div id="update_form">
     <form action="#" method="post">
     {% csrf_token %}
-    {{ formset }}
+    {{ formset.as_p }}
     <input type="submit" value="Save" />
     </form>
+</div>
 {% endblock %}
