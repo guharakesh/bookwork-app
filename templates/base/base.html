@@ -49,7 +49,7 @@
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right">
 							{% if user.is_authenticated %}
-								<li>Welcome {{ user.username }}</li>
+								<li id="welcome_text">Welcome {{ user.username }}</li>
 								<li><a href="/accounts/logout">Logout</a></li>
 							{% else %}
 								<li><a href="/#how">How It Works</a></li>
@@ -66,19 +66,17 @@
 			</div>
 		</div>
 	</div>
-	
 
-		<div id="footer" class="footer_container footer navbar navbar-default navbar-fixed-bottom">
-			<div id="container">
-				<ul>
-					<li>© Bookwork 2013</li>
-					<!-- <li>Terms of Service</li>
-					<li>Privacy Policy</li> -->
-				</ul>
-			</div><!-- container -->
-		</div>
-		<!-- This isn't working right need to look at http://getbootstrap.com/examples/sticky-footer-->
-		
+	<div id="footer" class="footer_container footer navbar navbar-default navbar-fixed-bottom">
+		<div id="container">
+			<ul>
+				<li>© Bookwork 2013</li>
+				<!-- <li>Terms of Service</li>
+				<li>Privacy Policy</li> -->
+			</ul>
+		</div><!-- container -->
+	</div>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
