@@ -1,3 +1,10 @@
-booooOOOooOOoo00ooOOkwerkkkkkk
+Welcome to bookwork!!
 
-{{ site }}/accounts/activate/{{ activation_key }}/
+Thanks for signing up. You made the right choice!
+
+To activate your account, go here: {{ site }}/accounts/activate/{{ activation_key }}
+
+If you have any questions, just shoot us an email.
+--
+the bookwork team
+team@bookwork.co
