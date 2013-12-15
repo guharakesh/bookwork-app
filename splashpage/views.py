@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from student.models import Student
-from student.forms import StudentForm
+from student.forms import StudentForm, UserForm
 from django import forms
 from django.forms import ModelForm
 
@@ -13,12 +13,16 @@ def splash(request):
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
         if request.method == "POST":
+            userform = UserForm(request.POST or None, instance=request.user)
+            if userform.is_valid():
+                userlink = userform.save(commit=False)
+                userlink.save()
             formset = StudentForm(request.POST or None, instance=new_student)
             if formset.is_valid():
                 link = formset.save(commit=False)
-
                 link.save()
         else:
+            userform = UserForm()
             formset = StudentForm()
         return render(request, 'splashpage/base_loggedin.html',{"formset": formset})
     else:
