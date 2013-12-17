@@ -24,7 +24,7 @@ def splash(request):
         else:
             userform = UserForm()
             formset = StudentForm()
-        return render(request, 'splashpage/base_loggedin.html',{"formset": formset})
+        return render(request, 'splashpage/base_loggedin.html',{"formset": formset,"userform":userform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
