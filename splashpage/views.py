@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from student.models import Student
-from student.forms import StudentForm, UserForm
+from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
 
@@ -24,6 +24,7 @@ def splash(request):
         else:
             userform = UserForm()
             formset = StudentForm()
+            skillform = SkillForm()
         return render(request, 'splashpage/base_loggedin.html',{"formset": formset,"userform":userform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})

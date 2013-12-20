@@ -2,19 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 
-
 # Create your models here.
 
-class Skill(models.Model):
-    skill_text = models.CharField(max_length=200)
-
-    def __unicode__(self):
-        return u"%s" % self.skill_text
 
 class Student(models.Model):
     user = models.OneToOneField(User)
-
-#   skill = models.ManyToManyField(Skill)
 
     def __unicode__(self):
         return u"%s" % self.user.email
@@ -82,3 +74,10 @@ class Student(models.Model):
                               default='BOSC')
 
 
+class Skill(models.Model):
+    skill_text = models.CharField(max_length=200)
+
+    students = models.ManyToManyField(Student)
+
+    def __unicode__(self):
+        return u"%s" % self.skill_text

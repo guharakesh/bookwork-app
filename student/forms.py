@@ -1,5 +1,5 @@
 from django import forms
-from .models import Student
+from .models import Student, Skill
 from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
@@ -11,3 +11,8 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['year_in_school','school']
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skill
+        fields = ['skill_text']
