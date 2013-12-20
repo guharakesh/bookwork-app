@@ -10,3 +10,4 @@ wsgiref==0.1.2
 django-mailgun
 django-select2-forms
 south
+django-autocomplete-light>=2.0.0pre

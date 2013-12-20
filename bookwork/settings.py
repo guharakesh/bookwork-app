@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'student',
     'select2',
     'south',
+    'autocomplete_light',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7

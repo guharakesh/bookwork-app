@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+import select2.fields
+import select2.models
 
 # Create your models here.
 
@@ -77,7 +79,7 @@ class Student(models.Model):
 class Skill(models.Model):
     skill_text = models.CharField(max_length=200)
 
-    students = models.ManyToManyField(Student)
+    students = select2.fields.ManyToManyField(Student)
 
     def __unicode__(self):
         return u"%s" % self.skill_text
