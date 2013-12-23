@@ -1,4 +1,3 @@
-import autocomplete_light
 from django import forms
 from .models import Student, Skill
 from django.contrib.auth.models import User
@@ -13,7 +12,7 @@ class StudentForm(forms.ModelForm):
         model = Student
         fields = ['year_in_school','school']
 
-class SkillForm(autocomplete_light.ModelForm):
+class SkillForm(forms.ModelForm):
     class Meta:
         model = Skill
         fields = ['skill_text']
