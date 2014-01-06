@@ -12,24 +12,31 @@ def splash(request):
     if request.user.is_authenticated():
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
+
         if request.method == "POST":
+
             userform = UserForm(request.POST or None, instance=request.user)
+
             if userform.is_valid():
                 userlink = userform.save(commit=False)
                 userlink.save()
-            formset = StudentForm(request.POST or None, instance=new_student)
-            if formset.is_valid():
-                link = formset.save(commit=False)
+
+            studentform = StudentForm(request.POST or None, instance=new_student)
+
+            if studentform.is_valid():
+                link = studentform.save(commit=False)
                 link.save()
+
             #skillform = SkillForm(request.POST)
+
             #if skillform.is_valid():
                 #skill_link = skillform.save(commit=False)
                 #skill_link.save()
         else:
             userform = UserForm()
-            formset = StudentForm()
+            studentform= StudentForm()
             #skillform = SkillForm()
-        return render(request, 'splashpage/base_loggedin.html',{"formset": formset,"userform":userform})
+        return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 

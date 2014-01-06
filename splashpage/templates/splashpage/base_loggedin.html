@@ -14,7 +14,7 @@
     <form action="#" method="post">
     {% csrf_token %}
     {{ userform.as_p }}
-    {{ formset.as_p }}
+    {{ studentform.as_p }}
     {{ skillform.as_p }}
     <input type="submit" value="Save" />
     </form>
