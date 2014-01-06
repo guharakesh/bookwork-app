@@ -6,12 +6,19 @@ import select2.models
 
 # Create your models here.
 
+class Skill(models.Model):
+    skill_text = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return u"%s" % self.skill_text
 
 class Student(models.Model):
     user = models.OneToOneField(User)
 
     def __unicode__(self):
         return u"%s" % self.user.email
+
+    skills = models.ManyToManyField(Skill)
 
     FRESHMAN = 'FR'
     SOPHOMORE = 'SO'
@@ -76,10 +83,3 @@ class Student(models.Model):
                               default='BOSC')
 
 
-class Skill(models.Model):
-    skill_text = models.CharField(max_length=200)
-
-    students = select2.fields.ManyToManyField(Student)
-
-    def __unicode__(self):
-        return u"%s" % self.skill_text

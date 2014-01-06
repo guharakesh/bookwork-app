@@ -12,11 +12,11 @@ class UserForm(forms.ModelForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['year_in_school','school']
+        fields = ['year_in_school','school','skills']
 
-class SkillForm(forms.ModelForm):
-    class Meta:
-        model = Skill
-        widgets = {
-            'skill_text': chosenwidgets.ChosenSelectMultiple(),
-        }
+#class SkillForm(forms.ModelForm):
+    #class Meta:
+        #model = Skill
+        #widgets = {
+            #'skill_text': chosenwidgets.ChosenSelectMultiple(),
+        #}

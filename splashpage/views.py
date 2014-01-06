@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from student.models import Student
-from student.forms import StudentForm, UserForm, SkillForm
+from student.forms import StudentForm, UserForm 
 from django import forms
 from django.forms import ModelForm
 
@@ -21,15 +21,15 @@ def splash(request):
             if formset.is_valid():
                 link = formset.save(commit=False)
                 link.save()
-            skillform = SkillForm(request.POST)
-            if skillform.is_valid():
-                skill_link = skillform.save(commit=False)
-                skill_link.save()
+            #skillform = SkillForm(request.POST)
+            #if skillform.is_valid():
+                #skill_link = skillform.save(commit=False)
+                #skill_link.save()
         else:
             userform = UserForm()
             formset = StudentForm()
-            skillform = SkillForm()
-        return render(request, 'splashpage/base_loggedin.html',{"formset": formset,"userform":userform,"skillform":skillform})
+            #skillform = SkillForm()
+        return render(request, 'splashpage/base_loggedin.html',{"formset": formset,"userform":userform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
