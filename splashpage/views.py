@@ -27,6 +27,8 @@ def splash(request):
                 link = studentform.save(commit=False)
                 link.save()
 
+            studentform.save_m2m()
+
             #skillform = SkillForm(request.POST)
 
             #if skillform.is_valid():
