@@ -5,16 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico" />
+		<link rel="shortcut icon" href="{{STATIC_URL}}/img/favicon.ico" />
 		<!-- Bootstrap -->
 		<link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
-                <link href="env/lib/python2.6/site-packages/chosen/static/css/chosen.css" rel="stylesheet">
-                <script type="text/javascript" src="env/lib/python2.6/site-packages/chosen/static/js/chosen.jquery.js"></script>
-                <script type="text/javascript" src="env/lib/python2.6/site-packages/chosen/static/js/chosen.jquery_ready.js"></script>
 		
 		<!-- Custom styles for this template -->
 		<link href="{{STATIC_URL}}css/custom.css" rel="stylesheet">
-		
+		<link href="{{STATIC_URL}}js/chosen_v1.0.0/chosen.min.css" rel="stylesheet">
+
+
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/ubuntutitling_bold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/opensans_light_macroman/stylesheet.css" type="text/css" charset="utf-8" />		
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/opensans_semibold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
@@ -84,5 +83,12 @@
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+		<script src="{{STATIC_URL}}js/chosen_v1.0.0/chosen.jquery.min.js"></script>
+		<script>
+			debugger;
+			jQuery(document).ready(function(){
+				jQuery("#id_skills").data("placeholder","Select Frameworks...").chosen();
+			});
+		</script>
 	</body>
 </html>
