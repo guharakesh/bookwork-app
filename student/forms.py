@@ -1,6 +1,8 @@
 from django import forms
-from .models import Student
+from .models import Student, Skill
 from django.contrib.auth.models import User
+from chosen import forms as chosenforms
+from chosen import widgets as chosenwidgets
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -10,4 +12,11 @@ class UserForm(forms.ModelForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['year_in_school','school']
+        fields = ['year_in_school','school','skills']
+
+#class SkillForm(forms.ModelForm):
+    #class Meta:
+        #model = Skill
+        #widgets = {
+            #'skill_text': chosenwidgets.ChosenSelectMultiple(),
+        #}
