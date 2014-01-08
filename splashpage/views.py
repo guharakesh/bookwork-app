@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from student.models import Student
-from student.forms import StudentForm, UserForm 
+from student.models import Student, Skill
+from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
 
@@ -15,30 +15,38 @@ def splash(request):
 
         if request.method == "POST":
 
-            userform = UserForm(request.POST or None, instance=request.user)
+            skillform= SkillForm(request.POST or None)
 
-            if userform.is_valid():
-                userlink = userform.save(commit=False)
-                userlink.save()
+            if 'new_skill' in request.body:
+                if skillform.is_valid():
+                    skill_text = skillform.cleaned_data['skill_text']
+                    new_skill = Skill.objects.create(skill_text=skill_text)
+                    new_skill.save()
 
-            studentform = StudentForm(request.POST or None, instance=new_student)
+                userform = UserForm(request.POST or None)
+                studentform = StudentForm(request.POST or None)
 
-            if studentform.is_valid():
-                link = studentform.save(commit=False)
-                link.save()
+            else:
 
-            studentform.save_m2m()
+                userform = UserForm(request.POST or None, instance=request.user)
+    
+                if userform.is_valid():
+                    userlink = userform.save(commit=False)
+                    userlink.save()
+    
+                studentform = StudentForm(request.POST or None, instance=new_student)
+    
+                if studentform.is_valid():
+                    link = studentform.save(commit=False)
+                    link.save()
+    
+                studentform.save_m2m()
 
-            #skillform = SkillForm(request.POST)
-
-            #if skillform.is_valid():
-                #skill_link = skillform.save(commit=False)
-                #skill_link.save()
         else:
-            userform = UserForm()
-            studentform= StudentForm()
-            #skillform = SkillForm()
-        return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform})
+            userform = UserForm(request.POST or None)
+            studentform = StudentForm(request.POST or None)
+            skillform = SkillForm(request.POST or None)
+        return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform,"skillform":skillform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 

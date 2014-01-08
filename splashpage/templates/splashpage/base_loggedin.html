@@ -15,8 +15,14 @@
     {% csrf_token %}
     {{ userform.as_p }}
     {{ studentform.as_p }}
-    {{ skillform.as_p }}
-    <input type="submit" value="Save" />
+  <div>
+    Can't find your skill listed? Add it here!
+    <div class="row">
+      {{ skillform.as_p }}
+      <input type="submit" name="new_skill" value="Add" />
+    </div>
+  </div>
+    <input type="submit" name="student_data" value="Save" />
     </form>
 </div>
 {% endblock %}
