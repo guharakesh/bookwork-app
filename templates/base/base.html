@@ -84,11 +84,6 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
 		<script src="{{STATIC_URL}}js/chosen_v1.0.0/chosen.jquery.min.js"></script>
-		<script>
-			debugger;
-			jQuery(document).ready(function(){
-				jQuery("#id_skills").data("placeholder","Select Frameworks...").chosen();
-			});
-		</script>
+		{% block scripts %}{% endblock %}
 	</body>
 </html>

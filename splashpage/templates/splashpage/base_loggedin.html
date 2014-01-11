@@ -4,6 +4,7 @@
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -15,14 +16,21 @@
     {% csrf_token %}
     {{ userform.as_p }}
     {{ studentform.as_p }}
-  <div>
-    Can't find your skill listed? Add it here!
-    <div class="row">
-      {{ skillform.as_p }}
+  <p>
+    <p>Can't find your skill listed? Add it here!</p>
+      {{ skillform }}
       <input type="submit" name="new_skill" value="Add" />
-    </div>
-  </div>
+  </p>
     <input type="submit" name="student_data" value="Save" />
     </form>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  debugger;
+  jQuery(document).ready(function(){
+    jQuery("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  });
+</script>
 {% endblock %}

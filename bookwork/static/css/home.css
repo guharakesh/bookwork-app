@@ -1,0 +1,21 @@
+
+#update_form{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#update_form > form > input:last-child{
+	width: 50px;
+	margin: 0 150px;
+}
+.helptext {
+	display: none;
+}
+p! #id_skill_text{
+	float:left;
+	margin-right:5px;
+}
+#id_skills_chosen {
+	width:300px !important;
+}
