@@ -69,7 +69,9 @@ INSTALLED_APPS = (
     'homepage',
     'registration',
     'splashpage',
-    'student'
+    'student',
+    'select2',
+    'south',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7

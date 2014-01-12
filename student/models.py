@@ -1,14 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-
+import select2.fields
+import select2.models
 
 # Create your models here.
+
+class Skill(models.Model):
+
+    students = models.ManyToManyField('Student', through='SkillStudent')
+
+    skill_text = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return u"%s" % self.skill_text
+
 class Student(models.Model):
     user = models.OneToOneField(User)
 
     def __unicode__(self):
         return u"%s" % self.user.email
+
+    skills = models.ManyToManyField('Skill', through='SkillStudent')
 
     FRESHMAN = 'FR'
     SOPHOMORE = 'SO'
@@ -72,5 +85,10 @@ class Student(models.Model):
     school = models.CharField(max_length=50,choices=SCHOOL_CHOICES,
                               default='BOSC')
 
-    skill = models.CharField(max_length=20)
+class SkillStudent(models.Model):
+    skill = models.ForeignKey(Skill)
+    student = models.ForeignKey(Student)
 
+    class Meta:
+        db_table = 'student_skill_students'
+        auto_created = Skill

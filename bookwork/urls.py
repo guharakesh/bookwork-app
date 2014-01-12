@@ -22,6 +22,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
     url(r'^accounts/register$', RegistrationViewUniqueEmail.as_view(), name='registration_register'),
-    url(r'^accounts/', include('registration.backends.default.urls'))
+    url(r'^accounts/', include('registration.backends.default.urls')),
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )
