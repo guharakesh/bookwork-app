@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from student.models import Student, Skill
 from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
 
 # Create your views here.
+
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
     if request.user.is_authenticated():
