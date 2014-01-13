@@ -4,9 +4,12 @@ from django.contrib import admin
 from registration.backends.default.views import RegistrationView
 from registration.backends.default.views import ActivationView
 from registration.forms import RegistrationFormUniqueEmail
+from django.contrib.auth.decorators import user_passes_test
 import splashpage
 
 admin.autodiscover()
+
+login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 
 class RegistrationViewUniqueEmail(RegistrationView):
     form_class = RegistrationFormUniqueEmail
@@ -21,7 +24,8 @@ urlpatterns = patterns('',
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
-    url(r'^accounts/register$', RegistrationViewUniqueEmail.as_view(), name='registration_register'),
+    url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmail.as_view()), name='registration_register'),
+    url(r'^accounts/login$', login_forbidden(login), name='login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )

@@ -1,12 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from student.models import Student, Skill
 from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
+from django.contrib.auth.views import login
 
 # Create your views here.
+
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
     if request.user.is_authenticated():
@@ -68,10 +71,13 @@ def splash(request):
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
-def login(request):
-    # return HttpResponse("Hey you're on the splaspage")
-    return render(request, 'splashpage/base_login.html',{})
+def custom_login(request, **kwargs):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/fail')
+    else:
+        return login(request, **kwargs)
 
 def registration(request):
     # return HttpResponse("Hey you're on the splaspage")
-    return render(request, 'splashpage/base_registration.html',{})
+    #return render(request, 'splashpage/base_registration.html',{})
+    pass
