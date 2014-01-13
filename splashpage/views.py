@@ -20,7 +20,7 @@ def splash(request):
             if 'new_skill' in request.body:
                 if skillform.is_valid():
                     skill_text = skillform.cleaned_data['skill_text']
-                    new_skill = Skill.objects.create(skill_text=skill_text)
+                    new_skill = Skill.objects.get_or_create(skill_text=skill_text)[0]
                     new_skill.save()
 
                 userform = UserForm(request.POST or None)
@@ -43,9 +43,27 @@ def splash(request):
                 studentform.save_m2m()
 
         else:
-            userform = UserForm(request.POST or None)
-            studentform = StudentForm(request.POST or None)
-            skillform = SkillForm(request.POST or None)
+            userform = UserForm(
+                request.POST or None,
+                initial = {'first_name': request.user.first_name,
+                           'last_name': request.user.last_name
+                          }
+            )
+
+            skill_ids = []
+            for skill in Skill.objects.filter(student=new_student):
+                skill_ids.append(skill.id)
+
+            studentform = StudentForm(
+                request.POST or None,
+                initial = {'year_in_school': new_student.year_in_school,
+                           'school': new_student.school,
+                           'skills': skill_ids
+                          }
+            )
+            skillform = SkillForm(
+                request.POST or None
+            )
         return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform,"skillform":skillform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
