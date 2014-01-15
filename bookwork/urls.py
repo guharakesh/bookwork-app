@@ -12,6 +12,9 @@ admin.autodiscover()
 login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 
 class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
+
+    cleaned_data['username'] = cleaned_data['email']
+
     def __init__(self, *args, **kwargs):
         super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
         self.fields.pop('username')
