@@ -5,6 +5,7 @@ from registration.backends.default.views import RegistrationView
 from registration.backends.default.views import ActivationView
 from registration.forms import RegistrationFormUniqueEmail
 from django.contrib.auth.decorators import user_passes_test
+from django import forms
 import splashpage
 
 admin.autodiscover()
@@ -14,7 +15,9 @@ login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
     def __init__(self, *args, **kwargs):
         super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
-        self.fields.pop('username')
+        #self.fields.pop('username')
+        self.fields['username'].widget = forms.HiddenInput()
+        self.fields['username'].initial = 'none'
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
