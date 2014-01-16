@@ -12,17 +12,13 @@ admin.autodiscover()
 
 login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 
-class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
-
-    RegistrationFormUniqueEmail.RegistrationView.form_class.fields['email']
-
+class RegistrationViewUniqueEmailNoUsername(RegistrationView):
+    form_class = RegistrationFormUniqueEmail
+    
     def __init__(self, *args, **kwargs):
-        super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
+        super (RegistrationViewUniqueEmailNoUsername, self).__init__(*args, **kwargs)
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
-
-class RegistrationViewUniqueEmail(RegistrationView):
-    form_class = RegistrationFormUniqueEmailNoUsername
 
 urlpatterns = patterns('',
     # Examples:
