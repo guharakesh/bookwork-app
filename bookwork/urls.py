@@ -19,6 +19,8 @@ login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 
 class AuthenticationFormWithEmail(AuthenticationForm):
     def __init__(self, *args, **kwargs):
+        super (AuthenticationFormWithEmail, self).__init__(*args, **kwargs)
+
         self.fields['username'].label = 'Email'
 
 class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
@@ -77,7 +79,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
-    url(r'^accounts/login$', login_forbidden(login), name='login'),
+    url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )
