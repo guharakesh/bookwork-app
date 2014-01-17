@@ -28,7 +28,6 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
-        self.fields['username'].initial = id_generator()
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
