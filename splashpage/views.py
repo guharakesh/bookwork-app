@@ -13,6 +13,7 @@ from django.contrib.auth.views import login
 def splash(request):
     # return HttpResponse("Hey you're on the splaspage")
     if request.user.is_authenticated():
+        request.user.username = request.user.email
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
 
