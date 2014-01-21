@@ -32,12 +32,14 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
         self.fields['username'].initial = id_generator()
+        self.fields.insert(0,'last_name',forms.CharField())
+        self.fields.insert(0,'first_name',forms.CharField())
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
 
     def register(self, request, **cleaned_data):
-        username, email, password = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1']
+        username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
@@ -47,6 +49,11 @@ class RegistrationViewUniqueEmailNoUsername(RegistrationView):
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,
                                      request=request)
+        
+        new_user.first_name = first_name
+        new_user.last_name = last_name
+        new_user.save()
+
         return new_user
 urlpatterns = patterns('',
     # Examples:
