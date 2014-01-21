@@ -34,6 +34,8 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         self.fields['username'].initial = id_generator()
         self.fields.insert(0,'last_name',forms.CharField())
         self.fields.insert(0,'first_name',forms.CharField())
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
