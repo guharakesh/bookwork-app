@@ -7,6 +7,7 @@ from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.views import login
+from django.contrib import messages
 
 # Create your views here.
 
@@ -44,7 +45,9 @@ def splash(request):
                     link = studentform.save(commit=False)
                     link.save()
     
-                studentform.save_m2m()
+                    studentform.save_m2m()
+
+                    messages.success(request, 'You\'re all set!')
 
         else:
             userform = UserForm(
@@ -68,17 +71,7 @@ def splash(request):
             skillform = SkillForm(
                 request.POST or None
             )
-        return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform,"skillform":skillform})
+        return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
-def custom_login(request, **kwargs):
-    if request.user.is_authenticated():
-        return HttpResponseRedirect('/fail')
-    else:
-        return login(request, **kwargs)
-
-def registration(request):
-    # return HttpResponse("Hey you're on the splaspage")
-    #return render(request, 'splashpage/base_registration.html',{})
-    pass
