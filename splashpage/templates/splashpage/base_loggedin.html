@@ -21,8 +21,17 @@
       {{ skillform }}
       <input type="submit" name="new_skill" value="Add" />
   </p>
+
+    {% if messages %}
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    {% endif %}
+
     <input type="submit" name="student_data" value="Save" />
     </form>
+
+
 </div>
 {% endblock %}
 

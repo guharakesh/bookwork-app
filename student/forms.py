@@ -13,6 +13,11 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['year_in_school','school','skills']
+    
+    def __init__(self, *args, **kwargs):
+        super(StudentForm, self).__init__(*args, **kwargs)
+
+        self.fields['skills'].required = False
 
 class SkillForm(forms.Form):
     skill_text = forms.CharField(max_length=100)

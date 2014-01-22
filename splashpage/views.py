@@ -7,6 +7,7 @@ from student.forms import StudentForm, UserForm, SkillForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.views import login
+from django.contrib import messages
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ def splash(request):
 
         if request.method == "POST":
 
-            skillform= SkillForm(request.POST or None)
+            skillform = SkillForm(request.POST or None)
 
             if 'new_skill' in request.body:
                 if skillform.is_valid():
@@ -27,8 +28,22 @@ def splash(request):
                     new_skill = Skill.objects.get_or_create(skill_text=skill_text)[0]
                     new_skill.save()
 
-                userform = UserForm(request.POST or None)
-                studentform = StudentForm(request.POST or None)
+                    userform = UserForm(request.POST or None)
+
+                    skill_ids = []
+                    for skill in Skill.objects.filter(student=new_student):
+                        skill_ids.append(skill.id)
+                    
+                    skill_ids.append(new_skill.id)
+        
+                    studentform = StudentForm(
+                        initial = {'year_in_school': new_student.year_in_school,
+                                   'school': new_student.school,
+                                   'skills': skill_ids
+                                  }
+                    )
+
+                    skillform = SkillForm()
 
             else:
 
@@ -44,7 +59,9 @@ def splash(request):
                     link = studentform.save(commit=False)
                     link.save()
     
-                studentform.save_m2m()
+                    studentform.save_m2m()
+
+                    messages.success(request, 'You\'re all set!')
 
         else:
             userform = UserForm(
@@ -68,17 +85,7 @@ def splash(request):
             skillform = SkillForm(
                 request.POST or None
             )
-        return render(request, 'splashpage/base_loggedin.html',{"studentform": studentform,"userform":userform,"skillform":skillform})
+        return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
-def custom_login(request, **kwargs):
-    if request.user.is_authenticated():
-        return HttpResponseRedirect('/fail')
-    else:
-        return login(request, **kwargs)
-
-def registration(request):
-    # return HttpResponse("Hey you're on the splaspage")
-    #return render(request, 'splashpage/base_registration.html',{})
-    pass
