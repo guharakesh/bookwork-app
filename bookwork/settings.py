@@ -28,12 +28,12 @@ except:
 
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_HOST = 'bookwork.co'
-DEFAULT_FROM_EMAIL = 'iamthekeymaster@bookwork.co' 
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'bookwork.co')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '"Bookwork!" <iamthekeymaster@bookwork.co>')
 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = 'key-4cfari9mza2gsi9cfhioird0qjgj-0o8'
-MAILGUN_SERVER_NAME = 'sandbox2391.mailgun.org'
+MAILGUN_ACCESS_KEY = os.environ.get('MAILGUN_ACCESS_KEY', 'key-4cfari9mza2gsi9cfhioird0qjgj-0o8')
+MAILGUN_SERVER_NAME = os.environ.get('MAILGUN_SERVER_NAME', 'sandbox2391.mailgun.org')
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -44,7 +44,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('dj
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q$==u(qg2hurhgeywgigprszv3o1ulw@9n6(nz=7dxm%22!1s$'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'q$==u(qg2hurhgeywgigprszv3o1ulw@9n6(nz=7dxm%22!1s$')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
