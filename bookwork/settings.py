@@ -47,10 +47,9 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('dj
 SECRET_KEY = os.environ.get('SECRET_KEY', 'q$==u(qg2hurhgeywgigprszv3o1ulw@9n6(nz=7dxm%22!1s$')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -135,3 +134,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
