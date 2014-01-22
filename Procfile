@@ -1,1 +1,1 @@
-web: gunicorn bookwork.wsgi
+web: gunicorn bookwork.wsgi --workers=4
