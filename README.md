@@ -83,6 +83,10 @@ Replacing the name and email address with your preferred name/email (match to gi
 
 7. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
 
+If you'd like to enable `DEBUG` and `TEMPLATE_DEBUG` (in DEVELOPMENT):
+
+    cp bookwork/local_settings.py.sample bookwork/local_settings.py
+
 ### Configurable Environment Variables
 
 Environment Variables can be supplied by the shell environment to configure the application
@@ -90,3 +94,8 @@ Environment Variables can be supplied by the shell environment to configure the 
 * `DATABASE_URL`
     - Sample Value: `postgres://bookwork:securepassword@localhost:5432/bookwork`
     - Configures the Postgres database connection
+* `EMAIL_HOST`
+* `DEFAULT_FROM_EMAIL`
+* `MAILGUN_ACCESS_KEY`
+* `MAILGUN_SERVER_NAME`
+* `SECRET_KEY`
