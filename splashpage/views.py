@@ -20,7 +20,7 @@ def splash(request):
 
         if request.method == "POST":
 
-            skillform= SkillForm(request.POST or None)
+            skillform = SkillForm(request.POST or None)
 
             if 'new_skill' in request.body:
                 if skillform.is_valid():
@@ -28,8 +28,22 @@ def splash(request):
                     new_skill = Skill.objects.get_or_create(skill_text=skill_text)[0]
                     new_skill.save()
 
-                userform = UserForm(request.POST or None)
-                studentform = StudentForm(request.POST or None)
+                    userform = UserForm(request.POST or None)
+
+                    skill_ids = []
+                    for skill in Skill.objects.filter(student=new_student):
+                        skill_ids.append(skill.id)
+                    
+                    skill_ids.append(new_skill.id)
+        
+                    studentform = StudentForm(
+                        initial = {'year_in_school': new_student.year_in_school,
+                                   'school': new_student.school,
+                                   'skills': skill_ids
+                                  }
+                    )
+
+                    skillform = SkillForm()
 
             else:
 
