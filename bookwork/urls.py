@@ -17,6 +17,9 @@ admin.autodiscover()
 
 login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
 
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for x in range(size))
+
 class AuthenticationFormWithEmail(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super (AuthenticationFormWithEmail, self).__init__(*args, **kwargs)
@@ -29,35 +32,16 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
         self.fields['username'].initial = id_generator()
+        self.fields.insert(0,'last_name',forms.CharField())
+        self.fields.insert(0,'first_name',forms.CharField())
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
 
     def register(self, request, **cleaned_data):
-        """
-        Given a username, email address and password, register a new
-        user account, which will initially be inactive.
-
-        Along with the new ``User`` object, a new
-        ``registration.models.RegistrationProfile`` will be created,
-        tied to that ``User``, containing the activation key which
-        will be used for this account.
-
-        An email will be sent to the supplied email address; this
-        email should contain an activation link. The email will be
-        rendered using two templates. See the documentation for
-        ``RegistrationProfile.send_activation_email()`` for
-        information about these templates and the contexts provided to
-        them.
-
-        After the ``User`` and ``RegistrationProfile`` are created and
-        the activation email is sent, the signal
-        ``registration.signals.user_registered`` will be sent, with
-        the new ``User`` as the keyword argument ``user`` and the
-        class of this backend as the sender.
-
-        """
-        username, email, password = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1']
+        username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
@@ -67,6 +51,11 @@ class RegistrationViewUniqueEmailNoUsername(RegistrationView):
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,
                                      request=request)
+        
+        new_user.first_name = first_name
+        new_user.last_name = last_name
+        new_user.save()
+
         return new_user
 urlpatterns = patterns('',
     # Examples:
