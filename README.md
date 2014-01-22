@@ -44,6 +44,7 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
+  - `cp .env.sample .env`
   - `honcho -e .env start`
 
 10. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.

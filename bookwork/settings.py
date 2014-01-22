@@ -15,11 +15,12 @@ from django.conf import global_settings
 
 # Load Environment variables from .env file in the Root of the checkout
 
-with open('.env') as f:
-    for line in f.read().splitlines():
-        (key, value) = (line.split('=', 1)[0], line.split('=', 1)[1])
-        print key, value
-        os.environ[key] = value
+if os.path.exists('.env'):
+    with open('.env') as f:
+        for line in f.read().splitlines():
+            (key, value) = (line.split('=', 1)[0], line.split('=', 1)[1])
+            print key, value
+            os.environ[key] = value
 
 try:
     HOSTNAME = socket.gethostname()

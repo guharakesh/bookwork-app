@@ -6,3 +6,5 @@
 staticfiles
 
 /.vagrant
+
+/.env
