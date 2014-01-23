@@ -15,6 +15,7 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r develop-requirements.txt
+cp .env.sample .env
 honcho -e .env start
 ```
 

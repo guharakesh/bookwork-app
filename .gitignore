@@ -8,3 +8,5 @@ staticfiles
 /.vagrant
 
 /.env
+
+/bookwork/local_settings.py
