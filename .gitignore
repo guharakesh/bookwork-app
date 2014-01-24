@@ -10,3 +10,5 @@ staticfiles
 /.env
 
 /bookwork/local_settings.py
+
+/staticfiles
