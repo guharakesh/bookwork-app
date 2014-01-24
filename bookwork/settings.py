@@ -19,7 +19,6 @@ if os.path.exists('.env'):
     with open('.env') as f:
         for line in f.read().splitlines():
             (key, value) = (line.split('=', 1)[0], line.split('=', 1)[1])
-            print key, value
             os.environ[key] = value
 
 try:
