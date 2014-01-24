@@ -96,6 +96,8 @@ Environment Variables can be supplied by the shell environment to configure the 
 * `DATABASE_URL`
     - Sample Value: `postgres://bookwork:securepassword@localhost:5432/bookwork`
     - Configures the Postgres database connection
+* `FORCE_SSL`
+    - If set to *any* value all requests will be forced to SSL
 * `EMAIL_HOST`
 * `DEFAULT_FROM_EMAIL`
 * `MAILGUN_ACCESS_KEY`
