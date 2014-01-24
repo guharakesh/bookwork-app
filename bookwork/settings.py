@@ -87,6 +87,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+if os.environ.get('FORCE_SSL', False):
+    MIDDLEWARE_CLASSES = ('sslify.middleware.SSLifyMiddleware', ) + MIDDLEWARE_CLASSES
+
+
 ROOT_URLCONF = 'bookwork.urls'
 
 WSGI_APPLICATION = 'bookwork.wsgi.application'
