@@ -9,7 +9,6 @@ django-select2-forms==1.1.8
 django-sslify==0.2.2
 django-toolbelt==0.0.1
 gunicorn==18.0
-honcho==0.5.0
 psycopg2==2.5.1
 requests==2.2.0
 static==0.4
