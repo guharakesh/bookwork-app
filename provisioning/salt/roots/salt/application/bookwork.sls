@@ -16,7 +16,7 @@ include:
 
 /home/{{ app_name }}/app/bookwork/local_settings.py:
   file.managed:
-    - contents_pillar: {{ app_name }}:local_settings
+    - contents_pillar: {{ app['name'] }}:local_settings
     - user: {{ app_name }}
 
 {% endif %}
