@@ -14,12 +14,13 @@
 <div id="login_form">
   <form action="{{ app_path }}" method="post" id="login-form" class="form-horizontal">{% csrf_token %}
     <fieldset>
-      <p>
+      
         {% if form.errors %}
           <p>Your username and password didn't match, please try again.</p>
         {% endif %}
 
         {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
+        <p>
         <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
       </p>
       <p>

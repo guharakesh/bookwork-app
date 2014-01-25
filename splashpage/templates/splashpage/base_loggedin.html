@@ -25,13 +25,15 @@
       <input type="submit" name="new_skill" value="Add" />
     </p>
 
-    {% if messages %}
-      {% for message in messages %}
-        {{ message }}
-      {% endfor %}
-    {% endif %}
     <div class="pure-controls">
     <input type="submit" name="student_data" value="Save" />
+        {% if messages %}
+      {% for message in messages %}
+        <span>
+          {{ message }}
+        </span>
+      {% endfor %}
+    {% endif %}
     </div>
     </fieldset>
   </form>
