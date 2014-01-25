@@ -11,6 +11,8 @@ class Skill(models.Model):
 
     skill_text = models.CharField(max_length=200)
 
+    approved = BooleanField(default=False)
+
     def __unicode__(self):
         return u"%s" % self.skill_text
 
