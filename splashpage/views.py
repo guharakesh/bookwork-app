@@ -29,11 +29,14 @@ def splash(request):
                     new_skill.save()
 
                     userform = UserForm(request.POST or None)
-
+                    studentform = StudentForm(request.POST or None)
                     skill_ids = []
                     for skill in Skill.objects.filter(student=new_student):
                         skill_ids.append(skill.id)
-                    
+
+                    for skill_id in request.POST.getlist('skills'):
+                        skill_ids.append(skill_id)
+ 
                     skill_ids.append(new_skill.id)
         
                     studentform = StudentForm(
