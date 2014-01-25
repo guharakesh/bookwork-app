@@ -8,6 +8,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.views import login
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 
@@ -26,6 +27,7 @@ def splash(request):
                 if skillform.is_valid():
                     skill_text = skillform.cleaned_data['skill_text']
                     new_skill = Skill.objects.get_or_create(skill_text=skill_text)[0]
+                    new_skill.creator = request.user
                     new_skill.save()
 
                     userform = UserForm(request.POST or None)
@@ -43,8 +45,9 @@ def splash(request):
                         initial = {'year_in_school': new_student.year_in_school,
                                    'school': new_student.school,
                                    'skills': skill_ids
-                                  }
+                                  },
                     )
+                    studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
 
                     skillform = SkillForm()
 
@@ -57,6 +60,7 @@ def splash(request):
                     userlink.save()
     
                 studentform = StudentForm(request.POST or None, instance=new_student)
+                studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
     
                 if studentform.is_valid():
                     link = studentform.save(commit=False)
@@ -79,12 +83,13 @@ def splash(request):
                 skill_ids.append(skill.id)
 
             studentform = StudentForm(
-                request.POST or None,
+                request.POST or None, 
                 initial = {'year_in_school': new_student.year_in_school,
                            'school': new_student.school,
                            'skills': skill_ids
                           }
             )
+            studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
             skillform = SkillForm(
                 request.POST or None
             )
