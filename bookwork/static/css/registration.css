@@ -83,3 +83,12 @@ h1 {
 html, body {
 	height: 100%;
 }
+
+#login_form{
+	width: 400px;
+	margin: 0 auto;
+}
+#registration_form{
+	width:300px;
+	margin:0 auto;
+}

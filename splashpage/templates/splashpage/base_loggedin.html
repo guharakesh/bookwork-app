@@ -12,33 +12,36 @@
 <div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
 
 <div id="update_form">
-    <form action="#" method="post">
+  <form action="#" method="post" id="update_form">
+    <fieldset>
     {% csrf_token %}
     {{ userform.as_p }}
     {{ studentform.as_p }}
-  <p>
-    <p>Can't find your skill listed? Add it here!</p>
+    <div class="pure-controls"><label></label>
+      <label for="id_skill_text" id="skill_add_note">Can't find your skill listed? Add it here!</label for="id_skill_text">
+    </div>
+    <p>
       {{ skillform }}
       <input type="submit" name="new_skill" value="Add" />
-  </p>
+    </p>
 
     {% if messages %}
       {% for message in messages %}
         {{ message }}
       {% endfor %}
     {% endif %}
-
+    <div class="pure-controls">
     <input type="submit" name="student_data" value="Save" />
-    </form>
-
-
+    </div>
+    </fieldset>
+  </form>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  jQuery(document).ready(function(){
-    jQuery("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  $(document).ready(function(){
+    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
   });
 </script>
 {% endblock %}

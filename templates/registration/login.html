@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 {% load i18n admin_static %}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}"admin/css/login.css" %}" />
+{% block extrastyle %}{{ block.super }}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">{% endblock %}
 
 {% block content %}
@@ -10,29 +10,23 @@
 
 <div class="container text-center" id="signup-type"><h4><strong>Enter your Log-in Credentials</strong>.</div>
 
-<div id="content-main" class="span6">
+<div id="login_form">
   <form action="{{ app_path }}" method="post" id="login-form" class="form-horizontal">{% csrf_token %}
     <fieldset>
+      <p>
+        {% if form.errors %}
+          <p>Your username and password didn't match, please try again.</p>
+        {% endif %}
 
-      <div class="form-row form-group">
-        <div class="col-xs-7 col-sm-offset-5">
-
-          {% if form.errors %}
-            <p>Your username and password didn't match, please try again.</p>
-          {% endif %}
-
-          {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
-          <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
-        </div>
-      </div>
-      <div class="form-row form-group">
-        <div class="col-xs-7 col-sm-offset-5">
-          {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-          <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
-          <input type="hidden" name="this_is_the_login_form" value="1" />
-          <input type="hidden" name="next" value="{{ next }}" />
-        </div> <!-- col-xs-7 col-sm-offset-2 -->
-      </div>
+        {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
+        <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
+      </p>
+      <p>
+        {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+        <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
+        <input type="hidden" name="this_is_the_login_form" value="1" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </p>
       {% url 'admin_password_reset' as password_reset_url %}
       {% if password_reset_url %}
       <div class="password-reset-link">
