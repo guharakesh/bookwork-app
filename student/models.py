@@ -1,16 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-import select2.fields
-import select2.models
+from django.db.models import BooleanField
 
 # Create your models here.
 
 class Skill(models.Model):
 
-    students = models.ManyToManyField('Student', through='SkillStudent')
+    students = models.ManyToManyField('Student', through='SkillStudent',blank=True)
 
     skill_text = models.CharField(max_length=200)
+
+    approved = BooleanField(default=False, blank=True)
+    creator = models.ForeignKey(User, related_name='creator', null=True, blank=True)
 
     def __unicode__(self):
         return u"%s" % self.skill_text
