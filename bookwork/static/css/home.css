@@ -19,3 +19,7 @@ p! #id_skill_text{
 #id_skills_chosen {
 	width:300px !important;
 }
+
+.chosen-container-multi .chosen-results{
+	max-height: 150px;
+}
