@@ -311,3 +311,29 @@ html, body {
 	left: -30px;
 	padding-top: 25px;
 }
+.register_div{
+	width: 50%;
+	float:left;
+	padding-left: 20px;
+}
+.register_div > h3{
+	text-align: center;
+	color:#6ac3d7;
+}
+.block3-back{
+	float: left;
+}
+.block3{
+	display: initial;
+}
+
+@media (max-width: 992px){ /* or 768 px*/
+	.register_div{
+		clear: both;
+		margin: 0 25%;
+	}
+	.register_text{
+		margin:0;
+		width:100%;
+	}
+}
