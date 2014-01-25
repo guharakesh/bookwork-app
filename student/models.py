@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-import select2.fields
-import select2.models
 
 # Create your models here.
 
