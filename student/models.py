@@ -31,7 +31,7 @@ class Student(models.Model):
         (FRESHMAN, 'Freshman'),
         (SOPHOMORE, 'Sophomore'),
         (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
+        (SENIOR, 'Senior+'),
     )
     year_in_school = models.CharField(max_length=2,
                                       choices=YEAR_IN_SCHOOL_CHOICES,
@@ -44,7 +44,7 @@ class Student(models.Model):
         ('BOSC','Boston College'),
         ('BRAN','Brandeis University'),
         ('BRWN','Brown University'),
-        ('CALT','California Institute of Technology (Caltech)'),
+        ('CALT','California Institute of Technology'),
         ('CMU_','Carnegie Mellon University'),
         ('CWRU','Case Western Reserve University'),
         ('CW_M','College of William and Mary'),
@@ -58,32 +58,33 @@ class Student(models.Model):
         ('HRVD','Harvard University'),
         ('JHU_','Johns Hopkins University'),
         ('LHGH','Lehigh University'),
-        ('MIT_','Massachusetts Institute of Technology (MIT)'),
-        ('NYU_','New York University (NYU)'),
+        ('MIT_','Massachusetts Institute of Technology'),
+        ('NYU_','New York University'),
         ('NRTH','Northwestern University'),
         ('PRIN','Princeton University'),
         ('RICE','Rice University'),
         ('STAN','Stanford University'),
         ('TUFT','Tufts University'),
-        ('UCLA','University of California - LA'),
-        ('UCSD','University of California - SD'),
-        ('UCSF','University of California - SF'),
+        ('UCLA','University of California, Los Angeles'),
+        ('UCSD','University of California, San Diego'),
+        ('UCSF','University of California, San Francisco'),
         ('UCHI','University of Chicago'),
-        ('MICH','University of Michigan Ann Arbor'),
+        ('MICH','University of Michigan'),
         ('UNC_','University of North Carolina'),
         ('NTRD','University of Notre Dame'),
         ('PENN','University of Pennsylvania'),
         ('URCH','University of Rochester'),
         ('USC_','University of Southern California'),
         ('UVA_','University of Virginia'),
-        ('WISC','University of Wisconsin - Madison'),
+        ('WISC','University of Wisconsin-Madison'),
         ('VAND','Vanderbilt University'),
         ('WAKE','Wake Forest University'),
         ('WUSL','Washington University in Saint Louis'),
-        ('YALE','Yale University'))
+        ('YALE','Yale University'),
+        ('OTHR','Other'))
     
     school = models.CharField(max_length=50,choices=SCHOOL_CHOICES,
-                              default='BOSC')
+                              default='CWRU')
 
 class SkillStudent(models.Model):
     skill = models.ForeignKey(Skill)
