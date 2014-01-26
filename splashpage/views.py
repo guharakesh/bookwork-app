@@ -13,7 +13,7 @@ from django.db.models import Q
 # Create your views here.
 
 def splash(request):
-    # return HttpResponse("Hey you're on the splaspage")
+    # return HttpResponse("Hey you're on the splashpage")
     if request.user.is_authenticated():
         request.user.username = request.user.email
         new_student = Student.objects.get_or_create(user=request.user)[0]
@@ -26,7 +26,7 @@ def splash(request):
             if 'new_skill' in request.body:
                 if skillform.is_valid():
                     skill_text = skillform.cleaned_data['skill_text']
-                    new_skill = Skill.objects.get_or_create(skill_text=skill_text)[0]
+                    new_skill = Skill.objects.get_or_create(skill_text.lower()=skill_text.lower())[0]
                     new_skill.creator = request.user
                     new_skill.save()
 
