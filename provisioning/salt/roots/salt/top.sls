@@ -4,4 +4,4 @@ base:
 
   'roles:django-app-bookwork':
     - match: grain
-    - application.django.app
+    - application.bookwork

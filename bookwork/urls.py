@@ -57,6 +57,7 @@ class RegistrationViewUniqueEmailNoUsername(RegistrationView):
         new_user.save()
 
         return new_user
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'bookwork.views.home', name='home'),

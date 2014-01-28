@@ -2,7 +2,7 @@ Welcome to bookwork!!
 
 Thanks for signing up. You made the right choice!
 
-To activate your account, go here: {{ site }}/accounts/activate/{{ activation_key }}
+To activate your account, go here: {% if request.is_secure %}https://{% else %}http://{% endif %}{{ site }}/accounts/activate/{{ activation_key }}
 
 If you have any questions, just shoot us an email.
 --

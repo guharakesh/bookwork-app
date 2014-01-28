@@ -15,13 +15,6 @@ from django.conf import global_settings
 
 # Load Environment variables from .env file in the Root of the checkout
 
-if os.path.exists('.env'):
-    with open('.env') as f:
-        for line in f.read().splitlines():
-            (key, value) = (line.split('=', 1)[0], line.split('=', 1)[1])
-            print key, value
-            os.environ[key] = value
-
 try:
     HOSTNAME = socket.gethostname()
 except:
@@ -40,6 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
+
+if not os.environ.get('DATABASE_URL', False):
+    os.environ['DATABASE_URL'] = 'postgres://bookwork:bookwork@localhost:5432/bookwork'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -86,6 +82,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+if os.environ.get('FORCE_SSL', False):
+    MIDDLEWARE_CLASSES = ('sslify.middleware.SSLifyMiddleware', ) + MIDDLEWARE_CLASSES
+
 
 ROOT_URLCONF = 'bookwork.urls'
 

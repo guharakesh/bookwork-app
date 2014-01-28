@@ -306,3 +306,51 @@ html, body {
 	width: 50px;
 	margin: 0 150px;
 }*/
+
+#bowtie{
+	left: -30px;
+	padding-top: 25px;
+}
+.register_div{
+	width: 50%;
+	float:left;
+	padding-left: 20px;
+}
+.register_div > h3{
+	text-align: center;
+	color:#6ac3d7;
+}
+.block3-back{
+	float: left;
+}
+.block3{
+	display: initial;
+}
+
+@media (max-width: 992px){ /* or 768 px*/
+	.register_div{
+		clear: both;
+		margin: 0 25%;
+	}
+	.register_text{
+		margin:0;
+		width:100%;
+	}
+}
+
+.chosen-choices {
+padding: .5em .6em;
+display: inline-block;
+border: 1px solid #ccc;
+font-size: .8em;
+box-shadow: inset 0 1px 3px #ddd;
+border-radius: 4px;
+-webkit-transition: .3s linear border;
+-moz-transition: .3s linear border;
+-ms-transition: .3s linear border;
+-o-transition: .3s linear border;
+transition: .3s linear border;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}

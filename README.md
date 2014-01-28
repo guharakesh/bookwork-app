@@ -15,10 +15,18 @@ cd bookwork-app
 virtualenv --no-site-packages env
 source env/bin/activate
 pip install -r develop-requirements.txt
-honcho -e .env start
+cp bookwork/local_settings.py.sample bookwork/local_settings.py
+honcho start
 ```
 
 You can now navigate to [http://localhost:5000](http://localhost:5000) to view the application.
+
+#### Customizing Development Environment
+
+If you'd like to enable `DEBUG` and `TEMPLATE_DEBUG` (in DEVELOPMENT):
+
+    cp bookwork/local_settings.py.sample bookwork/local_settings.py
+
 
 ### Vagrant on Windows
 
@@ -44,8 +52,7 @@ You can now navigate to [http://localhost:5000](http://localhost:5000) to view t
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `cp .env.sample .env`
-  - `honcho -e .env start`
+  - `honcho start`
 
 10. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
 
@@ -80,13 +87,9 @@ Replacing the name and email address with your preferred name/email (match to gi
   - `sudo su - bookwork`
   - `cd app`
   - `source env/bin/activate`
-  - `honcho -e .env start`
+  - `honcho start`
 
 7. You can now navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to view the application.
-
-If you'd like to enable `DEBUG` and `TEMPLATE_DEBUG` (in DEVELOPMENT):
-
-    cp bookwork/local_settings.py.sample bookwork/local_settings.py
 
 ### Configurable Environment Variables
 
@@ -95,8 +98,16 @@ Environment Variables can be supplied by the shell environment to configure the 
 * `DATABASE_URL`
     - Sample Value: `postgres://bookwork:securepassword@localhost:5432/bookwork`
     - Configures the Postgres database connection
+* `FORCE_SSL`
+    - If set to *any* value all requests will be forced to SSL
 * `EMAIL_HOST`
 * `DEFAULT_FROM_EMAIL`
 * `MAILGUN_ACCESS_KEY`
 * `MAILGUN_SERVER_NAME`
 * `SECRET_KEY`
+
+#### Local Environment Variable Overrides
+
+the `.env` file can be used to set any environment variables you'd like in the event that defaults are not appropriate for your environment.
+
+running the app with `honcho -e .env start` will utilize settings in the `.env` file

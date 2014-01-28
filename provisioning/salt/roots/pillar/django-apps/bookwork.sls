@@ -40,3 +40,6 @@ django-app-bookwork:
     - pass: bookwork
     - host: localhost
     - port: 5432
+  local_settings: |
+    DEBUG = True
+    TEMPLATE_DEBUG = True

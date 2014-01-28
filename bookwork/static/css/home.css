@@ -19,3 +19,29 @@ p! #id_skill_text{
 #id_skills_chosen {
 	width:300px !important;
 }
+
+.chosen-container-multi .chosen-results{
+	max-height: 150px;
+}
+form > p {
+
+}
+#update_form{
+	width: 500px;
+}
+#skill_add_note{
+/*	padding: .5em .6em;
+	display: inline-block;
+	border: 1px solid #ccc;
+	font-size: .8em;
+	box-shadow: inset 0 1px 3px #ddd;
+	border-radius: 4px;
+	-webkit-transition: .3s linear border;
+	-moz-transition: .3s linear border;
+	-ms-transition: .3s linear border;
+	-o-transition: .3s linear border;
+	transition: .3s linear border;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;*/
+}
