@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/about.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center" id="new-acct-head"><h1>Get to know us!</h1></div>
+<div class="row">
+  <div class="about col-sm-6">
+    <h3>About bookwork</h3>
+  </div>
+
+  <div class="about col-sm-6">
+    <h3>Our team</h3>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+
+</script>
+{% endblock %}

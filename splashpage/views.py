@@ -14,6 +14,7 @@ from django.db.models import Q
 
 def splash(request):
     # return HttpResponse("Hey you're on the splashpage")
+    return render(request, 'splashpage/about-us.html',{})
     if request.user.is_authenticated():
         request.user.username = request.user.email
         new_student = Student.objects.get_or_create(user=request.user)[0]
