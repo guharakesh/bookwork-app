@@ -26,8 +26,7 @@ def splash(request):
             if 'new_skill' in request.body:
                 if skillform.is_valid():
                     skill_text = skillform.cleaned_data['skill_text']
-                    new_skill = Skill.objects.get_or_create(skill_text__iexact=skill_text)[0]
-                    new_skill.creator = request.user
+                    new_skill = Skill.objects.get_or_create(skill_text__iexact=skill_text,defaults={'skill_text':skill_text,'creator':request.user})[0]
                     new_skill.save()
 
                     userform = UserForm(request.POST or None)
