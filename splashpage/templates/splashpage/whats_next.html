@@ -4,19 +4,14 @@
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href='{{STATIC_URL}}css/next.css' rel='stylesheet'>
 {% endblock %}
 
 {% block content %}
 <div class="container text-center" id="new-acct-head"><h1>What's Next</h1></div>
 <div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
-		<ul>
-			<li>We're working with companies to help them figure out their student hiring needs.</li>
-			<li>If a job comes around that you're a good match for we'll contact you.</li>
-			<li>As we continue development, things will be added to the site, like profiles and the ability to search jobs and employers. We'll let you know when these updates happen.</li>
-			<li>You can always go back and update your information here.</li>
-			<li>If you have any questions feel free to shoot us an email.</li>
-		</ul>
+	<div class="col-sm-6 col-sm-offset-3 next">
+          We're talking to new employers every day, and we'll let you know if we find one for you! In the meantime, look forward to exciting new features as we build the site, and keep your profile up-to-date!
 	</div><!--span6-->
 </div><!-- row -->
 {% endblock %}
