@@ -12,6 +12,9 @@ from django.db.models import Q
 
 # Create your views here.
 
+def next(request):
+    return render(request, 'splashpage/whats_next.html',{}) 
+
 def splash(request):
     # return HttpResponse("Hey you're on the splashpage")
     if request.user.is_authenticated():
