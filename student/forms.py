@@ -16,6 +16,7 @@ class StudentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
+        self.fields['skills'].required = False
 
 
 class SkillForm(forms.Form):
