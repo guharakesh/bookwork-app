@@ -38,11 +38,12 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         self.fields['last_name'].required = True
 
     def clean_email(self):
+        super(RegistrationFormUniqueEmailNoUsername, self).clean_email()
         data = self.cleaned_data['email']
         if not data.lower().endswith('edu') and not data.lower().endswith('bookwork.co'):
             raise forms.ValidationError("Must be a valid .edu address!")
 
-        return data
+        return self.cleaned_data['email']
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
