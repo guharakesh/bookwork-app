@@ -39,7 +39,7 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
 
     def clean_email(self):
         data = self.cleaned_data['email']
-        if not data.lower().endswith('edu'):
+        if not data.lower().endswith('edu') and not data.lower().endswith('bookwork.co'):
             raise forms.ValidationError("Must be a valid .edu address!")
 
         return data
