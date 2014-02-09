@@ -45,3 +45,29 @@ form > p {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;*/
 }
+
+input,select {
+	font-size: 12px !important;
+}
+.search-choice > span{
+	font-size:12px;
+}
+.search-field > input{
+	font-size: 12px;
+}
+ul.chosen-choices,
+ul.chosen-choices > li.search-field,
+ul.chosen-choices > li.search-field > input {
+	min-height: 28px !important;
+}
+/*
+.chosen-container-multi .chosen-choices li.search-field {
+	padding: .5em.6em;
+}
+.chosen-choices{
+	font-size: 12px;
+	padding: .5em.6em; !important;
+}
+.chosen-choices input{
+	padding:0;
+}*/

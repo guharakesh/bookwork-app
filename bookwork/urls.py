@@ -37,6 +37,14 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
 
+    def clean_email(self):
+        super(RegistrationFormUniqueEmailNoUsername, self).clean_email()
+        data = self.cleaned_data['email']
+        if not data.lower().endswith('edu') and not data.lower().endswith('bookwork.co'):
+            raise forms.ValidationError("Must be a valid .edu address!")
+
+        return self.cleaned_data['email']
+
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
 
@@ -64,6 +72,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^$', 'splashpage.views.splash', name='splash'),
+    url(r'^next/', include('splashpage.urls', namespace='splash')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     # url(r'^$', 'splashpage.views.splash', name='home')

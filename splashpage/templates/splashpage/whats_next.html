@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% block title %}What's Next{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href='{{STATIC_URL}}css/next.css' rel='stylesheet'>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center" id="new-acct-head"><h1>What's Next</h1></div>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3 next">
+          We're talking to new employers every day, and we'll let you know if we find one for you! In the meantime, look forward to exciting new features as we build the site, and keep your profile up-to-date!
+	</div><!--span6-->
+</div><!-- row -->
+{% endblock %}
