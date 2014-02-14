@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import socket
+import random
 from django.conf import global_settings
 
 # Load Environment variables from .env file in the Root of the checkout
@@ -20,7 +21,16 @@ try:
 except:
     HOSTNAME = '127.0.0.1:5000'
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login-form/'
+LOGIN_ERROR_URL = '/login-error/'
+
+FACEBOOK_APP_ID = '218166651721097'
+FACEBOOK_API_SECRET = '20986a4550124333666539356d682d27'
+
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'bookwork.co')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '"Bookwork!" <iamthekeymaster@bookwork.co>')
