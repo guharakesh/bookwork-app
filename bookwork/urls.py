@@ -75,6 +75,7 @@ urlpatterns = patterns('',
     url(r'^next/', include('splashpage.urls', namespace='splash')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
+    url(r'', include('social_auth.urls)),
     # url(r'^$', 'splashpage.views.splash', name='home')
     # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),

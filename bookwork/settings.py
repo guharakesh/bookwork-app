@@ -34,6 +34,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
 
+AUTHENTICATION_BACKENDS = global_settings.AUTHENTICATION_BACKENDS + ('social_auth.backends.facebook.FacebookBackend',)
+
 if not os.environ.get('DATABASE_URL', False):
     os.environ['DATABASE_URL'] = 'postgres://bookwork:bookwork@localhost:5432/bookwork'
 
