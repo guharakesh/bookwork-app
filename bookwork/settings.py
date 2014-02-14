@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'student',
     'select2',
     'south',
+    'social_auth',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
