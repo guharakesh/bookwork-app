@@ -30,6 +30,15 @@ LOGIN_ERROR_URL = '/login-error/'
 FACEBOOK_APP_ID = '218166651721097'
 FACEBOOK_API_SECRET = '20986a4550124333666539356d682d27'
 
+LINKEDIN_CONSUMER_KEY = '75kgs7tme1ngdg'
+LINKEDIN_CONSUMER_SECRET = 'IBSz1WygEeXXUik1'
+LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress']
+LINKEDIN_EXTRA_FIELD_SELECTORS = ['email-address']
+LINKEDIN_EXTRA_DATA = [('id', 'id'),
+                       ('first-name', 'first_name'),
+                       ('last-name', 'last_name'),
+                       ('email-address', 'email_address')]
+
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'bookwork.co')
@@ -44,7 +53,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
 
-AUTHENTICATION_BACKENDS = global_settings.AUTHENTICATION_BACKENDS + ('social_auth.backends.facebook.FacebookBackend',)
+AUTHENTICATION_BACKENDS = global_settings.AUTHENTICATION_BACKENDS + ('social_auth.backends.facebook.FacebookBackend','social_auth.backends.contrib.linkedin.LinkedinBackend',)
 
 if not os.environ.get('DATABASE_URL', False):
     os.environ['DATABASE_URL'] = 'postgres://bookwork:bookwork@localhost:5432/bookwork'
