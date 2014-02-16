@@ -35,6 +35,18 @@
 		</script>
 	</head>
 	<body>
+          <script type="text/javascript" src="//platform.linkedin.com/in.js">
+            api_key: 75kgs7tme1ngdg
+            authorize: true
+          </script>
+          <script type="text/javascript">
+            function onLinkedInAuth() {
+              IN.API.Profile("me")
+                .result( function(me) {
+                  var id = me.values[0].id;
+                });
+            }
+          </script>
           <div id="fb-root"></div>
           <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];

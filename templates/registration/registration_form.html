@@ -2,6 +2,8 @@
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+
+
 {% endblock %}
 
 {% block title %}Create an account{% endblock %}
@@ -24,9 +26,9 @@
 </div>
 
 <div class="container text-center">
-    <a href="{% url 'socialauth_begin' 'facebook' %}">Register with Facebook</a>
-    <a href="{% url 'socialauth_begin' 'linkedin' %}">Register with LinkedIn</a>
-
+  <a href="{% url 'socialauth_begin' 'facebook' %}">Register with Facebook</a>
+  <a href="{% url 'socialauth_begin' 'linkedin' %}">Register with LinkedIn</a>
+  <script type="in/Login" data-onAuth="onLinkedInAuth"></script>
 </div>
 
     <div class="container text-center" id="loginQ">
