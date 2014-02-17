@@ -2,36 +2,40 @@
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
-
-
 {% endblock %}
 
 {% block title %}Create an account{% endblock %}
 
 {% block content %}
+
+
+
 <div class="container text-center" id="new-acct-head"><h1>Create a New Account</h1></div>
 
 <div class="container text-center" id="signup-type"><h4>You are registering as an <strong>student</strong>.</h4></div>
 
 <div class="container"> <!-- Container for form -->
-    <form class="form-horizontal" action="" method="post">
-    {% csrf_token %}
+		<form class="form-horizontal" action="" method="post">
+		{% csrf_token %}
 		<div id="registration_form" >
-	        {{ form.as_p }}
-            <div class="pure-controls">
-                <input class="btn btn-success" type="submit" value="Create the account">
-            </div>
-    </div>
-    </form>
+					{{ form.as_p }}
+						<div class="pure-controls">
+								<input class="btn btn-success" type="submit" value="Create the account">
+						</div>
+		</div>
+		</form>
 </div>
 
 <div class="container text-center">
-  <a href="{% url 'socialauth_begin' 'facebook' %}">Register with Facebook</a>
-  <a href="{% url 'socialauth_begin' 'linkedin' %}">Register with LinkedIn</a>
-  <script type="in/Login" data-onAuth="onLinkedInAuth"></script>
+		<button id="facebook-signin" class="button" href="{% url 'socialauth_begin' 'facebook' %}" alt="Register with Facebook"></button>
+		<button id="linkedin-signin" class="button" href="{% url 'socialauth_begin' 'linkedin' %}" alt="Register with LinkedIn"></button>
+
 </div>
 
-    <div class="container text-center" id="loginQ">
-    	<h4>Already have an account? <strong><a data-toggle="modal" href="/accounts/login">Login.</a></strong></h4>
-    </div>
+		<div class="container text-center" id="loginQ">
+			<h4>Already have an account? <strong><a data-toggle="modal" href="/accounts/login">Login.</a></strong></h4>
+		</div>
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}

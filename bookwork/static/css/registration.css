@@ -92,3 +92,17 @@ html, body {
 	width:300px;
 	margin:0 auto;
 }
+
+#facebook-signin{
+	background: url(../img/facebook-signin.png) no-repeat;
+}
+
+#linkedin-signin{
+	background: url(../img/linkedin-signin.png) no-repeat;
+}
+
+.button#linkedin-signin, .button#facebook-signin{
+	height: 32px;
+	width: 142px;
+	border: none;
+}
