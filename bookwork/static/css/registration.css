@@ -95,7 +95,8 @@ html, body {
 
 #facebook-signin{
 	background: url(../img/facebook-signin.png) no-repeat;
-	background-size: 142px
+	background-size: 130px;
+	margin: 4px;
 }
 
 #linkedin-signin{
