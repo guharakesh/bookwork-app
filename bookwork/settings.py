@@ -32,12 +32,12 @@ FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET','20986a45501243336665
 
 LINKEDIN_CONSUMER_KEY = os.environ.get('LINKEDIN_CONSUMER_KEY','75kgs7tme1ngdg')
 LINKEDIN_CONSUMER_SECRET = os.environ.get('LINKEDIN_CONSUMER_SECRET','IBSz1WygEeXXUik1')
-LINKEDIN_SCOPE = os.environ.get('LINKEDIN_SCOPE',['r_basicprofile', 'r_emailaddress'])
-LINKEDIN_EXTRA_FIELD_SELECTORS = os.environ.get('LINKEDIN_EXTRA_FIELD_SELECTORS',['email-address'])
-LINKEDIN_EXTRA_DATA = os.environ.get('LINKEDIN_EXTRA_DATA',[('id', 'id'),
+LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress']
+LINKEDIN_EXTRA_FIELD_SELECTORS = ['email-address']
+LINKEDIN_EXTRA_DATA = [('id', 'id'),
                        ('first-name', 'first_name'),
                        ('last-name', 'last_name'),
-                       ('email-address', 'email_address')])
+                       ('email-address', 'email_address')]
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
