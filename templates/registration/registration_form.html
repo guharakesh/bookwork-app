@@ -15,17 +15,17 @@
 <div class="container text-center" id="signup-type"><h4>You are registering as an <strong>student</strong>.</h4></div>
 
 <div class="container"> <!-- Container for form -->
-		<form class="form-horizontal" action="" method="post">
-		{% csrf_token %}
-		<div id="registration_form" >
-			{{ form.as_p }}
-				<div class="pure-controls">
-						<input class="btn btn-success" type="submit" value="Create the account">
-						<button id="facebook-signin" class="button" href="{% url 'socialauth_begin' 'facebook' %}" alt="Register with Facebook"></button>
-						<button id="linkedin-signin" class="button" href="{% url 'socialauth_begin' 'linkedin' %}" alt="Register with LinkedIn"></button>
-				</div>
-		</div>
-		</form>
+	<form class="form-horizontal" action="" method="post">
+	{% csrf_token %}
+	<div id="registration_form" >
+		{{ form.as_p }}
+			<div class="pure-controls">
+					<input class="btn btn-success" type="submit" value="Create the account">
+					<a href="{% url 'socialauth_begin' 'facebook' %}" ><div id="social-signin1"></div></a>
+					<a href="{% url 'socialauth_begin' 'linkedin' %}" ><div id="social-signin2"></div></a>
+			</div>
+	</div>
+	</form>
 </div>
 
 
