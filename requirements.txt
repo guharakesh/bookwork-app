@@ -2,6 +2,7 @@ Django==1.6
 Pillow==2.3.0
 South==0.8.4
 Unidecode==0.04.14
+--allow-external
 argparse==1.2.1
 dj-database-url==0.2.2
 dj-static==0.0.5
