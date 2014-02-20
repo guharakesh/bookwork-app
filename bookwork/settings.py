@@ -28,16 +28,16 @@ LOGIN_URL = '/login-form/'
 LOGIN_ERROR_URL = '/login-error/'
 
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID','218166651721097')
-FACEBOOK_API_SECRET = '20986a4550124333666539356d682d27'
+FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET','20986a4550124333666539356d682d27')
 
-LINKEDIN_CONSUMER_KEY = '75kgs7tme1ngdg'
-LINKEDIN_CONSUMER_SECRET = 'IBSz1WygEeXXUik1'
-LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress']
-LINKEDIN_EXTRA_FIELD_SELECTORS = ['email-address']
-LINKEDIN_EXTRA_DATA = [('id', 'id'),
+LINKEDIN_CONSUMER_KEY = os.environ.get('LINKEDIN_CONSUMER_KEY','75kgs7tme1ngdg')
+LINKEDIN_CONSUMER_SECRET = os.environ.get('LINKEDIN_CONSUMER_SECRET','IBSz1WygEeXXUik1')
+LINKEDIN_SCOPE = os.environ.get('LINKEDIN_SCOPE',['r_basicprofile', 'r_emailaddress'])
+LINKEDIN_EXTRA_FIELD_SELECTORS = os.environ.get('LINKEDIN_EXTRA_FIELD_SELECTORS',['email-address'])
+LINKEDIN_EXTRA_DATA = os.environ.get('LINKEDIN_EXTRA_DATA',[('id', 'id'),
                        ('first-name', 'first_name'),
                        ('last-name', 'last_name'),
-                       ('email-address', 'email_address')]
+                       ('email-address', 'email_address')])
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
