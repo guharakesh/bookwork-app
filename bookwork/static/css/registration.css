@@ -93,17 +93,17 @@ html, body {
 	margin:0 auto;
 }
 
-#facebook-signin{
-	background: url(../img/facebook-signin.png) no-repeat;
+#social-signin1{
+	background: url(../img/social-signin1.png) no-repeat;
 	background-size: 130px;
 	margin: 4px;
 }
 
-#linkedin-signin{
-	background: url(../img/linkedin-signin.png) no-repeat;
+#social-signin2{
+	background: url(../img/social-signin2.png) no-repeat;
 }
 
-.button#linkedin-signin, .button#facebook-signin{
+#social-signin1, #social-signin2{
 	height: 32px;
 	width: 142px;
 	border: none;
