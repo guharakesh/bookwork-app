@@ -19,6 +19,7 @@ def splash(request):
     # return HttpResponse("Hey you're on the splashpage")
     if request.user.is_authenticated():
         request.user.username = request.user.email
+        request.user.save()
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
 
