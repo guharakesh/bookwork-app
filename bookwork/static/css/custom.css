@@ -280,7 +280,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    float:right;
+    /*float:right;*/
 }
 .footer_container ul li {
 	float: left;
