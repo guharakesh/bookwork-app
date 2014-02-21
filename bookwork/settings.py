@@ -102,7 +102,12 @@ INSTALLED_APPS = (
     'select2',
     'south',
     'social_auth',
+    'raven.contrib.django.raven_compat',
 )
+
+RAVEN_CONFIG = {
+    'dsn': 'https://803ef47c3da646f180a50749cb08e448:8f843c23dfff4f3ab50ca9fea2731ca5@app.getsentry.com/19873',
+}
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
