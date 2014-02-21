@@ -1,0 +1,52 @@
+{% extends "base/base.html" %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
+        {% if messages %}
+      {% for message in messages %}
+        <h2 id="saved_message">
+          {{ message }}<strong><a href='/next'> So what comes next?</a></strong>
+        </h2>
+      {% endfor %}
+    {% endif %}
+
+<div id="update_form">
+  <form action="#" method="post" id="update_form">
+    <fieldset>
+    {% csrf_token %}
+    {{ userform.as_p }}
+    {{ studentform.as_p }}
+    <div class="pure-controls"><label></label>
+      <label for="id_skill_text" id="skill_add_note">Can't find your skill listed? Add it here!</label for="id_skill_text">
+    </div>
+    <p>
+      {{ skillform }}
+      <input type="submit" name="new_skill" value="Add" />
+    </p>
+
+    <div class="pure-controls">
+    <input type="submit" name="student_data" value="Save" />
+    <p>
+      </br>
+      Okay cool; <strong><a href='/next'>now what?</a></strong>
+    </p>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  });
+</script>
+{% endblock %}
