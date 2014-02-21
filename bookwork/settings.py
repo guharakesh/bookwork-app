@@ -41,6 +41,16 @@ LINKEDIN_EXTRA_DATA = [('id', 'id'),
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
+SOCIAL_AUTH_PIPELINE = (
+                           'social_auth.backends.pipeline.social.social_auth_user',
+                           'social_auth.backends.pipeline.associate.associate_by_email',
+                           'social_auth.backends.pipeline.user.get_username',
+                           'social_auth.backends.pipeline.user.create_user',
+                           'social_auth.backends.pipeline.social.associate_user',
+                           'social_auth.backends.pipeline.social.load_extra_data',
+                           'social_auth.backends.pipeline.user.update_user_details'
+                       )
+
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'bookwork.co')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '"Bookwork!" <iamthekeymaster@bookwork.co>')
 
