@@ -84,14 +84,15 @@ html, body {
 	height: 100%;
 }
 
-#login_form{
+#registration_form, #login_form{
 	width: 400px;
 	margin: 0 auto;
 }
+/*
 #registration_form{
 	width:300px;
 	margin:0 auto;
-}
+}*/
 
 #social-signin1{
 	background: url(../img/social-signin1.png) no-repeat;
@@ -107,4 +108,12 @@ html, body {
 	height: 32px;
 	width: 142px;
 	border: none;
+	/*margin: 0 auto;*/
+}
+
+#login-btn{
+	width: 120px;
+}
+.btn {
+	border-radius: 4px;
 }
