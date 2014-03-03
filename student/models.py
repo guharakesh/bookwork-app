@@ -23,6 +23,18 @@ class Student(models.Model):
     def __unicode__(self):
         return u"%s" % self.user.email
 
+    def date_joined(self):
+        return self.user.date_joined
+
+    def first_name(self):
+        return self.user.first_name
+
+    def last_name(self):
+        return self.user.last_name
+
+    def get_email(self):
+        return self.user.email
+        
     skills = models.ManyToManyField('Skill', through='SkillStudent')
 
     FRESHMAN = 'FR'
