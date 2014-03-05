@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from student.models import Student, Skill
-from student.forms import StudentForm, UserForm, SkillForm
+from student.forms import StudentForm, UserForm, SkillForm, EmailForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.views import login
@@ -97,6 +97,9 @@ def splash(request):
                 request.POST or None
             )
         return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
+    elif request.user.is_authenticated() and not user.email:
+        emailform = EmailForm()
+        return render(request, 'splashpage/require_email.html',{'emailform':emailform})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
