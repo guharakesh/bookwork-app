@@ -52,7 +52,7 @@ class RegistrationViewUniqueEmailNoUsername(RegistrationView):
         username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
         if Site._meta.installed:
             site = Site.objects.get_current()
-        else:
+        else:   
             site = RequestSite(request)
         new_user = RegistrationProfile.objects.create_inactive_user(username, email,
                                                                     password, site)
@@ -80,5 +80,6 @@ urlpatterns = patterns('',
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
     url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^dash/','splashpage.views.dash',name='dash'),
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )

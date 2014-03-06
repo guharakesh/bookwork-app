@@ -1,68 +1,24 @@
-.bs-docs-sidenav {
-	margin-top: 5%;
-	background-image: url(../img/gray_box.png);
-	background-repeat: repeat-y;
-	margin-left: -0.5%;
-	padding-left: 2%;
-	font-family: open_sanssemibold;
+#wrap{
+  background-color: #f2f2f2;
+}
+#content{
+  margin-top: 52px;
 }
 
-.bs-sidebar.affix {
-  position: static;
+.box{ 
+  border: solid #cececc 1px;
+  position: fixed;
+  width: 500px;
+  height: 200px;
+  margin: 100px;
 }
-
-/* First level of nav */
-.bs-sidenav {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  padding-top:    0px;
-  padding-bottom: 0px;
-  text-shadow: 0 0px 0 #fff;
-  background-color: #58595b;
-  border-radius: 0px;
-  font-family: open_sanslight;
-  font-size: 93%;
-}
-
-.sidebar-name {
-  font-family: open_sanslight;
-  color: #6ac3d7;
-  font-size: 114%;  
-  padding: 10px 20px 0px 20px;
-}
-
-.sidebar-logout {
-  font-family: open_sanslight;
+.box > .title {
+  border-bottom: solid #cececc 1px;
   color: #c6c5c3;
-  font-size: 85.7%;  
-  padding: 0px 20px 10px 20px;
+  padding: 10px
 }
-
-
-.sidebar-bottom {
-  padding-bottom: 100%;
-  position: absolute;
-  top: auto;
-}
-
-/* All levels of nav */
-.bs-sidebar .nav > li > a {
-  display: block;
-  color: #c6c5c3;
-  padding: 10px 20px;
-  border-top: 1px solid #c6c5c3;
-}
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #c6c5c3;
-  border-right: 1px solid #c6c5c3;
-}
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-  font-weight: bold;
-  color: #FFF;
-  background-color: transparent;
-  border-right: 1px solid #563d7c;
+.box > .contents {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  color: #57585a;
 }

@@ -103,3 +103,5 @@ def splash(request):
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
+def dash(request):
+    return render(request, 'splashpage/dash.html',{})

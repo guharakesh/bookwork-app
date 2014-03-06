@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+{% block title %}Dash{% endblock %}
+
+{% block extrahead %}
+<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
+<link href="{{STATIC_URL}}css/dash.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<div class="box">
+  <div class="title">Test</div>
+  <div class="contents"><h1>test</h1></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  });
+</script>
+{% endblock %}
