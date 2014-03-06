@@ -71,7 +71,7 @@ def splash(request):
     
                     studentform.save_m2m()
 
-                    messages.success(request, 'You\'re all set!')
+                    messages.success(request, 'You\'re all set! So what comes next?')
 
         else:
             userform = UserForm(

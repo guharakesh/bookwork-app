@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 class SocialAuthExceptionMiddleware(SocialAuthExceptionMiddleware):
     def process_exception(self, request, exception):
          if hasattr(social_exceptions, 'AuthCanceled'):
-            messages.add_message(request, messages.ERROR, 'SOCIAL CANCELED')
+            # messages.error(request, 'You have canceled your authentication.')
             return HttpResponseRedirect("/accounts/register") 
          else:
             raise exception

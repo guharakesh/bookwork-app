@@ -13,7 +13,7 @@
         {% if messages %}
       {% for message in messages %}
         <h2 id="saved_message">
-          {{ message }}<strong><a href='/next'> So what comes next?</a></strong>
+          <a href='/next'><strong>{{ message }}</strong></a>
         </h2>
       {% endfor %}
     {% endif %}
