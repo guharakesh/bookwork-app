@@ -1,5 +1,5 @@
 from django.contrib import admin
-from student.models import Student, Skill
+from student.models import Student, Skill, Employer
 from django.contrib.auth.models import User
 
 # Register your models here.
@@ -13,8 +13,13 @@ def approve(modeladmin, request, queryset):
 approve.short_description = 'Mark selected skills as approved'
 
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('skill_text','approved')
+    list_display = ['skill_text','approved']
     actions = [approve]
+
+class EmployerAdmin(admin.ModelAdmin):
+    fields = ['name','logo','description']
+    list_display = ['__unicode__','name','logo','description']
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Skill, SkillAdmin)
+admin.site.register(Employer, EmployerAdmin)

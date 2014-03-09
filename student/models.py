@@ -107,3 +107,12 @@ class SkillStudent(models.Model):
     class Meta:
         db_table = 'student_skill_students'
         auto_created = Skill
+
+class Employer(models.Model):
+    name = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='logos')
+    description = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return u"%s" % self.name
+
