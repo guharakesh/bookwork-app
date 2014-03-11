@@ -44,11 +44,18 @@
   top: 50px;
   position: fixed;
   padding-left: 0;
-  overflow:none;
+}
+.sidebar-wrap{
+  position: relative;
+  height: 100%;
 }
 .sidebar-list{
-  overflow: scroll;
+  overflow: auto;
   padding-left: 0;
+  position: absolute;
+  top: 200px;
+  bottom: 0px;
+  width: 100%;
 }
 .sidebar-list > li {
   list-style: none;
@@ -85,15 +92,15 @@
   left: 50px;
   border: white solid 9px;
 }
-.sidebar > .id > #name,
-.sidebar > .id > #logout{
+.id > #name,
+.id > #logout{
   position: absolute;
   left: 160px;
 }
-.sidebar > .id > #name{
+.id > #name{
   top: 50px;
 }
-.sidebar > .id > #logout{
+.id > #logout{
   top: 110px;
   color: #bec5c3;
 }
