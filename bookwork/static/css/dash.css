@@ -57,7 +57,7 @@
   bottom: 0px;
   width: 100%;
 }
-.sidebar-list > li {
+.sidebar-list li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -74,11 +74,11 @@
   border-top: #8e8e8e solid 1px;
   color: #8e8e8e;
 }
-.sidebar-list > li:hover{
+.sidebar-list li:hover{
   color:white;
   background-color: #878789;
 }
-.sidebar-list>li:last-child{
+.sidebar-list li:last-child{
   border-bottom  : #8e8e8e solid 1px;
 }
 .id {

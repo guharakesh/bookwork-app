@@ -17,6 +17,9 @@ class Skill(models.Model):
     def __unicode__(self):
         return u"%s" % self.skill_text
 
+def upload_to(instance, filename):
+    return 'images/%s/%s' % (instance.user.user.username, filename)
+
 class Student(models.Model):
     user = models.OneToOneField(User)
 
@@ -34,7 +37,9 @@ class Student(models.Model):
 
     def get_email(self):
         return self.user.email
-        
+
+    profile_pic = models.ImageField(upload_to=upload_to, default = 'pic_folder/None/no-img.jpg')
+
     skills = models.ManyToManyField('Skill', through='SkillStudent')
 
     FRESHMAN = 'FR'

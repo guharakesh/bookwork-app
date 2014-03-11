@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 # Register your models here.
 
 class StudentAdmin(admin.ModelAdmin):
-    fields = ['user','year_in_school','school','skills']
-    list_display = ['__unicode__','user','get_email','first_name','last_name','date_joined','school']
+    fields = ['user','year_in_school','school','skills','profile_pic']
+    list_display = ['__unicode__','user','get_email','first_name','last_name','date_joined','school','profile_pic']
 
 def approve(modeladmin, request, queryset):
     queryset.update(approved=True)
