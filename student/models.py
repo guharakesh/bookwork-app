@@ -115,7 +115,7 @@ class SkillStudent(models.Model):
 
 class Employer(models.Model):
     name = models.CharField(max_length=255)
-    logo = models.ImageField(upload_to='logos')
+    logo = models.ImageField(upload_to='logos',blank=True)
     description = models.CharField(max_length=255)
 
     def __unicode__(self):

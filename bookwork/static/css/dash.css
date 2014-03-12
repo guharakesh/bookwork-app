@@ -78,6 +78,9 @@
   color:white;
   background-color: #878789;
 }
+.sidebar-list li.active{
+  color:white;
+}
 .sidebar-list li:last-child{
   border-bottom  : #8e8e8e solid 1px;
 }
