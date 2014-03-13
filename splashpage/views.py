@@ -112,3 +112,13 @@ def dash(request):
         return render(request, 'splashpage/dash.html',{})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
+
+def current_employers(request):
+    if request.user.is_authenticated():
+        request.user.username = request.user.email
+        request.user.save()
+        new_student = Student.objects.get_or_create(user=request.user)[0]
+        new_student.save()
+        return render(request, 'splashpage/current_employers.html',{})
+    else:
+        return render(request, 'splashpage/base_splashpage.html',{})

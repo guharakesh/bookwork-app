@@ -82,5 +82,7 @@ urlpatterns = patterns('',
     url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^dash/','splashpage.views.dash',name='dash'),
+    url(r'^edit/','splashpage.views.splash',name='splash'),
+    url(r'^current_employers/','splashpage.views.current_employers',name='current_employers'),
     # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
 )

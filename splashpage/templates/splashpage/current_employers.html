@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 
-{% block title %}Dash{% endblock %}
+{% block title %}Employers{% endblock %}
 
 {% block extrahead %}
 <link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
@@ -18,8 +18,8 @@
     <a href="/accounts/logout">logout</a></span>
   </div>
   <ul class="sidebar-list">
-    <a href="/"><li class="active">PROFILE</li></a>
-    <a href="/current_employers"><li>CURRENT EMPLOYERS</li></a>
+    <a href="/"><li>PROFILE</li></a>
+    <a href="/current_employers"><li class="active">CURRENT EMPLOYERS</li></a>
     <a href="/edit"><li>EDIT INFORMATION</li></a>
   </ul>
   </div>
@@ -27,7 +27,14 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="box_container">
+  {% for i in "12345678901234567890" %}
+    <div class="box">
+      <div class="title">Test</div>
+      <div class="contents"><h1>test</h1></div>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
 
