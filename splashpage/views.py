@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from student.models import Student, Skill
+from student.models import Student, Skill, Employer
 from student.forms import StudentForm, UserForm, SkillForm, EmailForm
 from django import forms
 from django.forms import ModelForm
@@ -109,7 +109,12 @@ def dash(request):
         request.user.save()
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
-        return render(request, 'splashpage/dash.html',{})
+
+        skills = []
+        for skill in Skill.objects.filter(student=new_student):
+            skills.append(skill)        
+        
+        return render(request, 'splashpage/dash.html',{'skills':skills})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
@@ -119,6 +124,8 @@ def current_employers(request):
         request.user.save()
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
-        return render(request, 'splashpage/current_employers.html',{})
+        
+        employers = Employer.objects.all()
+        return render(request, 'splashpage/current_employers.html',{'employers':employers})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})

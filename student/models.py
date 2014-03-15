@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.db.models import BooleanField
+from social_auth.models import UserSocialAuth
+import urllib2
+
 
 # Create your models here.
 
@@ -104,6 +107,26 @@ class Student(models.Model):
     
     school = models.CharField(max_length=50,choices=SCHOOL_CHOICES,
                               default='CWRU')
+
+    def getPictureURL(self):
+        try:
+            social_info = UserSocialAuth.objects.get(user=self.user);
+            if social_info.provider == 'facebook':
+                url = "http://graph.facebook.com/"+social_info.uid+"/picture?width=100&height=100"
+                req = urllib2.Request(url)
+                res = urllib2.urlopen(req)
+                return res.geturl()
+            elif social_info.provider == 'linkedin':
+                return social_info.extra_data['picture-url']
+            else:
+                # if they have social but no facebook it gets here
+                return("test1")
+        except:
+            # if not in social_auth then this is what runs
+            # redbull image right now
+            return "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/988761_10153543946465352_1539860600_n.jpg"
+        else:
+            return "test4"
 
 class SkillStudent(models.Model):
     skill = models.ForeignKey(Skill)

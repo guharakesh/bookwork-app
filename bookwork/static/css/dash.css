@@ -3,6 +3,7 @@
 }
 #content{
   margin-left: 300px;
+  margin-top: 50px;
 }
 .box_container{
   margin: 80px auto;
@@ -106,4 +107,7 @@
 .id > #logout{
   top: 110px;
   color: #bec5c3;
+}
+.text-center a {
+  text-decoration: underline;
 }

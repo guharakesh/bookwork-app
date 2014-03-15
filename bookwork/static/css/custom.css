@@ -326,7 +326,7 @@ html, body {
 }
 .block3{
 	display: initial;
-}
+}register_div
 
 @media (max-width: 992px){ /* or 768 px*/
 	.register_div{
@@ -363,4 +363,15 @@ html, body {
 }
 #saved_message{
 	text-align: center;
+}
+
+.page_header{
+		font-family: open_sanslight;
+		max-width: 100%;
+		margin-top: 50px;
+		background-color: rgb(249, 249, 249);
+		padding: 20px 0;
+		border-bottom-color: rgb(198, 197, 195);
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
 }

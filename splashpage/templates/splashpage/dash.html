@@ -12,7 +12,7 @@
 <div class="sidebar">
   <div class="sidebar-wrap">
   <div class="id">
-    <img id="profile_picture" />
+    <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
     <h3 id="name">{{ user.first_name }} {{ user.last_name }}</h3>
     <span id="logout">
     <a href="/accounts/logout">logout</a></span>
@@ -27,7 +27,18 @@
 {% endblock %}
 
 {% block content %}
-
+{% if skills %}
+<div class="text-center page_header" id="skills-head"><h1>These are the skills you currently kick ass at!</h1></div>
+<div class="box_container">
+  {% for skill in skills %}
+    <div class="box">
+      <div class="contents center"><h1>{{ skill }}</h1></div>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="text-center page_header" id="no-skills-head"><h1>You don't currently have any skills. head over to <a href="/edit/">edit profile</a>, to add some.</h1></div>
+{% endif %}
 
 {% endblock %}
 
