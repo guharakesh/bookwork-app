@@ -4,7 +4,9 @@ from django.forms import ModelForm
 from django.db.models import BooleanField
 from social_auth.models import UserSocialAuth
 import urllib2
-
+# import code for encoding urls and generating md5 hashes
+# needed for gravatar
+import urllib, hashlib
 
 # Create your models here.
 
@@ -119,14 +121,24 @@ class Student(models.Model):
             elif social_info.provider == 'linkedin':
                 return social_info.extra_data['picture-url']
             else:
-                # if they have social but no facebook it gets here
+                # if they have social but no facebook or linkedin it gets here
                 return("test1")
         except:
             # if not in social_auth then this is what runs
             # redbull image right now
-            return "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/988761_10153543946465352_1539860600_n.jpg"
+            # Set your variables here
+            email = self.user.email
+            default = "https://openclipart.org/image/300px/svg_to_png/190113/1389952697.png"
+            size = 40
+             
+            # construct the url
+            gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+            gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+            return gravatar_url
         else:
-            return "test4"
+            # the last catch. shouldn't hit this. (right now a redbull image from facebook)
+            return "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/988761_10153543946465352_1539860600_n.jpg"
+
 
 class SkillStudent(models.Model):
     skill = models.ForeignKey(Skill)
