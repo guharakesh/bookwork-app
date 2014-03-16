@@ -21,6 +21,9 @@
   margin: 10px;
   background-color: #ffffff;
   float: left;
+  -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
 }
 .box > .title {
   border-bottom: solid #cececc 1px;
@@ -45,6 +48,7 @@
   top: 50px;
   position: fixed;
   padding-left: 0;
+  border-right: #6ac3d7 solid 4px;  
 }
 .sidebar-wrap{
   position: relative;
@@ -54,7 +58,7 @@
   overflow: auto;
   padding-left: 0;
   position: absolute;
-  top: 200px;
+  top: 150px;
   bottom: 0px;
   width: 100%;
 }
@@ -70,9 +74,10 @@
   vertical-align: baseline;
   line-height: 1.5em;
   font-size: 1.2em;
-  line-height: 2.3333333333333335em;
+  line-height: 1.3333333333333335em;
   padding: 17px 24px 18px;
-  border-top: #8e8e8e solid 1px;
+  /*border-top: #8e8e8e solid 1px;*/
+  border-bottom: #8e8e8e solid 1px;
   color: #8e8e8e;
 }
 .sidebar-list li:hover{
@@ -82,33 +87,37 @@
 .sidebar-list li.active{
   color:white;
 }
-.sidebar-list li:last-child{
+/*.sidebar-list a:last-child li{
   border-bottom  : #8e8e8e solid 1px;
-}
+}*/
 .id {
-  height: 200px;
+  height: 150px;
+  border-bottom  : #8e8e8e solid 1px;
 }
 #profile_picture{
   width: 100px;
   height: 100px;
   position: relative;
-  top: 50px;
+  top: 25px;
   left: 50px;
   border: white solid 9px;
   background: gray;
 }
 .id > #name,
 .id > #logout{
-  position: absolute;
+  position: relative;
   left: 160px;
 }
 .id > #name{
-  top: 50px;
+  bottom: 50px;
 }
 .id > #logout{
-  top: 110px;
+  bottom: 50px;
   color: #bec5c3;
 }
 .text-center a {
   text-decoration: underline;
+}
+.box.employer{
+  width:400px;
 }

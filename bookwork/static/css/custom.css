@@ -366,14 +366,15 @@ html, body {
 }
 
 .page_header{
-		font-family: open_sanslight;
-		max-width: 100%;
-		margin-top: 50px;
-		background-color: rgb(249, 249, 249);
-		padding: 20px 0;
-		border-bottom-color: rgb(198, 197, 195);
-		border-bottom-style: solid;
-		border-bottom-width: 1px;
+	font-family: open_sanslight;
+	max-width: 100%;
+	margin-top: 50px;
+	background-color: rgb(249, 249, 249);
+	padding: 20px 0;
+	border-bottom-color: rgb(198, 197, 195);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	min-height: 150px;
 }
 
 /*
