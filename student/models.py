@@ -122,13 +122,14 @@ class Student(models.Model):
                 return social_info.extra_data['picture-url']
             else:
                 # if they have social but no facebook or linkedin it gets here
-                return("test1")
+                return '/static/img/default.png'
         except:
             # if not in social_auth then this is what runs
             # redbull image right now
             # Set your variables here
             email = self.user.email
-            default = "https://openclipart.org/image/300px/svg_to_png/190113/1389952697.png"
+            default = '/static/img/default.png'
+            # "https://openclipart.org/image/300px/svg_to_png/190113/1389952697.png"
             size = 40
              
             # construct the url
@@ -137,7 +138,7 @@ class Student(models.Model):
             return gravatar_url
         else:
             # the last catch. shouldn't hit this. (right now a redbull image from facebook)
-            return "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/988761_10153543946465352_1539860600_n.jpg"
+            return '/static/img/default.png'
 
 
 class SkillStudent(models.Model):
