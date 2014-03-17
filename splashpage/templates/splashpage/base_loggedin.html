@@ -10,7 +10,7 @@
 <div class="sidebar">
   <div class="sidebar-wrap">
   <div class="id">
-    <img id="profile_picture" />
+    <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
     <h3 id="name">{{ user.first_name }} {{ user.last_name }}</h3>
     <span id="logout">
     <a href="/accounts/logout">logout</a></span>
