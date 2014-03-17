@@ -59,6 +59,7 @@
 							{% if user.is_authenticated %}
 								<li id="welcome_text">Welcome, {{ user.first_name }}!</li>
 								<li><a href="/accounts/logout">Logout</a></li>
+								<li><img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/></li>
 							{% else %}
 								<li><a href="/#how">How It Works</a></li>
 								<li><a href="/accounts/register">Register</a></li>
