@@ -11,6 +11,9 @@
 	color: #6ac3d7;
 }
 
+.text-center{
+	text-align: center !important;
+}
 .navbar-default .navbar-nav > li > a {
 	font-family: open_sanslight;
 	color: #FFF;
@@ -377,6 +380,17 @@ html, body {
 	min-height: 150px;
 }
 
+.page_header{
+	/* formatting from h1*/
+	font-family: open_sanslight;
+	font-size: 36px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-weight: 500;
+	line-height: 1.1;
+	margin: .67em 0;
+	padding: 50px 20px;
+}
 /*
  from home.css
 */

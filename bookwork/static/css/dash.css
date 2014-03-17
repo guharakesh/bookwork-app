@@ -6,7 +6,7 @@
   margin-top: 50px;
 }
 .box_container{
-  margin: 80px auto;
+  margin: 30px auto;
   width: 90%;
 }
 .box_container:after{
@@ -113,10 +113,11 @@
   left: 160px;
 }
 .id > #name{
-  bottom: 50px;
+  bottom: 85px;
+  width: 145px;
 }
 .id > #logout{
-  bottom: 50px;
+  bottom: 60px;
   color: #bec5c3;
 }
 .text-center a {
@@ -130,4 +131,7 @@
   width: 50px;
   border: white solid 4px;
 
+}
+.page_header{
+  text-align: left;
 }
