@@ -605,3 +605,7 @@ html, body {
 	left: -32px;
 }
 
+.navbar.navbar-default.navbar-fixed-top{
+	display: inline-block !important;
+	float: right;
+}

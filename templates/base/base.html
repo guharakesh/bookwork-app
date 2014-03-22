@@ -53,13 +53,14 @@
 						</button>
 						<a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
 					</div><!-- navbar-header -->	
+					<!-- <img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/> -->
 					
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right">
 							{% if user.is_authenticated %}
 								<li id="welcome_text">Welcome, {{ user.first_name }}!</li>
 								<li><a href="/accounts/logout">Logout</a></li>
-								<li><img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/></li>
+								<!-- <li><img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/></li> -->
 							{% else %}
 								<li><a href="/#how">How It Works</a></li>
 								<li><a href="/accounts/register">Register</a></li>

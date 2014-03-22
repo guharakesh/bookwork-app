@@ -130,7 +130,8 @@
   height:50px;
   width: 50px;
   border: white solid 4px;
-
+  float: right;
+  margin-left: 10px;
 }
 .page_header{
   text-align: left;
