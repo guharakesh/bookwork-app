@@ -130,7 +130,7 @@ class Student(models.Model):
             email = self.user.email
             default = '/static/img/default.png'
             # "https://openclipart.org/image/300px/svg_to_png/190113/1389952697.png"
-            size = 40
+            size = 100
             # construct the url
             gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
             gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
