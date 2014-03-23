@@ -133,7 +133,7 @@ class Student(models.Model):
             size = 100
             # construct the url
             gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
-            gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+            gravatar_url += urllib.urlencode({'s':str(size)})
             return gravatar_url
         else:
             # the last catch. shouldn't hit this. (right now a redbull image from facebook)
