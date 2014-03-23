@@ -26,11 +26,11 @@
 
 {% block content %}
 
-<div class="text-center page_header">Edit yer info here.</div>
+<div class="text-center page_header">Edit your info here.</div>
         {% if messages %}
       {% for message in messages %}
         <h2 id="saved_message">
-          <a href='/next'><strong>{{ message }}</strong></a>
+          <strong>{{ message }}</strong>
         </h2>
       {% endfor %}
     {% endif %}
@@ -51,10 +51,6 @@
 
     <div class="pure-controls">
     <input type="submit" name="student_data" value="Save" />
-    <p>
-      </br>
-      Okay cool; <strong><a href='/next'>now what?</a></strong>
-    </p>
     </fieldset>
   </form>
 </div>

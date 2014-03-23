@@ -17,8 +17,8 @@ class SkillAdmin(admin.ModelAdmin):
     actions = [approve]
 
 class EmployerAdmin(admin.ModelAdmin):
-    fields = ['name','logo','description']
-    list_display = ['__unicode__','name','logo','description']
+    fields = ['name','logo','description','logoURL','companyURL']
+    list_display = ['__unicode__','name','companyURL','logo','logoURL','description']
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Skill, SkillAdmin)

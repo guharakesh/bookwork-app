@@ -29,15 +29,16 @@
 <div class="page_header" id="skills-head">Here are some of the employers currently looking for students!</div>
 
 <div class="box_container">
-  {% for employer in employers %}
-    <div class="box employer">
-      <div class="title">{{ employer.name }}</div>
-      <div class="contents"><img src="{{ employer.logo }}">
-        {{ employer.description }}</div>
-    </div>
-  {% endfor %}
+    {% for employer in employers %}
+      <div class="box employer">
+        <div class="title">{{ employer.name }}</div>
+        <div class="img_contain"><img src="{{ employer.logoURL }}"></div>
+        <div class="contents"><span class="name">{{ employer.name }}</span> is looking for students with the following skills:<br/>
+          <div class="skills">{{ employer.description }}</div>
+        </div>
+      </div>
+    {% endfor %}
 </div>
-
 {% endblock %}
 
 {% block scripts %}

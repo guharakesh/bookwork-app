@@ -382,7 +382,6 @@ html, body {
 
 .page_header{
 	/* formatting from h1*/
-	font-family: open_sanslight;
 	font-size: 36px;
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -609,3 +608,14 @@ html, body {
 	display: inline-block !important;
 	float: right;
 }
+
+/*select {
+	padding: 5px;
+	line-height: 1;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+	appearance: none;
+	background: url(http://cdn.bavotasan.com/wp-content/uploads/2011/05/down_arrow_select.jpg) no-repeat right #ddd;
+	border: 1px solid #ccc;
+}*/

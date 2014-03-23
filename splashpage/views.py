@@ -71,7 +71,7 @@ def splash(request):
     
                     studentform.save_m2m()
 
-                    messages.success(request, 'You\'re all set! So what comes next?')
+                    messages.success(request, 'You\'re all set!')
 
         else:
             userform = UserForm(
@@ -125,7 +125,7 @@ def current_employers(request):
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
         
-        employers = Employer.objects.all()
+        employers = Employer.objects.all().order_by('name')
         return render(request, 'splashpage/current_employers.html',{'employers':employers})
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
