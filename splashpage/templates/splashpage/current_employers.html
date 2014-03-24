@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}
+
+{% block title %}Employers{% endblock %}
+
+{% block extrahead %}
+<!-- <link href="{{STATIC_URL}}css/dash.css" rel="stylesheet">
+ -->{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+  <div class="sidebar-wrap">
+  <div class="id">
+    <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
+    <h3 id="name">{{ user.first_name }} {{ user.last_name }}</h3>
+    <span id="logout">
+    <a href="/accounts/logout">logout</a></span>
+  </div>
+  <ul class="sidebar-list">
+    <a href="/"><li>PROFILE</li></a>
+    <a href="/current_employers/"><li class="active">CURRENT EMPLOYERS</li></a>
+    <a href="/edit/"><li>EDIT INFORMATION</li></a>
+  </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="page_header" id="skills-head">Here are some of the employers currently looking for students!</div>
+
+<div class="box_container">
+    {% for employer in employers %}
+      <div class="box employer">
+        <div class="title">{{ employer.name }}</div>
+        <div class="img_contain"><img src="{{ employer.logoURL }}"></div>
+        <div class="contents"><span class="name">{{ employer.name }}</span> is looking for students with the following skills:<br/>
+          <div class="skills">{{ employer.description }}</div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  });
+</script>
+{% endblock %}

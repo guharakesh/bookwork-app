@@ -1,68 +1,176 @@
-.bs-docs-sidenav {
-	margin-top: 5%;
-	background-image: url(../img/gray_box.png);
-	background-repeat: repeat-y;
-	margin-left: -0.5%;
-	padding-left: 2%;
-	font-family: open_sanssemibold;
+#wrap{
+  background-color: #f2f2f2;
 }
-
-.bs-sidebar.affix {
-  position: static;
-}
-
-/* First level of nav */
-.bs-sidenav {
+#content{
+  margin-left: 300px;
   margin-top: 50px;
-  margin-bottom: 30px;
-  padding-top:    0px;
-  padding-bottom: 0px;
-  text-shadow: 0 0px 0 #fff;
-  background-color: #58595b;
-  border-radius: 0px;
-  font-family: open_sanslight;
-  font-size: 93%;
 }
-
-.sidebar-name {
-  font-family: open_sanslight;
-  color: #6ac3d7;
-  font-size: 114%;  
-  padding: 10px 20px 0px 20px;
+.box_container{
+  margin: 30px auto;
+  width: 90%;
 }
-
-.sidebar-logout {
-  font-family: open_sanslight;
+.box_container:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.box{ 
+  border: solid #cececc 1px;
+  width: 200px;
+  min-height: 200px;
+  margin: 10px;
+  background-color: #ffffff;
+  float: left;
+  -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.box > .title {
+  border-bottom: solid #cececc 1px;
   color: #c6c5c3;
-  font-size: 85.7%;  
-  padding: 0px 20px 10px 20px;
+  padding: 10px
 }
-
-
-.sidebar-bottom {
-  padding-bottom: 100%;
+.box > .contents {
+  padding: 5px 20px 20px 20px; 
+  color: #57585a;
+  margin: 0 30px;
+}
+.box.employer{
+  position: relative;
+}
+.box.employer > .contents {
+  border-top: solid #cececc 1px;
   position: absolute;
-  top: auto;
+  top: 200px;
+}
+.box > .contents > .name{
+  font-size: medium;
+}
+.box > .contents > .skills{
+  margin: 15px;
+}
+.box .img_contain img{
+  width: 300px;
+  max-height: 120px;
+  padding-top:20px;
+}
+.box .img_contain{
+  width: 300px;
+  height: 120px;
+  margin: 0 auto;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sidebar{
+  float:left;
+  background: #57585a;
+  width: 300px;
+  bottom: -10px;
+  top: 50px;
+  position: fixed;
+  padding-left: 0;
+  border-right: #6ac3d7 solid 4px;  
+  box-shadow: 0 0 20px #2D2D2D;
+}
+.sidebar-wrap{
+  position: relative;
+  height: 100%;
+}
+.sidebar-list{
+  overflow: auto;
+  padding-left: 0;
+  position: absolute;
+  top: 150px;
+  bottom: 0px;
+  width: 100%;
+}
+.sidebar-list li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  line-height: 1.5em;
+  font-size: 1.2em;
+  line-height: 1.3333333333333335em;
+  padding: 17px 24px 18px;
+  /*border-top: #8e8e8e solid 1px;*/
+  border-bottom: #8e8e8e solid 1px;
+  color: #8e8e8e;
+}
+.sidebar-list li:hover{
+  color:white;
+  background-color: #878789;
+}
+.sidebar-list li.active{
+  color:white;
+}
+/*.sidebar-list a:last-child li{
+  border-bottom  : #8e8e8e solid 1px;
+}*/
+.id {
+  height: 150px;
+  border-bottom  : #8e8e8e solid 1px;
 }
 
-/* All levels of nav */
-.bs-sidebar .nav > li > a {
-  display: block;
-  color: #c6c5c3;
-  padding: 10px 20px;
-  border-top: 1px solid #c6c5c3;
+#profile_picture{
+  border: white solid 9px;
+  background: gray;
 }
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #c6c5c3;
-  border-right: 1px solid #c6c5c3;
+.id> #profile_picture{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 25px;
+  left: 50px;
 }
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-  font-weight: bold;
-  color: #FFF;
-  background-color: transparent;
-  border-right: 1px solid #563d7c;
+.id > #name,
+.id > #logout{
+  position: relative;
+  left: 160px;
+}
+.id > #name{
+  bottom: 85px;
+  width: 143px;
+}
+.id > #logout{
+  bottom: 60px;
+  color: #bec5c3;
+}
+.text-center a {
+  text-decoration: underline;
+}
+.box.employer{
+  width:400px;
+  height:400px;
+}
+#profile_picture.nav{
+  height:50px;
+  width: 50px;
+  border: white solid 4px;
+  float: right;
+  margin-left: 10px;
+}
+.page_header{
+  text-align: left;
+  height:100px;
+}
+
+
+@media all and (min-width: 1140px){
+  .box_container{
+    width:840px;
+  }
+}
+@media all and (max-width: 1140px){
+  .box_container{
+    width:420px;
+  }
 }

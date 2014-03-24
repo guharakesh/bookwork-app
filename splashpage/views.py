@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from student.models import Student, Skill
+from student.models import Student, Skill, Employer
 from student.forms import StudentForm, UserForm, SkillForm, EmailForm
 from django import forms
 from django.forms import ModelForm
@@ -71,7 +71,7 @@ def splash(request):
     
                     studentform.save_m2m()
 
-                    messages.success(request, 'You\'re all set! So what comes next?')
+                    messages.success(request, 'You\'re all set!')
 
         else:
             userform = UserForm(
@@ -103,3 +103,29 @@ def splash(request):
     else:
         return render(request, 'splashpage/base_splashpage.html',{})
 
+def dash(request):
+    if request.user.is_authenticated():
+        request.user.username = request.user.email
+        request.user.save()
+        new_student = Student.objects.get_or_create(user=request.user)[0]
+        new_student.save()
+
+        skills = []
+        for skill in Skill.objects.filter(student=new_student):
+            skills.append(skill)        
+        
+        return render(request, 'splashpage/dash.html',{'skills':skills})
+    else:
+        return render(request, 'splashpage/base_splashpage.html',{})
+
+def current_employers(request):
+    if request.user.is_authenticated():
+        request.user.username = request.user.email
+        request.user.save()
+        new_student = Student.objects.get_or_create(user=request.user)[0]
+        new_student.save()
+        
+        employers = Employer.objects.all().order_by('name')
+        return render(request, 'splashpage/current_employers.html',{'employers':employers})
+    else:
+        return render(request, 'splashpage/base_splashpage.html',{})
