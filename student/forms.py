@@ -29,3 +29,5 @@ class SkillForm(forms.Form):
         for key in self.fields:
             self.fields[key].required = False
 
+class EmailForm(forms.Form):
+    email = forms.EmailField(help_text='A valid email address, please.')

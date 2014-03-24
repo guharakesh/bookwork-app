@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}Email{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container text-center" id="new-acct-head"><h1>We need a way to contact you!</h1></div>
+
+<div class="container text-center" id="signup-type"><h4>If you don't give us your email, we can't let you know about jobw!.</h4></div>
+
+<div class="container"> <!-- Container for form -->
+	<form class="form-horizontal" action="" method="post">
+	{% csrf_token %}
+	<div id="registration_form" >
+		{{ form.as_p }}
+			<div class="pure-controls">
+					<input class="btn btn-primary" type="submit" value="Create the account">
+			</div>
+	</div>
+	</form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -25,21 +25,21 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login-form/'
-LOGIN_ERROR_URL = '/login-error/'
+LOGIN_ERROR_URL = '/accounts/register/'
 
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID','218166651721097')
 FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET','20986a4550124333666539356d682d27')
 
-FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-
 LINKEDIN_CONSUMER_KEY = os.environ.get('LINKEDIN_CONSUMER_KEY','75kgs7tme1ngdg')
 LINKEDIN_CONSUMER_SECRET = os.environ.get('LINKEDIN_CONSUMER_SECRET','IBSz1WygEeXXUik1')
-LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress']
-LINKEDIN_EXTRA_FIELD_SELECTORS = ['email-address']
+LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress','r_fullprofile']
+LINKEDIN_EXTRA_FIELD_SELECTORS = ['email-address','picture-url','skills']
 LINKEDIN_EXTRA_DATA = [('id', 'id'),
                        ('first-name', 'first_name'),
                        ('last-name', 'last_name'),
-                       ('email-address', 'email_address')]
+                       ('email-address', 'email_address'),
+                       ('picture-url','picture-url'),
+                       ('skills','skills')]
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
@@ -102,12 +102,7 @@ INSTALLED_APPS = (
     'select2',
     'south',
     'social_auth',
-    'raven.contrib.django.raven_compat',
 )
-
-RAVEN_CONFIG = {
-    'dsn': 'https://803ef47c3da646f180a50749cb08e448:8f843c23dfff4f3ab50ca9fea2731ca5@app.getsentry.com/19873',
-}
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
@@ -120,6 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'splashpage.urls.SocialAuthExceptionMiddleware',
 )
 
 if os.environ.get('FORCE_SSL', False):
@@ -170,6 +166,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+MEDIA_ROOT = 'mediafiles'
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
