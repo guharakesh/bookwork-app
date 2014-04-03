@@ -329,7 +329,7 @@ html, body {
 }
 .block3{
 	display: initial;
-}register_div
+}
 
 @media (max-width: 992px){ /* or 768 px*/
 	.register_div{
@@ -480,11 +480,6 @@ ul.chosen-choices > li.search-field > input {
 	color: #6ac3d7;
 }
 
-body {
-	color: #6ac3d7;
-	font-family: open_sanslight;
-}	
-
 .btn-success {
 	color: #fff;
 	background-color: #6ac3d7;
@@ -591,7 +586,22 @@ html, body {
 	forms.css
 */
 .chosen-choices,
-.pure-form input[type=text], .pure-form input[type=password], .pure-form input[type=email], .pure-form input[type=url], .pure-form input[type=date], .pure-form input[type=month], .pure-form input[type=time], .pure-form input[type=datetime], .pure-form input[type=datetime-local], .pure-form input[type=week], .pure-form input[type=number], .pure-form input[type=search], .pure-form input[type=tel], .pure-form input[type=color], .pure-form select, .pure-form textarea
+.pure-form input[type=text],
+.pure-form input[type=password],
+.pure-form input[type=email],
+.pure-form input[type=url],
+.pure-form input[type=date],
+.pure-form input[type=month],
+.pure-form input[type=time],
+.pure-form input[type=datetime],
+.pure-form input[type=datetime-local],
+.pure-form input[type=week],
+.pure-form input[type=number],
+.pure-form input[type=search],
+.pure-form input[type=tel],
+.pure-form input[type=color],
+.pure-form select,
+.pure-form textarea
 {
 	border-radius: 0;
 	width: 200px;
@@ -619,3 +629,36 @@ html, body {
 	background: url(http://cdn.bavotasan.com/wp-content/uploads/2011/05/down_arrow_select.jpg) no-repeat right #ddd;
 	border: 1px solid #ccc;
 }*/
+
+.next{
+	padding-top: 2%;
+	padding-bottom: 1%;
+	font-family: open_sanssemibold;
+	color: #c6c5c3;
+	font-size: 2em;
+	text-align: center;
+}
+
+/*******************
+Specific bootstrap overwrites
+*******************/
+body {
+	color: #6ac3d7;
+	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
