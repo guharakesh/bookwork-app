@@ -636,7 +636,7 @@ html, body {
 	color: #333;
 }
 
-.required.pure-control-group{
+.pure-control-group{
 	position: relative;
 	left: -32px;
 }
