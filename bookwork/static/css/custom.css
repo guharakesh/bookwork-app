@@ -14,6 +14,7 @@
 .text-center{
 	text-align: center !important;
 }
+
 .navbar-default .navbar-nav > li > a {
 	font-family: open_sanslight;
 	color: #FFF;
@@ -276,16 +277,19 @@ html, body {
 .footer_container strong{
     font-weight: bold;
 }
+
 .footer_container div.container{
     width: 320px;
     float: left;
 }
+
 .footer_container ul{
     list-style: none;
     margin: 0;
     padding: 0;
     /*float:right;*/
 }
+
 .footer_container ul li {
 	float: left;
 	padding: 0 10px;
@@ -299,6 +303,7 @@ html, body {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+
 /*
 #update_form{
 	width: 350px;
@@ -315,18 +320,22 @@ html, body {
 	left: -30px;
 	padding-top: 25px;
 }
+
 .register_div{
 	width: 50%;
 	float:left;
 	padding-left: 20px;
 }
+
 .register_div > h3{
 	text-align: center;
 	color:#6ac3d7;
 }
+
 .block3-back{
 	float: left;
 }
+
 .block3{
 	display: initial;
 }
@@ -336,6 +345,7 @@ html, body {
 		clear: both;
 		margin: 0 25%;
 	}
+
 	.register_text{
 		margin:0;
 		width:100%;
@@ -364,6 +374,7 @@ html, body {
 	list-style: none;
 	text-align: center;
 }
+
 #saved_message{
 	text-align: center;
 }
@@ -390,6 +401,7 @@ html, body {
 	margin: .67em 0;
 	padding: 50px 20px;
 }
+
 /*
  from home.css
 */
@@ -404,13 +416,16 @@ html, body {
 	width: 50px;
 	margin: 0 150px;
 }
+
 .helptext {
 	display: none;
 }
+
 p! #id_skill_text{
 	float:left;
 	margin-right:5px;
 }
+
 #id_skills_chosen {
 	width:300px !important;
 }
@@ -418,12 +433,15 @@ p! #id_skill_text{
 .chosen-container-multi .chosen-results{
 	max-height: 150px;
 }
+
 form > p {
 
 }
+
 #update_form{
 	width: 500px;
 }
+
 #skill_add_note{
 /*	padding: .5em .6em;
 	display: inline-block;
@@ -444,25 +462,31 @@ form > p {
 input,select {
 	font-size: 12px !important;
 }
+
 .search-choice > span{
 	font-size:12px;
 }
+
 .search-field > input{
 	font-size: 12px;
 }
+
 ul.chosen-choices,
 ul.chosen-choices > li.search-field,
 ul.chosen-choices > li.search-field > input {
 	min-height: 28px !important;
 }
+
 /*
 .chosen-container-multi .chosen-choices li.search-field {
 	padding: .5em.6em;
 }
+
 .chosen-choices{
 	font-size: 12px;
 	padding: .5em.6em; !important;
 }
+
 .chosen-choices input{
 	padding:0;
 }*/
@@ -510,6 +534,7 @@ ul.chosen-choices > li.search-field > input {
 h1 {
 	font-family: open_sanslight;
 }
+
 #new-acct-head, #signup-type, #loginQ {
 	font-family: open_sanslight;
 	max-width: 100%;
@@ -552,6 +577,7 @@ html, body {
 	width: 400px;
 	margin: 0 auto;
 }
+
 /*
 #registration_form{
 	width:300px;
@@ -578,6 +604,7 @@ html, body {
 #login-btn{
 	width: 120px;
 }
+
 .btn {
 	border-radius: 4px;
 }
@@ -646,6 +673,7 @@ body {
 	color: #6ac3d7;
 	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 h1,
 h2,
 h3,
