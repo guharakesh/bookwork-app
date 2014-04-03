@@ -11,14 +11,15 @@
 
 <div class="container text-center" id="signup-type"><h4><strong>Enter your Log-in Credentials.</strong><h4></div>
 
-<div id="login_form">
+<div class="container"> <!-- Container for form -->
   <form action="{{ app_path }}" method="post" id="login-form" class="form-horizontal">{% csrf_token %}
+  <div id="login_form" class="display_delay">
     <fieldset>
       <div class="control-group">
 
       {% if form.errors %}
       <div class="errorlist">
-        <p >Your username and password didn't match, please try again.</p>
+        <p>Your username and password didn't match, please try again.</p>
       </div>
       {% endif %}
 
@@ -51,9 +52,9 @@
         </div><!--control-group-->
       <!-- </div>text-center -->
     </fieldset>
-
+  </div>
   </form>
-
+  </div>
 <div class="row">
   <div class="span12">
     <h4 class="text-center">Not a member? <a href="/accounts/register"><strong>Click here to create an account!</strong></a></h4>
@@ -63,5 +64,4 @@
 <script type="text/javascript">
 document.getElementById('id_username').focus()
 </script>
-</div>
 {% endblock %}

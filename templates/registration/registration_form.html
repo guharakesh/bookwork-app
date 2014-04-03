@@ -25,8 +25,10 @@
 
 	<form class="form-horizontal" action="" method="post">
 	{% csrf_token %}
-	<div id="registration_form" >
-		{{ form.as_p }}
+	<div id="registration_form" class="display_delay">
+		<fieldset>
+			{{ form.as_p }}
+		</fieldset>
 			<div class="pure-controls">
 					<input class="btn btn-primary" type="submit" value="Create the account">
 					<a href="{% url 'socialauth_begin' 'facebook' %}" ><div id="social-signin1"></div></a>
