@@ -114,7 +114,7 @@ class Student(models.Model):
         try:
             social_info = UserSocialAuth.objects.get(user=self.user);
             if social_info.provider == 'facebook':
-                url = "http://graph.facebook.com/"+social_info.uid+"/picture?width=100&height=100"
+                url = "//graph.facebook.com/"+social_info.uid+"/picture?width=100&height=100"
                 req = urllib2.Request(url)
                 res = urllib2.urlopen(req)
                 return res.geturl()
@@ -132,7 +132,7 @@ class Student(models.Model):
             # "https://openclipart.org/image/300px/svg_to_png/190113/1389952697.png"
             size = 100
             # construct the url
-            gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+            gravatar_url = "//www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
             gravatar_url += urllib.urlencode({'s':str(size)})
             return gravatar_url
         else:
