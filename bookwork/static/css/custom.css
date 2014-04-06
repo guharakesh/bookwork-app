@@ -1,3 +1,94 @@
+/*******************
+Specific bootstrap overwrites
+*******************/
+html, body {
+	height: 100%;
+}
+body {
+	color: #6ac3d7;
+	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.btn {
+	font-family: ubuntu_titlingbold;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	border-radius: 4px;
+
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #6ac3d7;
+  border-color: #6ac3d7;
+  margin: 2%;
+}
+
+.container {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.btn-success {
+	color: #fff;
+	background-color: #6ac3d7;
+	border-color: #6ac3d7;
+	width: 130;
+	height: 38;
+	border-radius: 18;
+	font-size: 17px;
+	margin-bottom: 30px
+	
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+	/*color: #fff;*/
+	/*background-color: #58595b;*/
+	/*border-color: #58595b;*/
+
+	color: #fff;
+	background-color: #f57042;
+	border-color: #f57042;
+}
+/*******************
+End Specific bootstrap overwrites
+*******************/
+
+/*******************
+Navbar
+*******************/
 .navbar-brand {
 	font-family: ubuntu_titlingbold;
 	font-size: 1.6em;
@@ -10,11 +101,6 @@
 .blue {
 	color: #6ac3d7;
 }
-
-.text-center{
-	text-align: center !important;
-}
-
 .navbar-default .navbar-nav > li > a {
 	font-family: open_sanslight;
 	color: #FFF;
@@ -28,6 +114,25 @@
   border-bottom-width: 0px;
   /*box-shadow: 0px 1px 5px #000000;*/
   box-shadow: 0px 0px 27px #2D2D2D;
+}
+
+#welcome_text {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.navbar.navbar-default.navbar-fixed-top{
+	display: inline-block !important;
+	float: right;
+}
+/*******************
+End Navbar
+*******************/
+
+/*******************
+Splashpage
+*******************/
+.text-center{
+	text-align: center !important;
 }
 
 .block1 {
@@ -133,188 +238,9 @@
 	color: #58595b;
 }
 
-.ubuntuBI {
-	font-family: open_sanssemibold_italic;
-}
-
-.btn {
-	font-family: ubuntu_titlingbold;
-	display: inline-block;
-	padding: 6px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 1.428571429;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-radius: 15px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-}
-
 .signup {
 	font-size: 2em;
 }
-
-.btn-primary {
-  color: #ffffff;
-  background-color: #6ac3d7;
-  border-color: #6ac3d7;
-  margin: 2%;
-}
-
-.footer {
-	background-color: #c6c5c3;
-	font-family: open_sanslight;
-	color: #fff;
-	font-size: 85.7%;
-	margin-top: 3%;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	text-align: right;
-	padding-right: 5%;
-}
-
-.footer-student {
-	background-color: #c6c5c3;
-	font-family: open_sanslight;
-	color: #fff;
-	font-size: 85.7%;
-	margin-top: 3%;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	text-align: right;
-	padding-right: 5%;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  color: inherit;
-  text-decoration: none;
-}
-
-.thankyou-title {
-	font-family: ubuntu_titlingbold;
-	color: #fff;
-	font-size: 3em;
-	padding-top: 8%;
-	text-align: center;
-}
-
-.block1-thankyou {
-	padding-top: 10%;
-	background-color: #6ac3d7;
-	padding-bottom: 10%;
-	color: #FFF;
-	max-height: 500px;
-	overflow: visible;
-	z-index: -1;
-}
-
-.whatnext {
-	font-family: ubuntu_titlingbold;
-	text-align: center;
-	overflow: hidden;
-	z-index: 100;
-	background-color: #fff;
-	position: relative;
-	right: 18%;
-	margin-top: 5%;
-}
-
-.whatnext-title {
-	font-size: 2.9em;
-	color: #c6c5c3;
-	position: relative;
-	right: 8%;
-	margin-bottom: 2%;
-}
-
-html, body {
-  height: 100%;
-}
-
-#wrap {
-	min-height: 100%;
-}
-
-#main {
-	overflow:hidden;
-	padding-bottom:50px;  /*this needs to be bigger than footer height*/
-	max-width: 100%;
-}
-
-.footer {
-	position: relative;
-	margin-top: -50px;  /*negative value of footer height */
-	height: 50px;
-	clear:both;
-	padding-top:20px;
-}
-
-.container {
-	padding-right: 0;
-	padding-left: 0;
-}
-
-/*footer stuff*/
-
-.footer_container strong{
-    font-weight: bold;
-}
-
-.footer_container div.container{
-    width: 320px;
-    float: left;
-}
-
-.footer_container ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    /*float:right;*/
-}
-
-.footer_container ul li {
-	float: left;
-	padding: 0 10px;
-}
-
-.link {
-	text-decoration: underline;
-}
-
-#welcome_text {
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-
-/*
-#update_form{
-	width: 350px;
-	margin: 0 auto;
-	margin-top: 20px;
-}
-
-#update_form > form > input:last-child{
-	width: 50px;
-	margin: 0 150px;
-}*/
 
 #bowtie{
 	left: -30px;
@@ -351,7 +277,224 @@ html, body {
 		width:100%;
 	}
 }
+/*******************
+End Splashpage
+*******************/
 
+/*******************
+Footer
+*******************/
+.footer {
+	background-color: #c6c5c3;
+	font-family: open_sanslight;
+	color: #fff;
+	font-size: 85.7%;
+	padding-bottom: 15px;
+	text-align: right;
+	padding-right: 5%;
+	position: relative;
+	margin-top: -50px;  /*negative value of footer height */
+	height: 50px;
+	clear:both;
+	padding-top:20px;
+}
+
+.footer-student {
+	background-color: #c6c5c3;
+	font-family: open_sanslight;
+	color: #fff;
+	font-size: 85.7%;
+	margin-top: 3%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: right;
+	padding-right: 5%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.footer_container strong{
+    font-weight: bold;
+}
+
+.footer_container div.container{
+    width: 320px;
+    float: left;
+}
+
+.footer_container ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /*float:right;*/
+}
+
+.footer_container ul li {
+	float: left;
+	padding: 0 10px;
+}
+/*******************
+End Footer
+*******************/
+
+/*******************
+Registraion complete
+*******************/
+.thankyou-title {
+	font-family: ubuntu_titlingbold;
+	color: #fff;
+	font-size: 3em;
+	padding-top: 8%;
+	text-align: center;
+}
+.block1-thankyou {
+	padding-top: 10%;
+	background-color: #6ac3d7;
+	padding-bottom: 10%;
+	color: #FFF;
+	max-height: 500px;
+	overflow: visible;
+	z-index: -1;
+}
+/*******************
+End Registraion complete
+*******************/
+
+/*******************
+Activation complete
+*******************/
+.link {
+	text-decoration: underline;
+}
+/*******************
+End Activation complete
+*******************/
+
+/*******************
+login.html
+*******************/
+.errorlist{
+	color: red;
+	list-style: none;
+	text-align: center;
+}
+#login-btn{
+	width: 120px;
+}
+/*******************
+End login.html
+*******************/
+/*******************
+base.html
+*******************/
+#wrap {
+	min-height: 100%;
+}
+
+#main {
+	overflow:hidden;
+	padding-bottom:50px;  /*this needs to be bigger than footer height*/
+	max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+html, body {
+  height: 100%;
+}
+/*******************
+End base.html
+*******************/
+/*******************
+base_loggedin.html
+*******************/
+#update_form{
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 500px;
+
+}
+#update_form > form > input:last-child{
+	width: 50px;
+	margin: 0 150px;
+}
+
+p! #id_skill_text{
+	float:left;
+	margin-right:5px;
+}
+
+#id_skills_chosen {
+	width:300px !important;
+}
+/*******************
+End base_loggedin.html
+*******************/
+/*******************
+login.html and registraion_form.html
+*******************/
+#registration_form, #login_form{
+	width: 400px;
+	margin: 0 auto;
+}
+
+#social-signin1{
+	background: url(../img/social-signin1.png) no-repeat;
+	background-size: 130px;
+	margin: 4px;
+}
+
+#social-signin2{
+	background: url(../img/social-signin2.png) no-repeat;
+}
+
+#social-signin1, #social-signin2{
+	height: 32px;
+	width: 142px;
+	border: none;
+}
+/*******************
+End login.html and registraion_form.html
+*******************/
+
+/*******************
+Specific Chosen overwrites
+*******************/
+.chosen-container-multi .chosen-results{
+	max-height: 150px;
+}
+
+input,select {
+	font-size: 12px !important;
+}
+
+.search-choice > span{
+	font-size:12px;
+}
+
+.search-field > input{
+	font-size: 12px;
+}
+/* to remove the help text next to a chosen element*/
+.helptext{
+	display: none
+}
+
+ul.chosen-choices,
+ul.chosen-choices > li.search-field,
+ul.chosen-choices > li.search-field > input {
+	min-height: 28px !important;
+}
 .chosen-choices {
 	padding: .5em .6em;
 	display: inline-block;
@@ -368,178 +511,46 @@ html, body {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-.errorlist{
-	color: red;
-	list-style: none;
-	text-align: center;
+/*******************
+End Specific Chosen overwrites
+*******************/
+/*******************
+Specific Pure form overwrites
+*******************/
+.pure-control-group{
+	position: relative;
+	left: -32px;
 }
+/*******************
+End Specific Pure form overwrites
+*******************/
 
+/* used in
+registraion_form.html
+base_loggedin.html
+*/
 #saved_message{
 	text-align: center;
 }
-
-.page_header{
-	font-family: open_sanslight;
-	max-width: 100%;
-	margin-top: 50px;
-	background-color: rgb(249, 249, 249);
-	padding: 20px 0;
-	border-bottom-color: rgb(198, 197, 195);
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	min-height: 150px;
-}
-
-.page_header{
-	/* formatting from h1*/
-	font-size: 36px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	font-weight: 500;
-	line-height: 1.1;
-	margin: .67em 0;
-	padding: 50px 20px;
-}
-
-/*
- from home.css
-*/
-
-#update_form{
-	width: 350px;
-	margin: 0 auto;
-	margin-top: 20px;
-}
-
-#update_form > form > input:last-child{
-	width: 50px;
-	margin: 0 150px;
-}
-
-.helptext {
-	display: none;
-}
-
-p! #id_skill_text{
-	float:left;
-	margin-right:5px;
-}
-
-#id_skills_chosen {
-	width:300px !important;
-}
-
-.chosen-container-multi .chosen-results{
-	max-height: 150px;
-}
-
-form > p {
-
-}
-
-#update_form{
-	width: 500px;
-}
-
-#skill_add_note{
-/*	padding: .5em .6em;
-	display: inline-block;
-	border: 1px solid #ccc;
-	font-size: .8em;
-	box-shadow: inset 0 1px 3px #ddd;
-	border-radius: 4px;
-	-webkit-transition: .3s linear border;
-	-moz-transition: .3s linear border;
-	-ms-transition: .3s linear border;
-	-o-transition: .3s linear border;
-	transition: .3s linear border;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;*/
-}
-
-input,select {
-	font-size: 12px !important;
-}
-
-.search-choice > span{
-	font-size:12px;
-}
-
-.search-field > input{
-	font-size: 12px;
-}
-
-ul.chosen-choices,
-ul.chosen-choices > li.search-field,
-ul.chosen-choices > li.search-field > input {
-	min-height: 28px !important;
-}
-
-/*
-.chosen-container-multi .chosen-choices li.search-field {
-	padding: .5em.6em;
-}
-
-.chosen-choices{
-	font-size: 12px;
-	padding: .5em.6em; !important;
-}
-
-.chosen-choices input{
-	padding:0;
-}*/
 
 /* CSS for the Registraion Page  ;)
 	from registration.css
 */
 
 
-.form-control {
-	border-radius: 0;
-	width: inherit;
-	display: inline-block;
-	height: 40px;
-	color: #6ac3d7;
-}
-
-.btn-success {
-	color: #fff;
-	background-color: #6ac3d7;
-	border-color: #6ac3d7;
-	width: 130;
-	height: 38;
-	border-radius: 18;
-	font-size: 17px;	
-}
-
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
-	/*color: #fff;*/
-	/*background-color: #58595b;*/
-	/*border-color: #58595b;*/
-
-	color: #fff;
-	background-color: #f57042;
-	border-color: #f57042;
-}
-
-.form-control:focus {
-	border-color: #6ac3d7;
-	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
-}
-
-h1 {
-	font-family: open_sanslight;
-}
-
 #new-acct-head, #signup-type, #loginQ {
 	font-family: open_sanslight;
 	max-width: 100%;
 }
-
+/*
+used in
+require_email.html
+whats_next.html
+activation_complete.html
+login.html
+logout.html
+registration_form.html
+*/
 #new-acct-head {
 	margin-top: 50px;
 	background-color: rgb(249, 249, 249);
@@ -549,6 +560,14 @@ h1 {
 	border-bottom-width: 1px;
 }
 
+/*
+used in
+require_email.html
+activation_complete.html
+login.html
+logout.html
+registration_form.html
+*/
 #signup-type {
 	padding: 30px 0;
 	border-bottom-color: rgb(198, 197, 195);
@@ -557,6 +576,10 @@ h1 {
 	margin-bottom: 20px;
 }
 
+/*
+used in
+registration_form.html
+*/
 #loginQ {
 	padding: 30px 0;
 	border-top-color: rgb(198, 197, 195);
@@ -565,52 +588,21 @@ h1 {
 	clear:both;
 }
 
-.btn-success {
-	margin-bottom: 30px
-}
-
-html, body {
-	height: 100%;
-}
-
-#registration_form, #login_form{
-	width: 400px;
-	margin: 0 auto;
+/*
+used in
+whats_next.html
+*/
+.next{
+	padding-top: 2%;
+	padding-bottom: 1%;
+	font-family: open_sanssemibold;
+	color: #c6c5c3;
+	font-size: 2em;
+	text-align: center;
 }
 
 /*
-#registration_form{
-	width:300px;
-	margin:0 auto;
-}*/
-
-#social-signin1{
-	background: url(../img/social-signin1.png) no-repeat;
-	background-size: 130px;
-	margin: 4px;
-}
-
-#social-signin2{
-	background: url(../img/social-signin2.png) no-repeat;
-}
-
-#social-signin1, #social-signin2{
-	height: 32px;
-	width: 142px;
-	border: none;
-	/*margin: 0 auto;*/
-}
-
-#login-btn{
-	width: 120px;
-}
-
-.btn {
-	border-radius: 4px;
-}
-
-/*
-	forms.css
+combined form overwrite for chosen and pure
 */
 .chosen-choices,
 .pure-form input[type=text],
@@ -636,63 +628,8 @@ html, body {
 	color: #333;
 }
 
-.pure-control-group{
-	position: relative;
-	left: -32px;
-}
-
-.navbar.navbar-default.navbar-fixed-top{
-	display: inline-block !important;
-	float: right;
-}
-
-/*select {
-	padding: 5px;
-	line-height: 1;
-	border-radius: 0;
-	-webkit-appearance: none;
-	-moz-appearance: textfield;
-	appearance: none;
-	background: url(http://cdn.bavotasan.com/wp-content/uploads/2011/05/down_arrow_select.jpg) no-repeat right #ddd;
-	border: 1px solid #ccc;
-}*/
-
-.next{
-	padding-top: 2%;
-	padding-bottom: 1%;
-	font-family: open_sanssemibold;
-	color: #c6c5c3;
-	font-size: 2em;
-	text-align: center;
-}
-
-/*******************
-Specific bootstrap overwrites
-*******************/
-body {
-	color: #6ac3d7;
-	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.1;
-}
-
 /*****
-hid forms before js loads
+hide forms before js loads
 ***/
 .display_delay{
 	display: none;

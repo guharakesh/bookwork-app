@@ -187,6 +187,20 @@
 }
 
 .page_header {
+  font-family: open_sanslight;
+  background-color: rgb(249, 249, 249);
+  border-bottom-color: rgb(198, 197, 195);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  min-height: 150px;
+  /* formatting from h1*/
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: .67em 0;
+  padding: 50px 20px;
   text-align: left;
   height:100px;
 }
