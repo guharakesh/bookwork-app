@@ -21,9 +21,9 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.1;
+	font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 	font-weight: 500;
+ 	line-height: 1.1;
 }
 
 .btn {
@@ -50,10 +50,10 @@ h6,
 }
 
 .btn-primary {
-  color: #ffffff;
-  background-color: #6ac3d7;
-  border-color: #6ac3d7;
-  margin: 2%;
+	color: #ffffff;
+	background-color: #6ac3d7;
+	border-color: #6ac3d7;
+	margin: 2%;
 }
 
 .container {
@@ -108,12 +108,12 @@ Navbar
 }
 
 .navbar-default {
-  background-color: #58595b;
-  border-color: #c6c5c3;
-  overflow: hidden;
-  border-bottom-width: 0px;
-  /*box-shadow: 0px 1px 5px #000000;*/
-  box-shadow: 0px 0px 27px #2D2D2D;
+	background-color: #58595b;
+	border-color: #c6c5c3;
+	overflow: hidden;
+	border-bottom-width: 0px;
+	/*box-shadow: 0px 1px 5px #000000;*/
+	box-shadow: 0px 0px 27px #2D2D2D;
 }
 
 #welcome_text {
@@ -319,12 +319,12 @@ Footer
 }
 
 .footer_container div.container{
-    width: 320px;
-    float: left;
+	width: 320px;
+	float: left;
 }
 
 .footer_container ul{
-    list-style: none;
+	list-style: none;
     margin: 0;
     padding: 0;
     /*float:right;*/
@@ -391,26 +391,23 @@ base.html
 #wrap {
 	min-height: 100%;
 }
-
+#content {
+	margin-top: 50px;
+}
 #main {
 	overflow:hidden;
 	padding-bottom:50px;  /*this needs to be bigger than footer height*/
 	max-width: 100%;
 }
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-html, body {
-  height: 100%;
+	color: inherit;
+	text-decoration: none;
 }
 /*******************
 End base.html
@@ -626,6 +623,7 @@ combined form overwrite for chosen and pure
 	width: 200px;
 	height: 35px;
 	color: #333;
+	line-height: 15px;
 }
 
 /*****
