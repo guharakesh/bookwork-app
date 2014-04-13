@@ -21,10 +21,15 @@ h6,
 .h4,
 .h5,
 .h6 {
-	font-family: ubuntu_titlingbold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif;
  	font-weight: 500;
  	line-height: 1.1;
 }
+h1{
+	font-family: open_sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
 
 .btn {
 	font-family: ubuntu_titlingbold;
@@ -91,7 +96,10 @@ Navbar
 *******************/
 .navbar-brand {
 	font-family: ubuntu_titlingbold;
-	font-size: 1.6em;
+	font-size: 2.1em;
+	letter-spacing: .6px;
+	padding-left: 50px;
+	padding-top: 20px;
 }
 
 .gray {
@@ -104,16 +112,19 @@ Navbar
 .navbar-default .navbar-nav > li > a {
 	font-family: open_sanslight;
 	color: #FFF;
-	font-size: 85.7%;
+	font-size: 120%;
+	line-height: 24px;
 }
-
+.navbar-default .navbar-nav > li {
+	padding: 0 10px;
+}
 .navbar-default {
 	background-color: #58595b;
 	border-color: #c6c5c3;
 	overflow: hidden;
 	border-bottom-width: 0px;
 	/*box-shadow: 0px 1px 5px #000000;*/
-	box-shadow: 0px 0px 27px #2D2D2D;
+	/*box-shadow: 0px 0px 27px #2D2D2D;*/
 }
 
 #welcome_text {
@@ -123,6 +134,7 @@ Navbar
 .navbar.navbar-default.navbar-fixed-top{
 	display: inline-block !important;
 	float: right;
+	height: 58px;
 }
 /*******************
 End Navbar
@@ -138,7 +150,7 @@ Splashpage
 .block1 {
 	padding-top: 10%;
 	background-color: #6ac3d7;
-	padding-bottom: 10%;
+	padding-bottom: 5%;
 	color: #FFF;
 	max-height: 500px;
 	overflow:hidden;
@@ -206,11 +218,8 @@ Splashpage
 
 .block4 {
 	background-color: rgb(177,182,197);
-	max-height: 1680px;
-	/*margin-left: 0;
-	margin-right: 0;
-	padding-left: 0;
-	padding-right: 0;*/
+	margin-bottom: -53px;
+	padding-top: 50px;
 }
 
 .block5 {
@@ -648,4 +657,40 @@ hide forms before js loads
 ***/
 .display_delay{
 	display: none;
+}
+
+/**
+	New Splashpage stuff
+**/
+.marketing .col-lg-4 {
+	text-align: center;
+}
+
+.btn.btn-primary {
+	color: #ffffff;
+	background-color: #215a7a;
+	margin: 6%;
+	width:300px;
+	height:75px;
+	font-size: 30px !important;
+	border-radius: 15px;
+}
+
+h1,
+.h1 {
+  font-size: 50px;
+}
+
+h2,
+.h2 {
+  font-size: 40px;
+}
+
+h3,
+.h3 {
+  font-size: 30px;
+}
+a.btn{
+	padding: 0px;
+	line-height: 75px;
 }

@@ -25,7 +25,7 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login-form/'
-LOGIN_ERROR_URL = '/accounts/register/'
+LOGIN_ERROR_URL = '/accounts/login/'
 
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID','218166651721097')
 FACEBOOK_API_SECRET = os.environ.get('FACEBOOK_API_SECRET','20986a4550124333666539356d682d27')
