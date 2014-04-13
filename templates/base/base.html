@@ -19,6 +19,7 @@
 		{% if user.is_authenticated %}
 		<link href="{{STATIC_URL}}css/dash.css" rel="stylesheet">
 		{% endif %}
+		<link href="{{STATIC_URL}}css/navbar.css" rel="stylesheet">
 
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/ubuntutitling_bold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/opensans_light_macroman/stylesheet.css" type="text/css" charset="utf-8" />		
@@ -63,8 +64,8 @@
 								<!-- <li><img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/></li> -->
 							{% else %}
 								<li><a href="/#how">How It Works</a></li>
-								<li><a href="/accounts/register">Register</a></li>
-								<li><a href="/accounts/login">Login</a></li>
+								<li class="{% ifequal request.path "/accounts/register" %}active{% endifequal %}"><a href="/accounts/register">Register</a></li>
+								<li class="{% ifequal request.path "/accounts/login" %}active{% endifequal %}"><a href="/accounts/login">Login</a></li>
 							{% endif %}
 						</ul><!-- nav navbar-nav navbar-right -->
 					</div><!-- collapse navbar-collapse navbar-ex1-collapse -->
@@ -94,11 +95,11 @@
 		<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
 		<script src="{{STATIC_URL}}js/chosen_v1.0.0/chosen.jquery.min.js"></script>
 		<script type="text/javascript">
-			if($('form')){
-				$('form').addClass("pure-form pure-form-aligned")
-				$('form').find('p').addClass("pure-control-group");
+			// if($('form')){
+			// 	$('form').addClass("pure-form pure-form-aligned")
+			// 	$('form').find('p').addClass("pure-control-group");
 				$('.display_delay')[0].style.display = "block";
-			}
+			// }
 		</script>
 		<script type="text/javascript">
 		   if (window.location.hash == '#_=_') {

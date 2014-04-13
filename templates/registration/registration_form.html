@@ -29,10 +29,20 @@
 		<fieldset>
 			{{ form.as_p }}
 		</fieldset>
-			<div class="pure-controls">
-					<input class="btn btn-primary" type="submit" value="Create the account">
-					<a href="{% url 'socialauth_begin' 'facebook' %}" ><div id="social-signin1"></div></a>
-					<a href="{% url 'socialauth_begin' 'linkedin' %}" ><div id="social-signin2"></div></a>
+			<div>
+					<label></label><input class="btn btn-primary" type="submit" value="Create the account">
+					<label></label>
+					  <a href="{% url 'socialauth_begin' 'facebook' %}">
+					    <div class="btn btn-primary social-btn type-facebook">
+					      <span class="icon-sn-30 facebook"></span><span class="social-text">Register with Facebook</span>
+					    </div>
+					  </a>
+					  <label></label>
+					  <a href="{% url 'socialauth_begin' 'linkedin' %}">
+					    <div class="btn btn-primary social-btn type-linkedin">
+					      <span class="icon-sn-30 linkedin"></span><span class="social-text">Register with LinkedIn</span>
+					    </div>
+					  </a>
 			</div>
 	</div>
 	</form>

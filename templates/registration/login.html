@@ -15,43 +15,47 @@
   <form action="{{ app_path }}" method="post" id="login-form" class="form-horizontal">{% csrf_token %}
   <div id="login_form" class="display_delay">
     <fieldset>
-      <div class="control-group">
-
-      {% if form.errors %}
-      <div class="errorlist">
-        <p>Your username and password didn't match, please try again.</p>
+      <div>
+        {% if form.errors %}
+          <div class="errorlist">
+            <p>Your username and password didn't match, please try again.</p>
+          </div>
+        {% endif %}
+        {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
+        <p>
+          <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
+        </p>
+          {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+        <p>
+          <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
+          <input type="hidden" name="this_is_the_login_form" value="1" />
+          <input type="hidden" name="next" value="{{ next }}" />
+        </p>
+        {% url 'admin_password_reset' as password_reset_url %}
+        {% if password_reset_url %}
+          <div class="password-reset-link">
+            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+          </div>
+        {% endif %}
       </div>
-      {% endif %}
-
-      {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
-
-      <p>
-        <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
-      </p>
-        {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-      <p>
-        <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
-        <input type="hidden" name="this_is_the_login_form" value="1" />
-        <input type="hidden" name="next" value="{{ next }}" />
-      </p>
-      {% url 'admin_password_reset' as password_reset_url %}
-      {% if password_reset_url %}
-      <div class="password-reset-link">
-        <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
-      </div>
-      {% endif %}
-
-      <!-- Button -->
-      <!-- <div class="text-center"> -->
-        <div class="control-group">
-          <div class="pure-controls">
-            <label>&nbsp;</label><input id="login-btn" class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
-            <a href="{% url 'socialauth_begin' 'facebook' %}" ><div id="social-signin1"></div></a>
-            <a href="{% url 'socialauth_begin' 'linkedin' %}" ><div id="social-signin2"></div></a>
-          </div><!--controls-->
-        </div><!--control-group-->
+    </fieldsset>
+      <div>
+        <label></label><input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+        <label></label>
+          <a href="{% url 'socialauth_begin' 'facebook' %}">
+            <div class="btn btn-primary social-btn type-facebook">
+              <span class="icon-sn-30 facebook"></span><span class="social-text">Sign in with Facebook</span>
+            </div>
+          </a>
+          <label></label>
+          <a href="{% url 'socialauth_begin' 'linkedin' %}">
+            <div class="btn btn-primary social-btn type-linkedin">
+              <span class="icon-sn-30 linkedin"></span><span class="social-text">Sign in with LinkedIn</span>
+            </div>
+          </a>
+        <!-- <label></label><a class="btn btn-primary" href="{% url 'socialauth_begin' 'linkedin' %}" ></a> -->
+      </div><!--control-group-->
       <!-- </div>text-center -->
-    </fieldset>
   </div>
   </form>
   </div>

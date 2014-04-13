@@ -1,0 +1,49 @@
+.navbar-brand {
+	font-family: ubuntu_titlingbold;
+	font-size: 2.1em;
+	letter-spacing: .6px;
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+.gray {
+	color: #c6c5c3;
+}
+
+.blue {
+	color: #6ac3d7;
+}
+.navbar-default .navbar-nav > li > a {
+	font-family: open_sanslight;
+	color: #FFF;
+	font-size: 120%;
+	line-height: 24px;
+}
+.navbar-default .navbar-nav > li {
+	padding: 0 10px;
+}
+.navbar-default {
+	background-color: #58595b;
+	border-color: #c6c5c3;
+	overflow: hidden;
+	border-bottom-width: 0px;
+	/*box-shadow: 0px 1px 5px #000000;*/
+	/*box-shadow: 0px 0px 27px #2D2D2D;*/
+}
+
+#welcome_text {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.navbar.navbar-default.navbar-fixed-top{
+	display: inline-block !important;
+	float: right;
+	min-height: 58px;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+	color: #6ac3d7;
+	background-color: #58595b;
+	font-family: open_sanssemibold;
+}

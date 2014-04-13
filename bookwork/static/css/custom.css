@@ -92,55 +92,6 @@ End Specific bootstrap overwrites
 *******************/
 
 /*******************
-Navbar
-*******************/
-.navbar-brand {
-	font-family: ubuntu_titlingbold;
-	font-size: 2.1em;
-	letter-spacing: .6px;
-	padding-left: 50px;
-	padding-top: 20px;
-}
-
-.gray {
-	color: #c6c5c3;
-}
-
-.blue {
-	color: #6ac3d7;
-}
-.navbar-default .navbar-nav > li > a {
-	font-family: open_sanslight;
-	color: #FFF;
-	font-size: 120%;
-	line-height: 24px;
-}
-.navbar-default .navbar-nav > li {
-	padding: 0 10px;
-}
-.navbar-default {
-	background-color: #58595b;
-	border-color: #c6c5c3;
-	overflow: hidden;
-	border-bottom-width: 0px;
-	/*box-shadow: 0px 1px 5px #000000;*/
-	/*box-shadow: 0px 0px 27px #2D2D2D;*/
-}
-
-#welcome_text {
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-.navbar.navbar-default.navbar-fixed-top{
-	display: inline-block !important;
-	float: right;
-	height: 58px;
-}
-/*******************
-End Navbar
-*******************/
-
-/*******************
 Splashpage
 *******************/
 .text-center{
@@ -388,9 +339,6 @@ login.html
 	list-style: none;
 	text-align: center;
 }
-#login-btn{
-	width: 120px;
-}
 /*******************
 End login.html
 *******************/
@@ -450,7 +398,7 @@ End base_loggedin.html
 login.html and registraion_form.html
 *******************/
 #registration_form, #login_form{
-	width: 400px;
+	max-width: 831px;
 	margin: 0 auto;
 }
 
@@ -627,6 +575,81 @@ whats_next.html
 /*
 combined form overwrite for chosen and pure
 */
+label, input { 
+	float:left;
+}
+label { 
+	clear:left;
+	display:block;
+	margin-top:3px;
+	width:200px;
+	text-align: right;
+	line-height: 55px;
+	font-size:20px;
+}
+input {	border-radius: 0;
+	margin-left:20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 0;
+	width: 400px;
+	height: 55px;
+	color: #333;
+	line-height: 15px;
+	font-size: 20px !important;
+	border: 2px solid rgba(204, 204, 204, 0.5);
+	padding: 0 20px;
+}
+input:focus{
+	border: 2px solid #6ac3d7;
+	outline: none
+}
+fieldset >p{
+	float:left;
+}
+.social-btn {
+	width: 400px;
+	height: 55px;
+	float:	left;
+	font-size: 20px;
+	line-height: 22px;
+	padding: 16px;
+	margin: .5% 2%;
+	border: none;
+}
+
+.type-facebook{
+	background-color: #3b5998;
+}
+.type-linkedin{
+	background-color: #007bb6;
+}
+
+.icon-30, .icon-sn-30 {
+	height: 30px;
+	padding-left: 30px;
+	padding-bottom: 4px;
+}
+.icon-sn-13, .icon-sn-16, .icon-sn-19, .icon-sn-30 {
+	background-image: url(https://du6h72rmez42p.cloudfront.net/v1/images/maps/icons-sn.8bef5e9f.png);
+}
+.icon-sn-30 {
+	position: relative;
+	left: -72px;
+	top: -3px;
+}
+.icon-sn-30.facebook {
+	background-position: -64px -30px;
+}
+.icon-sn-30.linkedin {
+	background-position: -66px -60px;
+}
+span.social-text{
+	position: relative;
+	left: -8px;
+}
+
+
 .chosen-choices,
 .pure-form input[type=text],
 .pure-form input[type=password],
@@ -643,15 +666,36 @@ combined form overwrite for chosen and pure
 .pure-form input[type=tel],
 .pure-form input[type=color],
 .pure-form select,
-.pure-form textarea
+.pure-form textarea,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local
+input[type=week],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=color],
+input,
+select,
+textarea
 {
 	border-radius: 0;
-	width: 200px;
-	height: 35px;
+	width: 400px;
+	height: 55px;
 	color: #333;
 	line-height: 15px;
+	box-shadow: none;
+	font-size: 20px !important;
 }
-
+.pure-form label{
+	font-size: 20px;	
+}
 /*****
 hide forms before js loads
 ***/
@@ -690,7 +734,7 @@ h3,
 .h3 {
   font-size: 30px;
 }
-a.btn{
+a.btn {
 	padding: 0px;
 	line-height: 75px;
 }
