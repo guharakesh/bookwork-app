@@ -8,6 +8,7 @@
 
 {% block sidebar %}
 <div class="sidebar">
+  <a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
   <div class="sidebar-wrap">
   <div class="id">
     <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
@@ -43,9 +44,4 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-  $(document).ready(function(){
-    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
-  });
-</script>
 {% endblock %}

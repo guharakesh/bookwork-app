@@ -4,10 +4,14 @@
 
 {% block extrahead %}
 <!-- <link href="{{STATIC_URL}}css/dash.css" rel="stylesheet"> -->
+<link href="{{STATIC_URL}}js/select2-3.4.6/select2.css" rel="stylesheet">
+<script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
+
 {% endblock %}
 
 {% block sidebar %}
 <div class="sidebar">
+  <a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
   <div class="sidebar-wrap">
   <div class="id">
     <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
@@ -47,20 +51,27 @@
     </div>
     <p>
       {{ skillform }}
-      <input type="submit" name="new_skill" value="Add" />
+      <input class="btn" id="skill_add_btn" type="submit" name="new_skill" value="Add" />
     </p>
-
-    <div class="pure-controls">
-    <input type="submit" name="student_data" value="Save" />
+    <label></label><input class="btn btn-primary" type="submit" name="student_data" value="Save" />
     </fieldset>
   </form>
 </div>
 {% endblock %}
 
 {% block scripts %}
+    <script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
 <script>
+  // $(document).ready(function(){
+  //   $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  // });
   $(document).ready(function(){
-    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+    // debugger;
+    $("#id_skills")[0].style.width="400px";
+    $("#id_skills")[0].style.marginLeft="20px";
+
+    $("#id_skills").select2({
+    });
   });
 </script>
 {% endblock %}

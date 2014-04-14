@@ -50,7 +50,7 @@ h1{
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	border-radius: 4px;
+	border-radius: 0px;
 
 }
 
@@ -376,7 +376,7 @@ base_loggedin.html
 #update_form{
 	margin: 0 auto;
 	margin-top: 20px;
-	width: 500px;
+	max-width: 800px;
 
 }
 #update_form > form > input:last-child{
@@ -449,6 +449,9 @@ ul.chosen-choices,
 ul.chosen-choices > li.search-field,
 ul.chosen-choices > li.search-field > input {
 	min-height: 28px !important;
+	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	padding-top:4px !important;
+	color: black !important;
 }
 .chosen-choices {
 	padding: .5em .6em;
@@ -465,6 +468,10 @@ ul.chosen-choices > li.search-field > input {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+div.chosen-drop{
+	/*top: 85% !important;*/
+	/*left: 17px !important;*/
 }
 /*******************
 End Specific Chosen overwrites
@@ -588,7 +595,9 @@ label {
 	line-height: 55px;
 	font-size:20px;
 }
-input {	border-radius: 0;
+input,
+select {
+	border-radius: 0;
 	margin-left:20px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -601,13 +610,70 @@ input {	border-radius: 0;
 	border: 2px solid rgba(204, 204, 204, 0.5);
 	padding: 0 20px;
 }
-input:focus{
+input:focus,
+select:focus{
 	border: 2px solid #6ac3d7;
 	outline: none
 }
 fieldset >p{
 	float:left;
+	clear:left;
 }
+select{
+	/*padding: .5em .6em;*/
+	font-size: 16px;
+	line-height: 16px;
+	border-radius: 0;
+	-webkit-appearance: none;
+	overflow: hidden;
+	background: url(/static/img/downarrow.png) no-repeat right #fff;
+	border: 1px solid #ccc;
+	padding-right: 33px;
+	-moz-appearance: none;
+	text-indent: 0.01px;
+	text-overflow: '';
+	background-size: 17px 9px;
+	background-origin: content-box;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 2px solid rgba(204, 204, 204, 0.5);
+}
+
+label#skill_add_note{
+	clear: none;
+	width: 606px;
+}
+ul.chosen-choices,
+.chosen-container-multi .chosen-choices,
+.chosen-container-active .chosen-choices
+{
+	border-radius: 0px;
+	height: 50px !important;
+	width: 400px !important;
+	border: 2px solid rgba(204, 204, 204, 0.5) !important;
+	border-radius: 0;
+	margin-left:20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 0;
+	width: 400px;
+	height: 55px;
+	color: #333;
+	line-height: 15px;
+	font-size: 20px !important;
+	border: 2px solid rgba(204, 204, 204, 0.5);
+	padding: 0 20px;
+}
+ul.chosen-choices:focus,
+.chosen-container-multi:focus .chosen-choices:focus,
+.chosen-container-active:focus .chosen-choices:focus
+:focus{
+	border: 2px solid #6ac3d7;
+	outline: none
+}
+/*****
+	Social Button Stuff
+*******/
 .social-btn {
 	width: 400px;
 	height: 55px;
@@ -625,13 +691,12 @@ fieldset >p{
 .type-linkedin{
 	background-color: #007bb6;
 }
-
-.icon-30, .icon-sn-30 {
+.icon-sn-30 {
 	height: 30px;
 	padding-left: 30px;
 	padding-bottom: 4px;
 }
-.icon-sn-13, .icon-sn-16, .icon-sn-19, .icon-sn-30 {
+.icon-sn-30 {
 	background-image: url(https://du6h72rmez42p.cloudfront.net/v1/images/maps/icons-sn.8bef5e9f.png);
 }
 .icon-sn-30 {
@@ -649,8 +714,56 @@ span.social-text{
 	position: relative;
 	left: -8px;
 }
+/*****
+	End Social Button Stuff
+*******/
+/************
+	select2 overwrite
+************/
+.select2-container-multi .select2-choices{
+	background: #fff !important;
+	border: 2px solid rgba(204, 204, 204, 0.5) !important;
+}
+.select2-container-multi .select2-choices .select2-search-field input{
+	font-family: open_sanslight, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	color:black !important;
+	padding:0 20px !important;
+}
+.select2-container-multi.select2-container-active .select2-choices
+ {
+	border: 2px solid #6ac3d7 !important;
+	/*border-bottom: none !important;*/
+    outline: none !important;
 
-
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+}
+.select2-drop-active {
+    border: 2px solid #6ac3d7 !important;
+    border-top: none !important;
+}
+.select2-container-multi .select2-choices .select2-search-choice{
+	font-size: 20px !important;
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+	line-height: 20px !important;
+}
+.select2-container-multi .select2-search-choice-close{
+	left: 3px !important;
+	top: 7px !important;
+}
+/************
+	end select2 overwrite
+************/
+#skill_add_btn{
+	width: 99px;
+	margin-left: 0;
+	border: none;
+	height: 54px;
+}
+#id_skill_text{
+    width: 300px;
+}
 .chosen-choices,
 .pure-form input[type=text],
 .pure-form input[type=password],
@@ -718,7 +831,7 @@ hide forms before js loads
 	width:300px;
 	height:75px;
 	font-size: 30px !important;
-	border-radius: 15px;
+	/*border-radius: 15px;*/
 }
 
 h1,
@@ -739,3 +852,4 @@ a.btn {
 	padding: 0px;
 	line-height: 75px;
 }
+
