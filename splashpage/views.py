@@ -101,7 +101,7 @@ def splash(request):
         emailform = EmailForm()
         return render(request, 'splashpage/require_email.html',{'emailform':emailform})
     else:
-        return render(request, 'splashpage/base_splashpage.html',{})
+        return HttpResponseRedirect('/accounts/login')
 
 def dash(request):
     if request.user.is_authenticated():
@@ -116,7 +116,7 @@ def dash(request):
         
         return render(request, 'splashpage/dash.html',{'skills':skills})
     else:
-        return render(request, 'splashpage/base_splashpage.html',{})
+        return HttpResponseRedirect('/accounts/login')
 
 def current_employers(request):
     if request.user.is_authenticated():
@@ -128,4 +128,4 @@ def current_employers(request):
         employers = Employer.objects.all().order_by('name')
         return render(request, 'splashpage/current_employers.html',{'employers':employers})
     else:
-        return render(request, 'splashpage/base_splashpage.html',{})
+        return HttpResponseRedirect('/accounts/login')
