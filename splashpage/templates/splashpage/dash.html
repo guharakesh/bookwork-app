@@ -8,6 +8,7 @@
 
 {% block sidebar %}
 <div class="sidebar">
+  <a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
   <div class="sidebar-wrap">
   <div class="id">
     <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
@@ -19,6 +20,7 @@
     <a href="/"><li class="active">PROFILE</li></a>
     <a href="/current_employers/"><li>CURRENT EMPLOYERS</li></a>
     <a href="/edit/"><li>EDIT INFORMATION</li></a>
+    <a href="/accounts/logout"><li>LOGOUT</li></a>
   </ul>
   </div>
 </div>
