@@ -51,7 +51,7 @@ h1{
 	-o-user-select: none;
 	user-select: none;
 	border-radius: 0px;
-
+	background:#c6c5c3;
 }
 
 .btn-primary {
@@ -240,7 +240,52 @@ Splashpage
 /*******************
 End Splashpage
 *******************/
+/*****
+	Social Button Stuff
+*******/
+.social-btn {
+	width: 400px;
+	height: 55px;
+	float:	left;
+	font-size: 20px;
+	line-height: 22px;
+	padding: 16px;
+	margin: .5% 2%;
+	border: none;
+}
 
+.type-facebook{
+	background-color: #3b5998;
+}
+.type-linkedin{
+	background-color: #007bb6;
+}
+.icon-sn-30 {
+	height: 30px;
+	padding-left: 30px;
+	padding-bottom: 4px;
+}
+.icon-sn-30 {
+	background-image: url(https://du6h72rmez42p.cloudfront.net/v1/images/maps/icons-sn.8bef5e9f.png);
+}
+.icon-sn-30 {
+	position: relative;
+	left: -72px;
+	top: -3px;
+}
+.icon-sn-30.facebook {
+	background-position: -64px -30px;
+}
+.icon-sn-30.linkedin {
+	background-position: -66px -60px;
+}
+span.social-text{
+	position: relative;
+	left: -8px;
+}
+/*****
+	End Social Button Stuff
+*******/
 /*******************
 Footer
 *******************/
@@ -610,6 +655,23 @@ select {
 	border: 2px solid rgba(204, 204, 204, 0.5);
 	padding: 0 20px;
 }
+@media (max-width: 500px){
+	input,
+	select,.social-btn {
+	/*max-width: 400px;*/
+	/*width:200px;*/
+	width:90%!important;
+	}
+	.container,#registration_form,fieldset{
+		width:100%;
+	}
+	.icon-sn-30 {
+		left: -14px;
+	}
+	h4.text-center{
+		width:95%;
+	}
+}
 input:focus,
 select:focus{
 	border: 2px solid #6ac3d7;
@@ -671,52 +733,7 @@ ul.chosen-choices:focus,
 	border: 2px solid #6ac3d7;
 	outline: none
 }
-/*****
-	Social Button Stuff
-*******/
-.social-btn {
-	width: 400px;
-	height: 55px;
-	float:	left;
-	font-size: 20px;
-	line-height: 22px;
-	padding: 16px;
-	margin: .5% 2%;
-	border: none;
-}
 
-.type-facebook{
-	background-color: #3b5998;
-}
-.type-linkedin{
-	background-color: #007bb6;
-}
-.icon-sn-30 {
-	height: 30px;
-	padding-left: 30px;
-	padding-bottom: 4px;
-}
-.icon-sn-30 {
-	background-image: url(https://du6h72rmez42p.cloudfront.net/v1/images/maps/icons-sn.8bef5e9f.png);
-}
-.icon-sn-30 {
-	position: relative;
-	left: -72px;
-	top: -3px;
-}
-.icon-sn-30.facebook {
-	background-position: -64px -30px;
-}
-.icon-sn-30.linkedin {
-	background-position: -66px -60px;
-}
-span.social-text{
-	position: relative;
-	left: -8px;
-}
-/*****
-	End Social Button Stuff
-*******/
 /************
 	select2 overwrite
 ************/
