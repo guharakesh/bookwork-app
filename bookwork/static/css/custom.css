@@ -338,6 +338,7 @@ login.html
 	color: red;
 	list-style: none;
 	text-align: center;
+	clear: left;
 }
 /*******************
 End login.html
