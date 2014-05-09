@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.db.models import BooleanField
 from social_auth.models import UserSocialAuth
+from bs4 import BeautifulSoup
+
 import urllib2
 # import code for encoding urls and generating md5 hashes
 # needed for gravatar
