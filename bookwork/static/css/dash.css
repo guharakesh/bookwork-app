@@ -1,68 +1,219 @@
-.bs-docs-sidenav {
-	margin-top: 5%;
-	background-image: url(../img/gray_box.png);
-	background-repeat: repeat-y;
-	margin-left: -0.5%;
-	padding-left: 2%;
-	font-family: open_sanssemibold;
+#wrap {
+	background-color: #f2f2f2;
 }
 
-.bs-sidebar.affix {
-  position: static;
+#content {
+	margin-left: 300px;
+	margin-top: 0;
 }
 
-/* First level of nav */
-.bs-sidenav {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  padding-top:    0px;
-  padding-bottom: 0px;
-  text-shadow: 0 0px 0 #fff;
-  background-color: #58595b;
-  border-radius: 0px;
-  font-family: open_sanslight;
-  font-size: 93%;
+.page_header {
+	font-family: open_sanslight;
+	background-color: rgb(249, 249, 249);
+	border-bottom-color: rgb(198, 197, 195);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	min-height: 150px;
+	/* formatting from h1*/
+	font-size: 36px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-weight: 500;
+	line-height: 1.1;
+	margin: .67em 0;
+	padding: 50px 20px;
+	text-align: left;
+	min-height:100px;
+	margin-top: 0;
 }
 
-.sidebar-name {
-  font-family: open_sanslight;
-  color: #6ac3d7;
-  font-size: 114%;  
-  padding: 10px 20px 0px 20px;
+/***********
+Box
+***********/
+.box_container {
+	margin: 30px auto;
+	width: 90%;
 }
 
-.sidebar-logout {
-  font-family: open_sanslight;
-  color: #c6c5c3;
-  font-size: 85.7%;  
-  padding: 0px 20px 10px 20px;
+.box_container:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
-
-.sidebar-bottom {
-  padding-bottom: 100%;
-  position: absolute;
-  top: auto;
+.box { 
+	border: solid #cececc 1px;
+	width: 200px;
+	min-height: 200px;
+	margin: 10px;
+	background-color: #ffffff;
+	float: left;
 }
 
-/* All levels of nav */
-.bs-sidebar .nav > li > a {
-  display: block;
-  color: #c6c5c3;
-  padding: 10px 20px;
-  border-top: 1px solid #c6c5c3;
+.box > .title {
+	border-bottom: solid #cececc 1px;
+	color: #c6c5c3;
+	padding: 10px
 }
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #c6c5c3;
-  border-right: 1px solid #c6c5c3;
+
+.box > .contents {
+	padding: 5px 20px 20px 20px; 
+	color: #57585a;
+	margin: 0 30px;
 }
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-  font-weight: bold;
-  color: #FFF;
-  background-color: transparent;
-  border-right: 1px solid #563d7c;
+
+.box.employer {
+	position: relative;
 }
+
+.box.employer > .contents {
+	border-top: solid #cececc 1px;
+	position: absolute;
+	top: 200px;
+}
+
+.box > .contents > .name {
+	font-size: medium;
+}
+
+.box > .contents > .skills {
+	margin: 15px;
+}
+
+.box .img_contain img {
+	width: 300px;
+	max-height: 120px;
+	padding-top:20px;
+}
+
+.box .img_contain {
+	width: 300px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.box.employer {
+	width:400px;
+	height:400px;
+}
+
+@media all and (min-width: 1140px){
+	.box_container {
+		width:840px;
+	}
+}
+
+@media all and (max-width: 1140px){
+	.box_container {
+		width:420px;
+	}
+}
+/***********
+end Box
+***********/
+
+/***********
+Sidebar
+***********/
+.sidebar {
+	float:left;
+	background: #57585a;
+	width: 300px;
+	bottom: -10px;
+	top: 0;
+	position: fixed;
+	padding-left: 0;
+	border-right: #6ac3d7 solid 4px;  
+	box-shadow: 0 0 20px #2D2D2D;
+}
+
+.sidebar-wrap {
+	position: relative;
+	height: 100%;
+}
+
+.sidebar-list {
+	overflow: auto;
+	padding-left: 0;
+	position: absolute;
+	top: 205px;
+	bottom: 0px;
+	width: 100%;
+}
+
+.sidebar-list li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	line-height: 1.5em;
+	font-size: 1.2em;
+	line-height: 1.3333333333333335em;
+	padding: 17px 24px 18px;
+	border-bottom: #8e8e8e solid 1px;
+	color: #8e8e8e;
+}
+
+.sidebar-list li:hover {
+	color:white;
+	background-color: #878789;
+}
+
+.sidebar-list li.active {
+	color:white;
+}
+
+.id {
+	height: 205px;
+	border-bottom  : #8e8e8e solid 1px;
+}
+
+#profile_picture {
+	border: white solid 9px;
+	background: gray;
+}
+
+.id > #profile_picture {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: 25px;
+	left: 23px;
+}
+
+.id > #name,
+.id > #logout {
+	position: relative;
+	left: 135px;
+}
+
+.id > #name {
+	bottom: 85px;
+	width: 158px;
+}
+
+.id > #logout {
+	bottom: 60px;
+	color: #bec5c3;
+}
+/***********
+end Sidebar
+***********/
+
+.text-center a {
+	text-decoration: underline;
+}
+
+#profile_picture.nav {
+	height:50px;
+	width: 50px;
+	border: white solid 4px;
+	float: right;
+	margin-left: 10px;
+}
+

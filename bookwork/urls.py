@@ -37,14 +37,6 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
 
-    def clean_email(self):
-        super(RegistrationFormUniqueEmailNoUsername, self).clean_email()
-        data = self.cleaned_data['email']
-        if not data.lower().endswith('edu') and not data.lower().endswith('bookwork.co'):
-            raise forms.ValidationError("Must be a valid .edu address!")
-
-        return self.cleaned_data['email']
-
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
 
@@ -52,7 +44,7 @@ class RegistrationViewUniqueEmailNoUsername(RegistrationView):
         username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
         if Site._meta.installed:
             site = Site.objects.get_current()
-        else:
+        else:   
             site = RequestSite(request)
         new_user = RegistrationProfile.objects.create_inactive_user(username, email,
                                                                     password, site)
@@ -70,16 +62,16 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'bookwork.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^polls/', include('polls.urls', namespace="polls")),
-    url(r'^$', 'splashpage.views.splash', name='splash'),
+    # url(r'^polls/', include('polls.urls', namespace="polls")),
+    # url(r'^$', 'splashpage.views.splash', name='splash'),
+    url(r'^$', 'splashpage.views.dash', name='dash'),
     url(r'^next/', include('splashpage.urls', namespace='splash')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^splash/', include('splashpage.urls', namespace="splashpage")),
     url(r'', include('social_auth.urls')),
-    # url(r'^$', 'splashpage.views.splash', name='home')
-    # url(r'^homepage/', include('homepage.urls',namespace="homepage"))
-    url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
     url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
+    url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    # (r'^login/?$','django.contrib.auth.views.login',{'template_name':'registraion/login.html', 'authentication_form':MyAuthenticationForm}),
+    url(r'^dash/','splashpage.views.dash',name='dash'),
+    url(r'^edit/','splashpage.views.splash',name='splash'),
+    url(r'^current_employers/','splashpage.views.current_employers',name='current_employers'),
 )

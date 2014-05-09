@@ -3,13 +3,40 @@
 {% block title %}Update Profile{% endblock %}
 
 {% block extrahead %}
-<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">
-<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
+<!-- <link href="{{STATIC_URL}}css/dash.css" rel="stylesheet"> -->
+<link href="{{STATIC_URL}}js/select2-3.4.6/select2.css" rel="stylesheet">
+<script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
+
+{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+  <a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
+  <div class="sidebar-wrap">
+  <div class="id">
+    <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
+    <h3 id="name">{{ user.first_name }} {{ user.last_name }}</h3>
+  </div>
+  <ul class="sidebar-list">
+    <a href="/"><li>PROFILE</li></a>
+    <a href="/current_employers/"><li>CURRENT EMPLOYERS</li></a>
+    <a href="/edit/"><li class="active">EDIT INFORMATION</li></a>
+    <a href="/accounts/logout"><li>LOGOUT</li></a>
+  </ul>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
+<div class="text-center page_header">Edit your info here.</div>
+        {% if messages %}
+      {% for message in messages %}
+        <h2 id="saved_message">
+          <strong>{{ message }}</strong>
+        </h2>
+      {% endfor %}
+    {% endif %}
 
 <div id="update_form">
   <form action="#" method="post" id="update_form">
@@ -22,31 +49,27 @@
     </div>
     <p>
       {{ skillform }}
-      <input type="submit" name="new_skill" value="Add" />
+      <input class="btn" id="skill_add_btn" type="submit" name="new_skill" value="Add" />
     </p>
-
-    <div class="pure-controls">
-    <input type="submit" name="student_data" value="Save" />
-        {% if messages %}
-      {% for message in messages %}
-        <span>
-          {{ message }}
-        </span>
-      {% endfor %}
-    {% endif %}
-    <p>
-      </br>
-      Okay cool; <strong><a href='/next'>now what?</a></strong>
-    </p>
+    <label></label><input class="btn btn-primary" type="submit" name="student_data" value="Save" />
     </fieldset>
   </form>
 </div>
 {% endblock %}
 
 {% block scripts %}
+    <script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
 <script>
+  // $(document).ready(function(){
+  //   $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+  // });
   $(document).ready(function(){
-    $("#id_skills").data("placeholder","Select Frameworks...").chosen();
+    // debugger;
+    $("#id_skills")[0].style.width="400px";
+    $("#id_skills")[0].style.marginLeft="20px";
+
+    $("#id_skills").select2({
+    });
   });
 </script>
 {% endblock %}

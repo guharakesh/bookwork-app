@@ -8,14 +8,18 @@
 		<link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico" />
 		<!-- Bootstrap -->
 		<link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
-		
-		<!-- Custom styles for this template -->
-		<link href="{{STATIC_URL}}css/custom.css" rel="stylesheet">
-		<link href="{{STATIC_URL}}css/home.css" rel="stylesheet">
-		<link href="{{STATIC_URL}}js/chosen_v1.0.0/chosen.min.css" rel="stylesheet">
-		<!--link href="//yui.yahooapis.com/pure/0.3.0/forms-min.css" rel="stylesheet"-->
-                <link href="{{STATIC_URL}}css/pure-forms-min.css" rel="stylesheet">
+		<!-- <link href="{{STATIC_URL}}css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 
+		<!-- Custom styles for this template -->
+		<link href="{{STATIC_URL}}js/chosen_v1.0.0/chosen.min.css" rel="stylesheet">
+		<link href="{{STATIC_URL}}css/custom_olark.css" rel="stylesheet">
+		<!--link href="//yui.yahooapis.com/pure/0.3.0/forms-min.css" rel="stylesheet"-->
+		<link href="{{STATIC_URL}}css/pure-forms-min.css" rel="stylesheet">
+		<link href="{{STATIC_URL}}css/custom.css" rel="stylesheet">
+		{% if user.is_authenticated %}
+		<link href="{{STATIC_URL}}css/dash.css" rel="stylesheet">
+		{% endif %}
+		<link href="{{STATIC_URL}}css/navbar.css" rel="stylesheet">
 
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/ubuntutitling_bold_macroman/stylesheet.css" type="text/css" charset="utf-8" />
 		<link rel="stylesheet" href="{{STATIC_URL}}fonts/opensans_light_macroman/stylesheet.css" type="text/css" charset="utf-8" />		
@@ -37,35 +41,34 @@
 	<body>
 		<div id="wrap">
 			<div id="main" class="container clear-top">
-				{% block navbar %}
-				<!-- NAVBAR
-				================================================== -->
-				<div class="navbar navbar-default navbar-fixed-top">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
-					</div><!-- navbar-header -->	
-					
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav navbar-right">
-							{% if user.is_authenticated %}
-								<li id="welcome_text">Welcome {{ user.username }}</li>
-								<li><a href="/accounts/logout">Logout</a></li>
-							{% else %}
-								<li><a href="/#how">How It Works</a></li>
-								<li><a href="/accounts/register">Register</a></li>
-								<li><a href="/accounts/login">Login</a></li>
-							{% endif %}
-						</ul><!-- nav navbar-nav navbar-right -->
-					</div><!-- collapse navbar-collapse navbar-ex1-collapse -->
-				</div><!-- navbar navbar-default navbar-fixed-top -->
-				{% endblock %}
-			
+				{% if user.is_authenticated %}
+				{% else %}
+					{% block navbar %}
+					<!-- NAVBAR
+					================================================== -->
+					<div class="navbar navbar-default navbar-fixed-top">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
+						</div><!-- navbar-header -->	
+						<!-- <img class="nav" id="profile_picture" src="{{ user.student.getPictureURL }}"/> -->
+						
+						<div class="collapse navbar-collapse navbar-ex1-collapse">
+							<ul class="nav navbar-nav navbar-right">
+									<li><a href="http://bookwork.co/how">How It Works</a></li>
+									<li class="{% ifequal request.path "/accounts/register" %}active{% endifequal %}"><a href="/accounts/register">Register</a></li>
+									<li class="{% ifequal request.path "/accounts/login" %}active{% endifequal %}"><a href="/accounts/login">Login</a></li>
+							</ul><!-- nav navbar-nav navbar-right -->
+						</div><!-- collapse navbar-collapse navbar-ex1-collapse -->
+					</div><!-- navbar navbar-default navbar-fixed-top -->
+					{% endblock %}
+				{% endif %}
+			{% block sidebar %}{% endblock %}
 			<div id="content">
 				{% block content %}{% endblock %}
 			</div>
@@ -75,7 +78,7 @@
 	<div id="footer" class="footer_container footer navbar navbar-default navbar-fixed-bottom">
 		<div id="container">
 			<ul>
-				<li>© Bookwork 2013</li>
+				<li><strong>© Bookwork 2013</strong></li>
 				<!-- <li>Terms of Service</li>
 				<li>Privacy Policy</li> -->
 			</ul>
@@ -88,12 +91,23 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
 		<script src="{{STATIC_URL}}js/chosen_v1.0.0/chosen.jquery.min.js"></script>
+		<script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
+
+
 		<script type="text/javascript">
 			if($('form')){
-				$('form').addClass("pure-form pure-form-aligned")
-				$('form').find('p').addClass("pure-control-group");
+			// 	$('form').addClass("pure-form pure-form-aligned")
+			// 	$('form').find('p').addClass("pure-control-group");
+				$('.display_delay')[0].style.display = "block";
 			}
 		</script>
+		<script type="text/javascript">
+		   if (window.location.hash == '#_=_') {
+		      window.location.hash = '';
+		   }
+		</script>
 		{% block scripts %}{% endblock %}
+		<!-- begin olark code -->
+
 	</body>
 </html>

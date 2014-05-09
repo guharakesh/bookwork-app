@@ -2,63 +2,70 @@
 {% load i18n admin_static %}
 
 {% block extrastyle %}{{ block.super }}
-<link href="{{STATIC_URL}}css/registration.css" rel="stylesheet">{% endblock %}
+{% endblock %}
 {% block title %}Login{% endblock %}
 
 {% block content %}
 
 <div class="container text-center" id="new-acct-head"><h1>Welcome Back to Bookwork!</h1></div>
 
-<div class="container text-center" id="signup-type"><h4><strong>Enter your Log-in Credentials</strong>.</div>
+<div class="container text-center" id="signup-type"><h4><strong>Enter your Log-in Credentials.</strong><h4></div>
 
-<div id="login_form">
+<div class="container"> <!-- Container for form -->
   <form action="{{ app_path }}" method="post" id="login-form" class="form-horizontal">{% csrf_token %}
+  <div id="login_form" class="display_delay">
     <fieldset>
-      
+      <div>
         {% if form.errors %}
-          <p>Your username and password didn't match, please try again.</p>
+          <div class="errorlist">
+            <p>Your username and password didn't match, please try again.</p>
+          </div>
         {% endif %}
-
         {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
         <p>
-        <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
-      </p>
-      <p>
-        {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-        <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
-        <input type="hidden" name="this_is_the_login_form" value="1" />
-        <input type="hidden" name="next" value="{{ next }}" />
-      </p>
-      {% url 'admin_password_reset' as password_reset_url %}
-      {% if password_reset_url %}
-      <div class="password-reset-link">
-        <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+          <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
+        </p>
+          {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+        <p>
+          <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
+          <input type="hidden" name="this_is_the_login_form" value="1" />
+          <input type="hidden" name="next" value="{{ next }}" />
+        </p>
+        {% url 'admin_password_reset' as password_reset_url %}
+        {% if password_reset_url %}
+          <div class="password-reset-link">
+            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+          </div>
+        {% endif %}
       </div>
-      {% endif %}
-
-      <!-- Button -->
-      <div class="text-center">
-        <div class="control-group">
-          <div class="controls">
-            <!-- <button id="submit" name="submit" class="btn btn-primary">Log In</button> -->
-            <!-- <div class="submit-row"> -->
-            <label>&nbsp;</label><input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
-            <!-- </div> -->
-          </div><!--controls-->
-        </div><!--control-group-->
-      </div><!--text-center-->
-    </fieldset>
-
+    </fieldsset>
+      <div>
+        <label></label><input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+        <label></label>
+          <a href="{% url 'socialauth_begin' 'facebook' %}">
+            <div class="btn btn-primary social-btn type-facebook">
+              <span class="icon-sn-30 facebook"></span><span class="social-text">Sign in with Facebook</span>
+            </div>
+          </a>
+          <label></label>
+          <a href="{% url 'socialauth_begin' 'linkedin' %}">
+            <div class="btn btn-primary social-btn type-linkedin">
+              <span class="icon-sn-30 linkedin"></span><span class="social-text">Sign in with LinkedIn</span>
+            </div>
+          </a>
+        <!-- <label></label><a class="btn btn-primary" href="{% url 'socialauth_begin' 'linkedin' %}" ></a> -->
+      </div><!--control-group-->
+      <!-- </div>text-center -->
+  </div>
   </form>
-
+  </div>
 <div class="row">
   <div class="span12">
-    <a href="/accounts/register"><h4 class="text-center">Not a member? Click here to create an account!</h4></a>
+    <h4 class="text-center">Not a member? <a href="/accounts/register"><strong>Click here to create an account!</strong></a></h4>
   </div><!--span12-->
 </div><!--row-->
 
 <script type="text/javascript">
 document.getElementById('id_username').focus()
 </script>
-</div>
 {% endblock %}

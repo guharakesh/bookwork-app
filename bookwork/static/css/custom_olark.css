@@ -1,0 +1,8 @@
+#habla_window_div #habla_topbar_div {
+	background: #58595b none repeat scroll 0 0 !important;
+}
+#habla_window_div.olrk-fixed-bottom .habla_panel_border,
+#habla_window_div.olrk-fixed-bottom #habla_topbar_div {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from student.models import Student, Skill
-from student.forms import StudentForm, UserForm, SkillForm
+from student.models import Student, Skill, Employer
+from student.forms import StudentForm, UserForm, SkillForm, EmailForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.views import login
@@ -19,6 +19,7 @@ def splash(request):
     # return HttpResponse("Hey you're on the splashpage")
     if request.user.is_authenticated():
         request.user.username = request.user.email
+        request.user.save()
         new_student = Student.objects.get_or_create(user=request.user)[0]
         new_student.save()
 
@@ -96,6 +97,35 @@ def splash(request):
                 request.POST or None
             )
         return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
+    elif request.user.is_authenticated() and not user.email:
+        emailform = EmailForm()
+        return render(request, 'splashpage/require_email.html',{'emailform':emailform})
     else:
-        return render(request, 'splashpage/base_splashpage.html',{})
+        return HttpResponseRedirect('/accounts/login')
 
+def dash(request):
+    if request.user.is_authenticated():
+        request.user.username = request.user.email
+        request.user.save()
+        new_student = Student.objects.get_or_create(user=request.user)[0]
+        new_student.save()
+
+        skills = []
+        for skill in Skill.objects.filter(student=new_student):
+            skills.append(skill)        
+        
+        return render(request, 'splashpage/dash.html',{'skills':skills})
+    else:
+        return HttpResponseRedirect('/accounts/login')
+
+def current_employers(request):
+    if request.user.is_authenticated():
+        request.user.username = request.user.email
+        request.user.save()
+        new_student = Student.objects.get_or_create(user=request.user)[0]
+        new_student.save()
+        
+        employers = Employer.objects.all().order_by('name')
+        return render(request, 'splashpage/current_employers.html',{'employers':employers})
+    else:
+        return HttpResponseRedirect('/accounts/login')
