@@ -15,11 +15,16 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'student', ['School'])
 
+        db.execute("COPY student_school FROM '/home/bookwork/app/bookwork/static/schools/out.txt' (DELIMITER '|');")
+
+        for student in orm.Student.objects.all():
+            if student.school == 
+
 
         # Renaming column for 'Student.school' to match new field type.
         db.rename_column(u'student_student', 'school', 'school_id')
         # Changing field 'Student.school'
-        db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
         # Adding index on 'Student', fields ['school']
         db.create_index(u'student_student', ['school_id'])
 
