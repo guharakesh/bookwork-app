@@ -23,7 +23,7 @@
 23|Albion College
 24|Albright College
 25|Alcorn State University
-26|Alderson-Broaddus College
+26|Alderson–Broaddus College
 27|Alfred University
 28|Alice Lloyd College
 29|Allegheny College
@@ -176,7 +176,7 @@
 176|East Stroudsburg State University of Pennsylvania
 177|East Tennessee State University
 178|East Texas Baptist University
-179|East-West University
+179|East–West University
 180|Eastern Connecticut State University
 181|Eastern Florida State College
 182|Eastern Illinois University
@@ -204,7 +204,7 @@
 204|Elmira College
 205|Elms College
 206|Elon University
-207|Embry-Riddle Aeronautical University
+207|Embry–Riddle Aeronautical University
 208|Emerson College
 209|Emmanuel Christian Seminary
 210|Emmanuel College
@@ -267,7 +267,7 @@
 267|Franklin Pierce University
 268|Franklin University
 269|Franklin W. Olin College of Engineering
-270|Freed-Hardeman University
+270|Freed–Hardeman University
 271|Fresno Pacific University
 272|Friends University
 273|Frontier Nursing University
@@ -277,8 +277,8 @@
 277|Future Generations Graduate School
 278|Gallaudet University
 279|Gannon University
-280|Gardner-Webb University
-281|Garrett-Evangelical Theological Seminary
+280|Gardner–Webb University
+281|Garrett–Evangelical Theological Seminary
 282|Geneva College
 283|George Fox University
 284|George Mason University
@@ -297,17 +297,17 @@
 297|Gettysburg College
 298|Glenville State College
 299|Global University
-300|God's Bible School & College
+300|God’s Bible School & College
 301|Goddard College
 302|Golden Gate Baptist Theological Seminary
 303|Golden Gate University
-304|Goldey-Beacom College
-305|Goldfarb School of Nursing at Barnes-Jewish College
+304|Goldey–Beacom College
+305|Goldfarb School of Nursing at Barnes–Jewish College
 306|Gonzaga University
 307|Goodwin College
 308|Gordon State College
 309|Gordon College
-310|Gordon-Conwell Theological Seminary
+310|Gordon–Conwell Theological Seminary
 311|Goshen College
 312|Goucher College
 313|Governors State University
@@ -404,7 +404,7 @@
 404|Lake Forest College
 405|Lake Forest Graduate School of Management
 406|Lake Superior State University
-407|Lake-Sumter State College
+407|Lake–Sumter State College
 408|Lakeland College
 409|Lakeview College of Nursing
 410|Lamar University
@@ -420,14 +420,14 @@
 420|Le Moyne College
 421|Lebanon Valley College
 422|Lee University
-423|Lees-McRae College
+423|Lees–McRae College
 424|Lehigh University
-425|LeMoyne-Owen College
-426|Lenoir-Rhyne University
+425|LeMoyne–Owen College
+426|Lenoir–Rhyne University
 427|Lesley University
 428|LeTourneau University
 429|Lewis & Clark College
-430|Lewis-Clark State College
+430|Lewis–Clark State College
 431|Lewis University
 432|Lexington College
 433|Liberty University
@@ -495,7 +495,7 @@
 495|National Hispanic University
 496|National Intelligence University
 497|National Labor College
-498|National-Louis University
+498|National–Louis University
 499|National University
 500|National University of Health Sciences
 501|Navajo Technical College
@@ -632,7 +632,7 @@
 632|Radford University
 633|Ramapo College of New Jersey
 634|Randolph College
-635|Randolph-Macon College
+635|Randolph–Macon College
 636|Ranken Technical College
 637|Rasmussen College
 638|Reconstructionist Rabbinical College
@@ -670,7 +670,7 @@
 670|Rollins College
 671|Roosevelt University
 672|Rosalind Franklin University of Medicine & Science
-673|Rose-Hulman Institute of Technology
+673|Rose–Hulman Institute of Technology
 674|Roseman University of Health Sciences
 675|Rosemont College
 676|Rowan University
@@ -708,7 +708,7 @@
 708|Texas Tech University
 709|Texas Tech University Health Sciences Center
 710|Texas Wesleyan University
-711|Texas Woman's University
+711|Texas Woman’s University
 712|Thiel College
 713|Thomas Aquinas College
 714|Thomas University
@@ -744,7 +744,7 @@
 744|Trinity Lutheran College
 745|Trinity University
 746|Troy University
-747|Truett-McConnell College
+747|Truett–McConnell College
 748|Truman State University
 749|Tufts University
 750|Tulane University
@@ -858,7 +858,7 @@
 858|University of Hawaii–Hilo
 859|University of Hawaii–Manoa
 860|University of Hawaii System
-861|University of Hawaii–West O'ahu
+861|University of Hawaii–West Oʼahu
 862|University of Houston
 863|University of Houston–Clear Lake
 864|University of Houston–Downtown
@@ -887,7 +887,7 @@
 887|University of Maine School of Law
 888|University of Maine System
 889|University of Mary
-890|University of Mary Hardin-Baylor
+890|University of Mary Hardin–Baylor
 891|University of Mary Washington
 892|University of Maryland–Baltimore
 893|University of Maryland–Baltimore County
@@ -1089,7 +1089,7 @@
 1089|Wilson College
 1090|Wingate University
 1091|Winona State University
-1092|Winston-Salem State University
+1092|Winston–Salem State University
 1093|Winthrop University
 1094|Wisconsin Lutheran College
 1095|Wisconsin School of Professional Psychology
@@ -1104,7 +1104,7 @@
 1104|Wright State University
 1105|Babson College
 1106|Bacone College
-1107|Baldwin-Wallace College
+1107|Baldwin–Wallace College
 1108|Ball State University
 1109|Baker College
 1110|Baker University
@@ -1117,7 +1117,7 @@
 1117|Baptist Missionary Association Theological Seminary
 1118|Barclay College
 1119|Bard College
-1120|Bard College at Simon's Rock
+1120|Bard College at Simon’s Rock
 1121|Barnard College
 1122|Barry University
 1123|Barton College
@@ -1159,15 +1159,15 @@
 1159|Bethel University & Seminary
 1160|Bethel University
 1161|Bethesda University of California
-1162|Bethune-Cookman University
+1162|Bethune–Cookman University
 1163|Beulah Heights University
 1164|Biblical Theological Seminary
 1165|Biola University
-1166|Birmingham-Southern College
+1166|Birmingham–Southern College
 1167|Bismark State College
 1168|Black Hills State University
 1169|Blackburn College
-1170|Blessing-Rieman College of Nursing
+1170|Blessing–Rieman College of Nursing
 1171|Bloomfield College
 1172|Bloomsburg University of Pennsylvania
 1173|Blue Mountain College
@@ -1190,7 +1190,7 @@
 1190|Brenau University
 1191|Brescia University 
 1192|Brevard College
-1193|Brewton-Parker College
+1193|Brewton–Parker College
 1194|Briar Cliff University
 1195|Briarcliffe College
 1196|Bridgewater College
@@ -1262,7 +1262,7 @@
 1262|Carnegie Mellon University
 1263|Carroll College
 1264|Carroll University
-1265|Carson-Newman College
+1265|Carson–Newman College
 1266|Carthage College
 1267|Case Western Reserve University
 1268|Castleton State College
@@ -1356,7 +1356,7 @@
 1356|Cogswell Polytechnical College
 1357|Coker College
 1358|Colby College
-1359|Colby-Sawyer College
+1359|Colby–Sawyer College
 1360|Colegio Universitario de San Juan
 1361|Colgate University
 1362|College for Creative Studies
@@ -1438,24 +1438,24 @@
 1438|Creighton University
 1439|Criswell College
 1440|Crossroads College
-1441|Crowley's Ridge College
+1441|Crowley’s Ridge College
 1442|Crown College
 1443|Culinary Institute of America
-1444|Culver-Stockton College
+1444|Culver–Stockton College
 1445|Cumberland University
 1446|Curry College
 1447|Curtis Institute of Music
 1448|Hamilton College
 1449|Hamline University
-1450|Hampden-Sydney College
+1450|Hampden–Sydney College
 1451|Hampshire College
 1452|Hampton University
-1453|Hannibal-Lagrange College
+1453|Hannibal–Lagrange College
 1454|Hanover College
-1455|Hardin-Simmons University
+1455|Hardin–Simmons University
 1456|Harding University
 1457|Harrington College of Design
-1458|Harris-Stowe State University
+1458|Harris–Stowe State University
 1459|Harrisburg University of Science & Technology
 1460|Hartford Seminary
 1461|Hartwick College
@@ -1500,7 +1500,7 @@
 1500|Huntingdon College
 1501|Huntington University
 1502|Husson University
-1503|Huston-Tillotson University
+1503|Huston–Tillotson University
 1504|Kalamazoo College
 1505|Kansas City Art Institute
 1506|Kansas City University of Medicine & Biosciences
@@ -1514,7 +1514,7 @@
 1514|Kendall College
 1515|Kendall College of Art & Design of Ferris State University
 1516|Kennesaw State University
-1517|Kenrick-Glennon Seminary
+1517|Kenrick–Glennon Seminary
 1518|Kent State University
 1519|Kent State University–Ashtabula Campus
 1520|Kent State University–College of Podiatric Medicine
@@ -1533,8 +1533,8 @@
 1533|Keuka College
 1534|Keystone College
 1535|King College
-1536|King's College
-1537|The King's College
+1536|King’s College
+1537|The King’s College
 1538|Knowledge Systems Institute
 1539|Knox College
 1540|Kutztown University of Pennsylvania
@@ -1584,8 +1584,8 @@
 1584|Massachusetts Maritime Academy
 1585|Massachusetts School of Law
 1586|Massachusetts School of Professional Psychology
-1587|The Master's College
-1588|The Master's Seminary
+1587|The Master’s College
+1588|The Master’s Seminary
 1589|Maui College
 1590|Mayo Clinic College of Medicine
 1591|Mayo Clinic College of Medicine–Graduate School
@@ -1627,11 +1627,11 @@
 1627|Michigan School of Professional Psychology
 1628|Michigan State University
 1629|Michigan Technological University
-1630|Mid-America Baptist Theological Seminary
-1631|Mid-America Christian University
-1632|Mid-Atlantic Christian University
+1630|Mid–America Baptist Theological Seminary
+1631|Mid–America Christian University
+1632|Mid–Atlantic Christian University
 1633|MidAmerica Nazarene University
-1634|Mid-Continent University
+1634|Mid–Continent University
 1635|Middle Georgia State College
 1636|Middle Tennessee School of Anesthesia
 1637|Middle Tennessee State University
@@ -1697,8 +1697,8 @@
 1697|Mount Mercy University
 1698|Mount Olive College
 1699|Mount Saint Mary College
-1700|Mount Saint Mary's College
-1701|Mount Saint Mary's University
+1700|Mount Saint Mary’s College
+1701|Mount Saint Mary’s University
 1702|Mount Vernon Nazarene University
 1703|Mount Washington College
 1704|Mountain State University
@@ -1724,7 +1724,7 @@
 1724|Parker University
 1725|Patten University
 1726|Paul Quinn College
-1727|Paul Smith's College
+1727|Paul Smith’s College
 1728|Peace College
 1729|Peirce College
 1730|Peninsula College
@@ -1809,63 +1809,63 @@
 1809|Saint Anselm College
 1810|Saint Anthony College of Nursing
 1811|Saint Augustine College
-1812|Saint Augustine's University
+1812|Saint Augustine’s University
 1813|Saint Bonaventure University
 1814|Saint Catherine University
 1815|Saint Catharine College
 1816|Saint Charles Borromeo Seminary
 1817|Saint Cloud State University
-1818|Saint Edward's University
+1818|Saint Edward’s University
 1819|Saint Francis College
 1820|Saint Francis Medical Center College of Nursing
 1821|Saint Francis University
 1822|Saint Gregory the Great Seminary
-1823|Saint Gregory's University
+1823|Saint Gregory’s University
 1824|Saint John Fisher College
 1825|Saint John Vianney College Seminary
-1826|Saint John's College–Annapolis
-1827|Saint John's College–Santa Fe
-1828|Saint John's College
-1829|Saint John's Seminary
-1830|Saint John's Seminary
-1831|Saint John's University
-1832|Saint John's University
+1826|Saint John’s College–Annapolis
+1827|Saint John’s College–Santa Fe
+1828|Saint John’s College
+1829|Saint John’s Seminary
+1830|Saint John’s Seminary
+1831|Saint John’s University
+1832|Saint John’s University
 1833|Saint Johns River State College
 1834|Saint Joseph College
 1835|Saint Joseph Seminary College
-1836|Saint Joseph's College
-1837|Saint Joseph's College
-1838|Saint Joseph's College of Maine
-1839|Saint Joseph's Seminary
-1840|Saint Joseph's University
+1836|Saint Joseph’s College
+1837|Saint Joseph’s College
+1838|Saint Joseph’s College of Maine
+1839|Saint Joseph’s Seminary
+1840|Saint Joseph’s University
 1841|Saint Lawrence University
 1842|Saint Leo University
 1843|Saint Louis College of Pharmacy
 1844|Saint Louis University
-1845|Saint Luke's College of Health Sciences
-1846|Saint Martin's University
+1845|Saint Luke’s College of Health Sciences
+1846|Saint Martin’s University
 1847|Saint Mary Seminary & Graduate School of Theology
-1848|Saint Mary-of-the-Woods College
-1849|Saint Mary's College
-1850|Saint Mary's College of California
-1851|Saint Mary's College of Maryland
-1852|Saint Mary's Seminary & University
-1853|Saint Mary's University of Minnesota
-1854|Saint Mary's University
+1848|Saint Mary–of-the-Woods College
+1849|Saint Mary’s College
+1850|Saint Mary’s College of California
+1851|Saint Mary’s College of Maryland
+1852|Saint Mary’s Seminary & University
+1853|Saint Mary’s University of Minnesota
+1854|Saint Mary’s University
 1855|Saint Meinrad Seminary & School of Theology
-1856|Saint Michael's College
+1856|Saint Michael’s College
 1857|Saint Norbert College
 1858|Saint Olaf College
-1859|Saint Patrick's Seminary & University
+1859|Saint Patrick’s Seminary & University
 1860|Saint Paul School of Theology
-1861|Saint Paul's College
-1862|Saint Peter's University
+1861|Saint Paul’s College
+1862|Saint Peter’s University
 1863|Saint Petersburg College
 1864|Saint Thomas Aquinas College
 1865|Saint Thomas University
 1866|Saint Vincent College
 1867|Saint Vincent de Paul Regional Seminary
-1868|Saint Vincent's College
+1868|Saint Vincent’s College
 1869|Saint Xavier University
 1870|Salem College
 1871|Salem International University
@@ -1935,7 +1935,7 @@
 1935|Soka University of America
 1936|Somerset Christian College
 1937|Sonoma State University
-1938|Soujourner-Douglass College
+1938|Soujourner–Douglass College
 1939|South Carolina State University
 1940|South College
 1941|South Dakota School of Mines & Technology
@@ -1995,7 +1995,7 @@
 1995|Spring Hill College
 1996|Springfield College
 1997|Stanford University
-1998|State College of Florida, Manatee-Sarasota
+1998|State College of Florida, Manatee–Sarasota
 1999|Albany
 2000|Alfred State University
 2001|Binghamton
@@ -2130,7 +2130,7 @@
 2130|University of Vermont
 2131|University of the Virgin Islands
 2132|University of Virginia
-2133|University of Virginia's College at Wise
+2133|University of Virginia’s College at Wise
 2134|University of Washington
 2135|University of Washington–Bothell
 2136|University of Washington–Tacoma

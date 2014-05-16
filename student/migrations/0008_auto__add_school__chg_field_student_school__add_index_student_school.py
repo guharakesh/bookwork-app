@@ -3,6 +3,7 @@ from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+import codecs
 
 
 class Migration(SchemaMigration):
@@ -15,22 +16,32 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'student', ['School'])
 
-        db.execute("COPY student_school FROM '/home/bookwork/app/bookwork/static/schools/out.txt' (DELIMITER '|');")
+        with codecs.open('/home/bookwork/app/bookwork/static/schools/out.txt', encoding='utf-8', mode='r') as f:
+            data = f.readlines() 
+            for line in data:
+                values = line.split('|')
+                sql_str = "INSERT INTO student_school VALUES (%s, '%s');" % (values[0],values[1])
+                #db.execute("INSERT INTO student_school VALUES ({0}, '{1}');".format(values[0],values[1]))
 
-        for student in orm.Student.objects.all():
+                db.execute(sql_str)
+
+
+        # Renaming column for 'Student.school' to match new field type.
+        db.rename_column(u'student_student', 'school', 'school_id')
+
+        for student in orm['student.Student'].objects.all():
             if student.school == 'BOSC':
                 student.school = 1180
             if student.school == 'CWRU':
-                student.school = 1267            
+                student.school = 1267
             if student.school == 'GRGE': 
                 student.school = 288
             if student.school == 'OTHR':
                 student.school = 2165
 
-        # Renaming column for 'Student.school' to match new field type.
-        db.rename_column(u'student_student', 'school', 'school_id')
         # Changing field 'Student.school'
-        db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
         # Adding index on 'Student', fields ['school']
         db.create_index(u'student_student', ['school_id'])
 
