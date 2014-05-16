@@ -32,12 +32,88 @@ class Migration(SchemaMigration):
         for student in orm['student.Student'].objects.all():
             if student.school == 'BOSC':
                 student.school = 1180
+            if student.school == 'BRAN':
+                student.school = 1188 
+            if student.school == 'BWRN':
+                student.school = 1203 
+            if student.school == 'CALT':
+                student.school = 1221
+            if student.school == 'CMU_':
+                student.school = 1262 
             if student.school == 'CWRU':
                 student.school = 1267
+            if student.school == 'CW_M':
+                student.school = 1387
+            if student.school == 'COLU':
+                student.school = 1403
+            if student.school == 'CORN':
+                student.school = 1430
+            if student.school == 'DART':
+                student.school = 123 
+            if student.school == 'DUKE':
+                student.school = 169
+            if student.school == 'EMRY':
+                student.school = 215
             if student.school == 'GRGE': 
                 student.school = 288
+            if student.school == 'GTCH': 
+                student.school = 291
+            if student.school == 'HRVD': 
+                student.school = 1462
+            if student.school == 'JHU_': 
+                student.school = 384
+            if student.school == 'LHGH': 
+                student.school = 424
+            if student.school == 'MIT_': 
+                student.school = 1583
+            if student.school == 'NYU_': 
+                student.school = 527 
+            if student.school == 'NRTH': 
+                student.school = 570
+            if student.school == 'PRIN': 
+                student.school = 1787
+            if student.school == 'RICE': 
+                student.school = 651
+            if student.school == 'STAN': 
+                student.school = 1997
+            if student.school == 'TUFT': 
+                student.school = 749
+            if student.school == 'UCLA': 
+                student.school = 823
+            if student.school == 'UCSD': 
+                student.school = 826
+            if student.school == 'UCSF': 
+                student.school = 827
+            if student.school == 'UCHI': 
+                student.school = 836
+            if student.school == 'MICH': 
+                student.school = 906
+            if student.school == 'UNC_': 
+                student.school = 941
+            if student.school == 'NRTD': 
+                student.school = 955
+            if student.school == 'PENN': 
+                student.school = 2047
+            if student.school == 'URCH': 
+                student.school = 2073
+            if student.school == 'USC_': 
+                student.school = 2084
+            if student.school == 'UVA_': 
+                student.school = 2132
+            if student.school == 'WISC': 
+                student.school = 2145
+            if student.school == 'VAND': 
+                student.school = 966
+            if student.school == 'WAKE': 
+                student.school = 990
+            if student.school == 'WUSL': 
+                student.school = 1012
+            if student.school == 'YALE': 
+                student.school = 2159
             if student.school == 'OTHR':
                 student.school = 2165
+
+            student.save()
 
         # Changing field 'Student.school'
         #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
