@@ -133,7 +133,94 @@ class Migration(SchemaMigration):
         # Renaming column for 'Student.school' to match new field type.
         db.rename_column(u'student_student', 'school_id', 'school')
         # Changing field 'Student.school'
-        db.alter_column(u'student_student', 'school', self.gf('django.db.models.fields.CharField')(max_length=50))
+
+        for student in orm['student.Student'].objects.all():
+            if student.school == 1180:
+                student.school = 'BOSC'
+            if student.school == 1188:
+                student.school = 'BRAN'
+            if student.school == 1203:
+                student.school = 'BWRN'
+            if student.school == 1221:
+                student.school = 'CALT'
+            if student.school == 1262: 
+                student.school = 'CMU_'
+            if student.school == 1267:
+                student.school = 'CWRU'
+            if student.school == 1387:
+                student.school = 'CW_M'
+            if student.school == 1403:
+                student.school = 'COLU'
+            if student.school == 1430:
+                student.school = 'CORN'
+            if student.school == 123:
+                student.school = 'DART'
+            if student.school == 169:
+                student.school = 'DUKE'
+            if student.school == 215:
+                student.school = 'EMRY'
+            if student.school == 288:
+                student.school = 'GRGE'
+            if student.school == 291:
+                student.school = 'GTCH'
+            if student.school == 1462:
+                student.school = 'HRVD'
+            if student.school == 384:
+                student.school = 'JHU_'
+            if student.school == 424:
+                student.school = 'LHGH'
+            if student.school == 1583:
+                student.school = 'MIT_'
+            if student.school == 527:
+                student.school = 'NYU_'
+            if student.school == 570:
+                student.school = 'NRTH'
+            if student.school == 1787:
+                student.school = 'PRIN'
+            if student.school == 651:
+                student.school = 'RICE'
+            if student.school == 1997:
+                student.school = 'STAN'
+            if student.school == 749:
+                student.school = 'TUFT'
+            if student.school == 823:
+                student.school = 'UCLA'
+            if student.school == 826:
+                student.school = 'UCSD'
+            if student.school == 827:
+                student.school = 'UCSF'
+            if student.school == 836:
+                student.school = 'UCHI'
+            if student.school == 906:
+                student.school = 'MICH'
+            if student.school == 941:
+                student.school = 'UNC_'
+            if student.school == 955:
+                student.school = 'NRTD'
+            if student.school == 2047:
+                student.school = 'PENN'
+            if student.school == 2073:
+                student.school = 'URCH'
+            if student.school == 2084:
+                student.school = 'USC_'
+            if student.school == 2132:
+                student.school = 'UVA_'
+            if student.school == 2145:`
+                student.school = 'WISC'
+            if student.school == 966:
+                student.school = 'VAND'
+            if student.school == 990:
+                student.school = 'WAKE'
+            if student.school == 1012:
+                student.school = 'WUSL'
+            if student.school == 2159:
+                student.school = 'YALE'
+            if student.school == 2165:
+                student.school = 'OTHR'
+
+            student.save()
+        #db.alter_column(u'student_student', 'school', self.gf('django.db.models.fields.CharField')(max_length=50))
+        db.execute("ALTER TABLE student_student ALTER COLUMN school TYPE varchar USING (school_id::varchar);")
 
     models = {
         u'auth.group': {
