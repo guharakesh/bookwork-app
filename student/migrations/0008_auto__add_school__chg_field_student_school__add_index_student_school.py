@@ -16,7 +16,7 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'student', ['School'])
 
-        with codecs.open('/home/bookwork/app/bookwork/static/schools/out.txt', encoding='utf-8', mode='r') as f:
+        with codecs.open('/home/bookwork/app/scripts/schools/out.txt', encoding='utf-8', mode='r') as f:
             data = f.readlines() 
             for line in data:
                 values = line.split('|')

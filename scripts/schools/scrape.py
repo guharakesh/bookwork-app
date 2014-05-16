@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup(open('/home/bookwork/app/bookwork/static/schools/colleges.html'))
-f = open('/home/bookwork/app/bookwork/static/schools/out.txt','w')
+soup = BeautifulSoup(open('/home/bookwork/app/scripts/schools/colleges.html'))
+f = open('/home/bookwork/app/scripts/schools/out.txt','w')
 
 count = 1
 
