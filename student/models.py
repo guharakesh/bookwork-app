@@ -30,6 +30,10 @@ class School(models.Model):
 
     name = models.CharField(max_length=200)
 
+    def __unicode__(self):
+        return u"%s" % self.name
+
+
 class Student(models.Model):
     user = models.OneToOneField(User)
 
