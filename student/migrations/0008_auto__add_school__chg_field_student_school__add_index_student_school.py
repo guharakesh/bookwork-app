@@ -3,12 +3,16 @@ from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 import codecs
 
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Renaming column for 'Student.school' to match new field type.
+        #db.rename_column(u'student_student', 'school', 'school_id')
+
         # Adding model 'School'
         db.create_table(u'student_school', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -25,99 +29,96 @@ class Migration(SchemaMigration):
 
                 db.execute(sql_str)
 
-
-        # Renaming column for 'Student.school' to match new field type.
-        db.rename_column(u'student_student', 'school', 'school_id')
+        db.add_column('student_student', 'school_id', models.IntegerField(null=True))
 
         for student in orm['student.Student'].objects.all():
             if student.school == 'BOSC':
-                student.school = 1180
+                student.school_id = 1180
             if student.school == 'BRAN':
-                student.school = 1188 
+                student.school_id = 1188 
             if student.school == 'BWRN':
-                student.school = 1203 
+                student.school_id = 1203 
             if student.school == 'CALT':
-                student.school = 1221
+                student.school_id = 1221
             if student.school == 'CMU_':
-                student.school = 1262 
+                student.school_id = 1262 
             if student.school == 'CWRU':
-                student.school = 1267
+                student.school_id = 1267
             if student.school == 'CW_M':
-                student.school = 1387
+                student.school_id = 1387
             if student.school == 'COLU':
-                student.school = 1403
+                student.school_id = 1403
             if student.school == 'CORN':
-                student.school = 1430
+                student.school_id = 1430
             if student.school == 'DART':
-                student.school = 123 
+                student.school_id = 123 
             if student.school == 'DUKE':
-                student.school = 169
+                student.school_id = 169
             if student.school == 'EMRY':
-                student.school = 215
+                student.school_id = 215
             if student.school == 'GRGE': 
-                student.school = 288
+                student.school_id = 288
             if student.school == 'GTCH': 
-                student.school = 291
+                student.school_id = 291
             if student.school == 'HRVD': 
-                student.school = 1462
+                student.school_id = 1462
             if student.school == 'JHU_': 
-                student.school = 384
+                student.school_id = 384
             if student.school == 'LHGH': 
-                student.school = 424
+                student.school_id = 424
             if student.school == 'MIT_': 
-                student.school = 1583
+                student.school_id = 1583
             if student.school == 'NYU_': 
-                student.school = 527 
+                student.school_id = 527 
             if student.school == 'NRTH': 
-                student.school = 570
+                student.school_id = 570
             if student.school == 'PRIN': 
-                student.school = 1787
+                student.school_id = 1787
             if student.school == 'RICE': 
-                student.school = 651
+                student.school_id = 651
             if student.school == 'STAN': 
-                student.school = 1997
+                student.school_id = 1997
             if student.school == 'TUFT': 
-                student.school = 749
+                student.school_id = 749
             if student.school == 'UCLA': 
-                student.school = 823
+                student.school_id = 823
             if student.school == 'UCSD': 
-                student.school = 826
+                student.school_id = 826
             if student.school == 'UCSF': 
-                student.school = 827
+                student.school_id = 827
             if student.school == 'UCHI': 
-                student.school = 836
+                student.school_id = 836
             if student.school == 'MICH': 
-                student.school = 906
+                student.school_id = 906
             if student.school == 'UNC_': 
-                student.school = 941
+                student.school_id = 941
             if student.school == 'NRTD': 
-                student.school = 955
+                student.school_id = 955
             if student.school == 'PENN': 
-                student.school = 2047
+                student.school_id = 2047
             if student.school == 'URCH': 
-                student.school = 2073
+                student.school_id = 2073
             if student.school == 'USC_': 
-                student.school = 2084
+                student.school_id = 2084
             if student.school == 'UVA_': 
-                student.school = 2132
+                student.school_id = 2132
             if student.school == 'WISC': 
-                student.school = 2145
+                student.school_id = 2145
             if student.school == 'VAND': 
-                student.school = 966
+                student.school_id = 966
             if student.school == 'WAKE': 
-                student.school = 990
+                student.school_id = 990
             if student.school == 'WUSL': 
-                student.school = 1012
+                student.school_id = 1012
             if student.school == 'YALE': 
-                student.school = 2159
+                student.school_id = 2159
             if student.school == 'OTHR':
-                student.school = 2165
-
+                student.school_id = 2165
             student.save()
 
         # Changing field 'Student.school'
         #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
-        db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
+        #db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
         # Adding index on 'Student', fields ['school']
         db.create_index(u'student_student', ['school_id'])
 
@@ -205,7 +206,7 @@ class Migration(SchemaMigration):
                 student.school = 'USC_'
             if student.school == 2132:
                 student.school = 'UVA_'
-            if student.school == 2145:`
+            if student.school == 2145:
                 student.school = 'WISC'
             if student.school == 966:
                 student.school = 'VAND'
