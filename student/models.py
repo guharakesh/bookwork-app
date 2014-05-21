@@ -116,7 +116,8 @@ class Student(models.Model):
         ('YALE','Yale University'),
         ('OTHR','Other'))
     
-    school = models.ForeignKey(Schools)
+    school = models.CharField(max_length=50,choices=SCHOOL_CHOICES,
+                              default='CWRU')
                     
 
     def getPictureURL(self):
