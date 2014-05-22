@@ -12,6 +12,14 @@ class Migration(DataMigration):
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
 
+        with codecs.open('/home/bookwork/app/scripts/schools/out.txt', encoding='utf-8', mode='r') as f:
+            data = f.readlines() 
+            for line in data:
+                values = line.split('|')
+                sql_str = "INSERT INTO student_school VALUES (%s, '%s');" % (values[0],values[1])
+
+                db.execute(sql_str)
+
     def backwards(self, orm):
         "Write your backwards methods here."
 
