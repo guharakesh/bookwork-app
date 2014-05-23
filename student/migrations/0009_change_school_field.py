@@ -21,6 +21,57 @@ class Migration(DataMigration):
 
                 db.execute(sql_str)
 
+        db.add_column('student_student', 'school_id', models.IntegerField(null=True))
+
+        for stud in Student.objects.all():
+            if stud.school == 'BOSC':
+                stud.school_id = 1180
+            if stud.school == 'BRAN':
+                stud.school_id = 1188 
+            if stud.school == 'BWRN':
+                stud.school_id = 1203 
+            if stud.school == 'CALT':
+                stud.school_id = 1221
+            if stud.school == 'CMU_':
+                stud.school_id = 1262 
+            if stud.school == 'CWRU':
+                stud.school_id = 1267
+            if stud.school == 'CW_M':
+                stud.school_id = 1387
+            if stud.school == 'COLU':
+                stud.school_id = 1403
+            if stud.school == 'CORN':
+                stud.school_id = 1430
+            if stud.school == 'DART':
+                stud.school_id = 123 
+            if stud.school == 'DUKE':
+                stud.school_id = 169
+            if stud.school == 'EMRY':
+                stud.school_id = 215
+            if stud.school == 'GRGE': 
+                stud.school_id = 288
+            if stud.school == 'GTCH': 
+                stud.school_id = 291
+            if stud.school == 'HRVD': 
+                stud.school_id = 1462
+            if stud.school == 'JHU_': 
+                stud.school_id = 384
+            if stud.school == 'LHGH': 
+                stud.school_id = 424
+            if stud.school == 'MIT_': 
+                stud.school_id = 1583
+            if stud.school == 'NYU_': 
+                stud.school_id = 527 
+            if stud.school == 'NRTH': 
+                stud.school_id = 570
+            if stud.school == 'PRIN': 
+                stud.school_id = 1787
+            if stud.school == 'RICE': 
+                stud.school_id = 651
+            if stud.school == 'STAN': 
+                stud.school_id = 1997
+            if stud.school == 'TUFT': 
+
     def backwards(self, orm):
         "Write your backwards methods here."
 
