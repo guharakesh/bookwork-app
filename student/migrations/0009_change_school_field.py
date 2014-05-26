@@ -23,7 +23,7 @@ class Migration(DataMigration):
 
         db.add_column('student_student', 'school_id', models.IntegerField(null=True))
 
-        for stud in Student.objects.all():
+        for stud in orm['student.Student'].objects.all():
             if stud.school == 'BOSC':
                 stud.school_id = 1180
             if stud.school == 'BRAN':
@@ -71,6 +71,48 @@ class Migration(DataMigration):
             if stud.school == 'STAN': 
                 stud.school_id = 1997
             if stud.school == 'TUFT': 
+                stud.school_id = 749
+            if stud.school == 'UCLA': 
+                stud.school_id = 823
+            if stud.school == 'UCSD': 
+                stud.school_id = 826
+            if stud.school == 'UCSF': 
+                stud.school_id = 827
+            if stud.school == 'UCHI': 
+                stud.school_id = 836
+            if stud.school == 'MICH': 
+                stud.school_id = 906
+            if stud.school == 'UNC_': 
+                stud.school_id = 941
+            if stud.school == 'NRTD': 
+                stud.school_id = 955
+            if stud.school == 'PENN': 
+                stud.school_id = 2047
+            if stud.school == 'URCH': 
+                stud.school_id = 2073
+            if stud.school == 'USC_': 
+                stud.school_id = 2084
+            if stud.school == 'UVA_': 
+                stud.school_id = 2132
+            if stud.school == 'WISC': 
+                stud.school_id = 2145
+            if stud.school == 'VAND': 
+                stud.school_id = 966
+            if stud.school == 'WAKE': 
+                stud.school_id = 990
+            if stud.school == 'WUSL': 
+                stud.school_id = 1012
+            if stud.school == 'YALE': 
+                stud.school_id = 2159
+            if stud.school == 'OTHR':
+                stud.school_id = 2165
+            stud.save()
+
+        # Changing field 'Student.school'
+        #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        #db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
+        # Adding index on 'Student', fields ['school']
+        db.create_index(u'student_student', ['school_id'])
 
     def backwards(self, orm):
         "Write your backwards methods here."
