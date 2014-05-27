@@ -106,6 +106,8 @@ class Migration(DataMigration):
                 stud.school_id = 2159
             if stud.school == 'OTHR':
                 stud.school_id = 2165
+            else:
+                stud.school_id = 2165
             stud.save()
 
         db.delete_column('student_student', 'school')
