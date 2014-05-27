@@ -115,7 +115,7 @@ class Migration(DataMigration):
         #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
         #db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
         # Adding index on 'Student', fields ['school']
-        db.create_index(u'student_student', ['school_id'])
+        db.create_index(u'student_student', ['school'])
 
     def backwards(self, orm):
         "Write your backwards methods here."
