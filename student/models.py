@@ -116,7 +116,7 @@ class Student(models.Model):
         ('YALE','Yale University'),
         ('OTHR','Other'))
     
-    school = models.ForeignKey('School')
+    school = models.ForeignKey('School', null = True)
                     
 
     def getPictureURL(self):

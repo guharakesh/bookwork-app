@@ -12,7 +12,7 @@ class Migration(SchemaMigration):
         # Renaming column for 'Student.school' to match new field type.
         db.rename_column(u'student_student', 'school', 'school_id')
         # Changing field 'Student.school'
-        db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School'], null=True))
         # Adding index on 'Student', fields ['school']
         db.create_index(u'student_student', ['school_id'])
 
@@ -90,7 +90,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Student'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'profile_pic': ('django.db.models.fields.files.ImageField', [], {'default': "'pic_folder/None/no-img.jpg'", 'max_length': '100'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['student.School']"}),
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['student.School']", 'null': 'True'}),
             'skills': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['student.Skill']", 'symmetrical': 'False'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'}),
             'year_in_school': ('django.db.models.fields.CharField', [], {'default': "'FR'", 'max_length': '2'})
