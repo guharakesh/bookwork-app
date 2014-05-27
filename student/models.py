@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.db.models import BooleanField
 from social_auth.models import UserSocialAuth
+from bs4 import BeautifulSoup
+
 import urllib2
 # import code for encoding urls and generating md5 hashes
 # needed for gravatar
@@ -24,6 +26,13 @@ class Skill(models.Model):
 
 def upload_to(instance, filename):
     return 'images/%s/%s' % (instance.user.user.username, filename)
+
+class School(models.Model):
+
+    name = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return u"%s" % self.name
 
 class Student(models.Model):
     user = models.OneToOneField(User)
@@ -107,8 +116,8 @@ class Student(models.Model):
         ('YALE','Yale University'),
         ('OTHR','Other'))
     
-    school = models.CharField(max_length=50,choices=SCHOOL_CHOICES,
-                              default='CWRU')
+    school = models.ForeignKey('School', null = True)
+                    
 
     def getPictureURL(self):
         try:
