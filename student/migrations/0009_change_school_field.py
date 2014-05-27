@@ -13,7 +13,7 @@ class Migration(DataMigration):
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
 
-        with codecs.open('/home/bookwork/app/scripts/schools/out.txt', encoding='utf-8', mode='r') as f:
+        with codecs.open('../../scripts/schools/out.txt', encoding='utf-8', mode='r') as f:
             data = f.readlines() 
             for line in data:
                 values = line.split('|')
