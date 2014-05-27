@@ -21,99 +21,98 @@ class Migration(DataMigration):
 
                 db.execute(sql_str)
 
-        db.add_column('student_student', 'school_id', models.IntegerField(null=True))
 
         for stud in orm['student.Student'].objects.all():
             if stud.school == 'BOSC':
-                stud.school_id = 1180
+                stud.school = '1180'
             if stud.school == 'BRAN':
-                stud.school_id = 1188 
+                stud.school = '1188'
             if stud.school == 'BWRN':
-                stud.school_id = 1203 
+                stud.school = '1203'
             if stud.school == 'CALT':
-                stud.school_id = 1221
+                stud.school = '1221'
             if stud.school == 'CMU_':
-                stud.school_id = 1262 
+                stud.school = '1262' 
             if stud.school == 'CWRU':
-                stud.school_id = 1267
+                stud.school = '1267'
             if stud.school == 'CW_M':
-                stud.school_id = 1387
+                stud.school = '1387'
             if stud.school == 'COLU':
-                stud.school_id = 1403
+                stud.school = '1403'
             if stud.school == 'CORN':
-                stud.school_id = 1430
+                stud.school = '1430'
             if stud.school == 'DART':
-                stud.school_id = 123 
+                stud.school = '123' 
             if stud.school == 'DUKE':
-                stud.school_id = 169
+                stud.school = '169'
             if stud.school == 'EMRY':
-                stud.school_id = 215
+                stud.school = '215'
             if stud.school == 'GRGE': 
-                stud.school_id = 288
+                stud.school = '288'
             if stud.school == 'GTCH': 
-                stud.school_id = 291
+                stud.school = '291'
             if stud.school == 'HRVD': 
-                stud.school_id = 1462
+                stud.school = '1462'
             if stud.school == 'JHU_': 
-                stud.school_id = 384
+                stud.school = '384'
             if stud.school == 'LHGH': 
-                stud.school_id = 424
+                stud.school = '424'
             if stud.school == 'MIT_': 
-                stud.school_id = 1583
+                stud.school = '1583'
             if stud.school == 'NYU_': 
-                stud.school_id = 527 
+                stud.school = '527' 
             if stud.school == 'NRTH': 
-                stud.school_id = 570
+                stud.school = '570'
             if stud.school == 'PRIN': 
-                stud.school_id = 1787
+                stud.school = '1787'
             if stud.school == 'RICE': 
-                stud.school_id = 651
+                stud.school = '651'
             if stud.school == 'STAN': 
-                stud.school_id = 1997
+                stud.school = '1997'
             if stud.school == 'TUFT': 
-                stud.school_id = 749
+                stud.school = '749'
             if stud.school == 'UCLA': 
-                stud.school_id = 823
+                stud.school = '823'
             if stud.school == 'UCSD': 
-                stud.school_id = 826
+                stud.school = '826'
             if stud.school == 'UCSF': 
-                stud.school_id = 827
+                stud.school = '827'
             if stud.school == 'UCHI': 
-                stud.school_id = 836
+                stud.school = '836'
             if stud.school == 'MICH': 
-                stud.school_id = 906
+                stud.school = '906'
             if stud.school == 'UNC_': 
-                stud.school_id = 941
+                stud.school = '941'
             if stud.school == 'NRTD': 
-                stud.school_id = 955
+                stud.school = '955'
             if stud.school == 'PENN': 
-                stud.school_id = 2047
+                stud.school = '2047'
             if stud.school == 'URCH': 
-                stud.school_id = 2073
+                stud.school = '2073'
             if stud.school == 'USC_': 
-                stud.school_id = 2084
+                stud.school = '2084'
             if stud.school == 'UVA_': 
-                stud.school_id = 2132
+                stud.school = '2132'
             if stud.school == 'WISC': 
-                stud.school_id = 2145
+                stud.school = '2145'
             if stud.school == 'VAND': 
-                stud.school_id = 966
+                stud.school = '966'
             if stud.school == 'WAKE': 
-                stud.school_id = 990
+                stud.school = '990'
             if stud.school == 'WUSL': 
-                stud.school_id = 1012
+                stud.school = '1012'
             if stud.school == 'YALE': 
-                stud.school_id = 2159
+                stud.school = '2159'
             if stud.school == 'OTHR':
-                stud.school_id = 2165
+                stud.school = '2165'
             stud.save()
+            
+        db.execute('ALTER TABLE student_student ALTER COLUMN school TYPE integer USING (school::integer);')
 
-        db.delete_column('student_student', 'school')
-        db.rename_column('student_student', 'school_id', 'school')
 
         # Changing field 'Student.school'
-        #db.alter_column(u'student_student', 'school_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
-        #db.execute("ALTER TABLE student_student ALTER COLUMN school_id TYPE integer USING (school_id::integer);")
+        #db.alter_column(u'student_student', 'school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['student.School']))
+        #db.execute("ALTER TABLE student_student ALTER COLUMN school TYPE integer USING (school::integer);")
         # Adding index on 'Student', fields ['school']
         db.create_index(u'student_student', ['school'])
 
