@@ -102,6 +102,7 @@ INSTALLED_APPS = (
     'select2',
     'south',
     'social_auth',
+    'employer',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
