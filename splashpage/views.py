@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from student.models import Student, Skill, Employer
+from student.models import Student, Skill
+from employer.models import Employer
 from student.forms import StudentForm, UserForm, SkillForm, EmailForm
 from django import forms
 from django.forms import ModelForm
