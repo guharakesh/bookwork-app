@@ -14,7 +14,7 @@ class Migration(DataMigration):
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
 
-        with codecs.open(os.path.join(settings.BASE_DIR, 'scripts/schools/out.txt'), encoding='utf-8', mode='r') as f:
+        with codecs.open(os.path.abspath(os.path.join(settings.BASE_DIR, '..', 'scripts/schools/out.txt')), encoding='utf-8', mode='r') as f:
             data = f.readlines() 
             for line in data:
                 values = line.split('|')
