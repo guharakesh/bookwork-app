@@ -3,6 +3,7 @@ from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import DataMigration
 from django.db import models
+from django.conf import settings
 import codecs, os
 
 class Migration(DataMigration):
@@ -13,7 +14,7 @@ class Migration(DataMigration):
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
 
-        with codecs.open(os.path.join(BASE_DIR, 'scripts/schools/out.txt'), encoding='utf-8', mode='r') as f:
+        with codecs.open(os.path.join(settings.BASE_DIR, 'scripts/schools/out.txt'), encoding='utf-8', mode='r') as f:
             data = f.readlines() 
             for line in data:
                 values = line.split('|')
