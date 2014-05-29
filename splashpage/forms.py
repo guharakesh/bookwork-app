@@ -1,11 +1,10 @@
 from django import forms
-from django.contrib.auth.models import User
 
 class TypeForm(forms.Form):
-    user_type = forms.ChoiceField()
+    CHOICES = (
+        ('student', 'Student'),
+        ('employer', 'Employer')
+    )
 
-    def __init__(self, *args, **kwargs):
-        super(TypeForm,self).__init__(*args,**kwargs)
+    user_type = forms.ChoiceField(choices=CHOICES, required=True)
 
-        self.fields['type'].choices = (('student','Student'),('employer','Employer'))
-        

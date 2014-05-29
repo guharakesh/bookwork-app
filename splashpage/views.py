@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from student.models import Student
+from student.models import Student, Skill
 from employer.models import Employer
 from student.forms import StudentForm, UserForm, SkillForm
 from splashpage.forms import TypeForm
@@ -11,6 +11,7 @@ from django.forms import ModelForm
 from django.contrib.auth.views import login
 from django.contrib import messages
 from django.db.models import Q
+import pdb
 
 # Create your views here.
 
@@ -107,10 +108,8 @@ def splash(request):
         return HttpResponseRedirect('/accounts/login')
 
 def dash(request):
-    print("made it to dash")
-    print(Employer.objects.filter(user=request.user))
     if request.user.is_authenticated() and (not Student.objects.filter(user=request.user) and not Employer.objects.filter(user=request.user)):
-        print("UHOH")
+        print(request.method)
         if request.method == 'POST': # If the form has been submitted...
             form = TypeForm(request.POST or None) # A form bound to the POST data
             if form.is_valid():
@@ -124,13 +123,13 @@ def dash(request):
                 else:
                     new_employer = Employer.objects.get_or_create(user=request.user)[0]
                     new_employer.save()
-                    skils=[]
+                    skills=[]
                     return render(request, 'splashpage/dash.html',{'skills':skills})
         else:
-            student_employer_form = TypeForm()
-            return render(request, 'splashpage/student_or_employer.html',{'form':student_employer_form})
+            print("student or employer?")
+            form = TypeForm(request.POST or None)
+            return render(request, 'splashpage/student_or_employer.html',{'form':form})
     elif request.user.is_authenticated():
-        print("is authed")
         # request.user.username = request.user.email
         # request.user.save()
         new_student = Student.objects.get_or_create(user=request.user)[0]
@@ -142,10 +141,8 @@ def dash(request):
         
         return render(request, 'splashpage/dash.html',{'skills':skills})
     else:
-        print("else")
         resp = HttpResponse(content='', content_type=None, status=302, reason=None)
         return HttpResponseRedirect('/accounts/login')
-    print("hit the end of dash")
 
 def current_employers(request):
     if request.user.is_authenticated():
