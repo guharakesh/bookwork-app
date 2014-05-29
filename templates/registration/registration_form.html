@@ -11,7 +11,7 @@
 
 <div class="container text-center" id="new-acct-head"><h1>Create a New Account</h1></div>
 
-<div class="container text-center" id="signup-type"><h4>Sign up with your email or with Facebook or Linked-in</h4></div>
+<div class="container text-center" id="signup-type"><h4>Sign up with your <strong>email</strong> or with <strong>Facebook</strong> or <strong>Linked-in</strong></h4></div>
 
 
     {% if messages %}
@@ -23,9 +23,9 @@
 {% endif %}
 
 <div class="container"> <!-- Container for form -->
-	{% csrf_token %}
 	<div id="registration_form" class="display_delay">
 	<form class="form-horizontal" action="" method="post">
+	{% csrf_token %}		
 		<fieldset>
 			{{ form.as_p }}
 		</fieldset>
@@ -34,7 +34,7 @@
 			  <a href="{% url 'socialauth_begin' 'facebook' %}">
 			    <div class="btn btn-primary social-btn type-facebook">
 			      <span class="icon-sn-30 facebook"></span><span class="social-text">Register with Facebook</span>
-			    </div>
+			    </div>	
 			  </a>
 			  <label></label>
 			  <a href="{% url 'socialauth_begin' 'linkedin' %}">
@@ -46,10 +46,9 @@
 	</form>
 </div>
 
-
-		<div class="container text-center" id="loginQ">
-			<h4>Already have an account? <strong><a data-toggle="modal" href="/accounts/login">Login.</a></strong></h4>
-		</div>
+<div class="container text-center" id="loginQ">
+	<h4>Already have an account? <strong><a data-toggle="modal" href="/accounts/login">Login.</a></strong></h4>
+</div>
 {% endblock %}
 
 {% block scripts %}
