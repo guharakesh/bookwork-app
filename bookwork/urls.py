@@ -40,6 +40,7 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
         self.fields.insert(0,'first_name',forms.CharField())
         self.fields.insert(0,'type', forms.ChoiceField())
         self.fields['type'].choices = (('student','Student'),('employer','Employer'))
+        self.fields['type'].label = "I am a"
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
 
