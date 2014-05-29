@@ -28,25 +28,23 @@ class AuthenticationFormWithEmail(AuthenticationForm):
 
 class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
     
-    TYPES = (
-        ('ST', 'Student'),
-        ('EM', 'Employer')
-    )
 
     def __init__(self, *args, **kwargs):
+  
+
         super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
         self.fields['username'].initial = id_generator()
         self.fields.insert(0,'last_name',forms.CharField())
         self.fields.insert(0,'first_name',forms.CharField())
-        self.fields.insert(0,'type',forms.CharField(max_length=2, choices=TYPES, default='ST'))
+        self.fields.insert(0,'type', forms.ChoiceField())
+        self.fields['type'].choices = (('student','Student'),('employer','Employer'))
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
-
 
     def register(self, request, **cleaned_data):
         username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
