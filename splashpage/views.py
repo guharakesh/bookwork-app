@@ -11,7 +11,6 @@ from django.forms import ModelForm
 from django.contrib.auth.views import login
 from django.contrib import messages
 from django.db.models import Q
-import pdb
 
 # Create your views here.
 
@@ -141,8 +140,7 @@ def dash(request):
         
         return render(request, 'splashpage/dash.html',{'skills':skills})
     else:
-        resp = HttpResponse(content='', content_type=None, status=302, reason=None)
-        return HttpResponseRedirect('/accounts/login')
+        return render(request, 'splashpage/base_splashpage.html',{})
 
 def current_employers(request):
     if request.user.is_authenticated():
