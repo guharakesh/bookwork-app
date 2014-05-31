@@ -19,6 +19,7 @@ def next(request):
     return render(request, 'splashpage/whats_next.html',{}) 
 
 def splash(request):
+    sidebar = {"edit":"active"}
     new_student = request.user.student
     if request.method == "POST":
 
@@ -93,20 +94,22 @@ def splash(request):
         skillform = SkillForm(
             request.POST or None
         )
-    return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
+    return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform,'sidebar':sidebar})
 
 def dash(request):
+    sidebar = {"profile":"active"}
     new_student = request.user.student
 
     skills = []
     for skill in Skill.objects.filter(student=new_student):
         skills.append(skill)
 
-    return render(request, 'splashpage/dash.html',{'skills':skills})
+    return render(request, 'splashpage/dash.html',{'skills':skills,'sidebar':sidebar})
 
 def current_employers(request):
+    sidebar = {"employers":"active"}
     new_student = request.user.student
 
     employers = Employer.objects.all().order_by('name')
-    return render(request, 'splashpage/current_employers.html',{'employers':employers})
+    return render(request, 'splashpage/current_employers.html',{'employers':employers,'sidebar':sidebar})
 
