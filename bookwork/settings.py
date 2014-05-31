@@ -118,7 +118,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'splashpage.urls.SocialAuthExceptionMiddleware',
+    # 'splashpage.urls.SocialAuthExceptionMiddleware',
 )
 
 if os.environ.get('FORCE_SSL', False):
