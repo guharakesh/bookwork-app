@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import login, logout, password_change
 from django.contrib import admin
 from registration.backends.default.views import RegistrationView
 from registration.backends.default.views import ActivationView
@@ -74,6 +74,10 @@ urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
     url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
+    url(r'^accounts/password_change/$', 'django.contrib.auth.views.password_change', {'template_name': 'registration/password_change_form.html'}, name='password_change'),
+    url(r'^accounts/password_change/done/$', 'django.contrib.auth.views.password_change_done', {'template_name': 'registration/password_change_done.html'}, name='password_change_done'),
+    url(r'^accounts/password_reset/$', 'django.contrib.auth.views.password_reset', {'template_name': 'registration/password_reset_form.html'}, name='password_reset'),
+    url(r'^accounts/password_reset/done/$', 'django.contrib.auth.views.password_reset_done', {'template_name': 'registration/password_reset_done.html'}, name='password_reset_done'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^dash/','splashpage.views.dash',name='dash'),
     url(r'^edit/','splashpage.views.splash',name='splash'),
