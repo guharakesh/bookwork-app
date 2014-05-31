@@ -113,3 +113,7 @@ def current_employers(request):
     employers = Employer.objects.all().order_by('name')
     return render(request, 'splashpage/current_employers.html',{'employers':employers,'sidebar':sidebar})
 
+def user_settings(request):
+    sidebar = {"settings":"active"}
+    return render(request, 'splashpage/user_settings.html')
+
