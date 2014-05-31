@@ -19,139 +19,94 @@ def next(request):
     return render(request, 'splashpage/whats_next.html',{}) 
 
 def splash(request):
-    # return HttpResponse("Hey you're on the splashpage")
-    if request.user.is_authenticated() and not user.email:
-        emailform = EmailForm()
-        return render(request, 'splashpage/require_email.html',{'emailform':emailform})
-    elif request.user.is_authenticated():
-        request.user.username = request.user.email
-        request.user.save()
-        new_student = Student.objects.get_or_create(user=request.user)[0]
-        new_student.save()
+    new_student = request.user.student
+    if request.method == "POST":
 
-        if request.method == "POST":
+        skillform = SkillForm(request.POST or None)
 
-            skillform = SkillForm(request.POST or None)
+        if 'new_skill' in request.body:
+            if skillform.is_valid():
+                skill_text = skillform.cleaned_data['skill_text']
+                new_skill = Skill.objects.get_or_create(skill_text__iexact=skill_text,defaults={'skill_text':skill_text,'creator':request.user})[0]
+                new_skill.save()
 
-            if 'new_skill' in request.body:
-                if skillform.is_valid():
-                    skill_text = skillform.cleaned_data['skill_text']
-                    new_skill = Skill.objects.get_or_create(skill_text__iexact=skill_text,defaults={'skill_text':skill_text,'creator':request.user})[0]
-                    new_skill.save()
+                userform = UserForm(request.POST or None)
+                studentform = StudentForm(request.POST or None)
+                skill_ids = []
+                for skill in Skill.objects.filter(student=new_student):
+                    skill_ids.append(skill.id)
 
-                    userform = UserForm(request.POST or None)
-                    studentform = StudentForm(request.POST or None)
-                    skill_ids = []
-                    for skill in Skill.objects.filter(student=new_student):
-                        skill_ids.append(skill.id)
+                for skill_id in request.POST.getlist('skills'):
+                    skill_ids.append(skill_id)
 
-                    for skill_id in request.POST.getlist('skills'):
-                        skill_ids.append(skill_id)
- 
-                    skill_ids.append(new_skill.id)
-        
-                    studentform = StudentForm(
-                        initial = {'year_in_school': new_student.year_in_school,
-                                   'school': new_student.school,
-                                   'skills': skill_ids
-                                  },
-                    )
-                    studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
-
-                    skillform = SkillForm()
-
-            else:
-
-                userform = UserForm(request.POST or None, instance=request.user)
+                skill_ids.append(new_skill.id)
     
-                if userform.is_valid():
-                    userlink = userform.save(commit=False)
-                    userlink.save()
-    
-                studentform = StudentForm(request.POST or None, instance=new_student)
+                studentform = StudentForm(
+                    initial = {'year_in_school': new_student.year_in_school,
+                               'school': new_student.school,
+                               'skills': skill_ids
+                              },
+                )
                 studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
-    
-                if studentform.is_valid():
-                    link = studentform.save(commit=False)
-                    link.save()
-    
-                    studentform.save_m2m()
 
-                    messages.success(request, 'You\'re all set!')
+                skillform = SkillForm()
 
         else:
-            userform = UserForm(
-                request.POST or None,
-                initial = {'first_name': request.user.first_name,
-                           'last_name': request.user.last_name
-                          }
-            )
 
-            skill_ids = []
-            for skill in Skill.objects.filter(student=new_student):
-                skill_ids.append(skill.id)
+            userform = UserForm(request.POST or None, instance=request.user)
 
-            studentform = StudentForm(
-                request.POST or None, 
-                initial = {'year_in_school': new_student.year_in_school,
-                           'school': new_student.school,
-                           'skills': skill_ids
-                          }
-            )
+            if userform.is_valid():
+                userlink = userform.save(commit=False)
+                userlink.save()
+
+            studentform = StudentForm(request.POST or None, instance=new_student)
             studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
-            skillform = SkillForm(
-                request.POST or None
-            )
-        return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
+
+            if studentform.is_valid():
+                link = studentform.save(commit=False)
+                link.save()
+
+                studentform.save_m2m()
+
+                messages.success(request, 'You\'re all set!')
 
     else:
-        return HttpResponseRedirect('/accounts/login')
+        userform = UserForm(
+            request.POST or None,
+            initial = {'first_name': request.user.first_name,
+                       'last_name': request.user.last_name
+                      }
+        )
+
+        skill_ids = []
+        for skill in Skill.objects.filter(student=new_student):
+            skill_ids.append(skill.id)
+
+        studentform = StudentForm(
+            request.POST or None, 
+            initial = {'year_in_school': new_student.year_in_school,
+                       'school': new_student.school,
+                       'skills': skill_ids
+                      }
+        )
+        studentform.fields['skills'].queryset = Skill.objects.filter(Q(approved=True) | Q(creator=request.user))
+        skillform = SkillForm(
+            request.POST or None
+        )
+    return render(request, 'splashpage/base_loggedin.html',{'studentform': studentform,'userform':userform,'skillform':skillform})
 
 def dash(request):
-    if request.user.is_authenticated() and (not Student.objects.filter(user=request.user) and not Employer.objects.filter(user=request.user)):
-        print(request.method)
-        if request.method == 'POST': # If the form has been submitted...
-            form = TypeForm(request.POST or None) # A form bound to the POST data
-            if form.is_valid():
-                if form.cleaned_data["user_type"] == "student":
-                    new_student = Student.objects.get_or_create(user=request.user)[0]
-                    new_student.save()
-                    skills = []
-                    for skill in Skill.objects.filter(student=new_student):
-                        skills.append(skill)
-                    return render(request, 'splashpage/dash.html',{'skills':skills})
-                else:
-                    new_employer = Employer.objects.get_or_create(user=request.user)[0]
-                    new_employer.save()
-                    skills=[]
-                    return render(request, 'splashpage/dash.html',{'skills':skills})
-        else:
-            print("student or employer?")
-            form = TypeForm(request.POST or None)
-            return render(request, 'splashpage/student_or_employer.html',{'form':form})
-    elif request.user.is_authenticated():
-        # request.user.username = request.user.email
-        # request.user.save()
-        new_student = Student.objects.get_or_create(user=request.user)[0]
-        # new_student.save()
+    new_student = request.user.student
 
-        skills = []
-        for skill in Skill.objects.filter(student=new_student):
-            skills.append(skill)        
-        
-        return render(request, 'splashpage/dash.html',{'skills':skills})
-    else:
-        resp = HttpResponse(content='', content_type=None, status=302, reason=None)
-        return HttpResponseRedirect('/accounts/login')
+    skills = []
+    for skill in Skill.objects.filter(student=new_student):
+        skills.append(skill)
+
+    return render(request, 'splashpage/dash.html',{'skills':skills})
 
 def current_employers(request):
-    if request.user.is_authenticated():
-        request.user.username = request.user.email
-        request.user.save()
-        new_student = Student.objects.get_or_create(user=request.user)[0]
-        new_student.save()
-        
-        employers = Employer.objects.all().order_by('name')
-        return render(request, 'splashpage/current_employers.html',{'employers':employers})
-    else:
-        return HttpResponseRedirect('/accounts/login')
+    new_student = request.user.student
+
+    employers = Employer.objects.all().order_by('name')
+    return render(request, 'splashpage/current_employers.html',{'employers':employers})
+
