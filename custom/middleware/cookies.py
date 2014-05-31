@@ -13,11 +13,15 @@ class UserCookieMiddleware(object):
 
         if 'localhost' in domain_name:
             domain_name = ''
+        else:
+            domain_name = '.bookwork.co'
 
         if not hasattr(request, 'user'):
+            if request.COOKIES.get('authed'):
+                response.delete_cookie('authed', domain=domain_name)
             return response
         if request.user.is_authenticated() and not request.COOKIES.get('authed'):
             response.set_cookie('authed', value='True', domain=domain_name)
         elif not request.user.is_authenticated() and request.COOKIES.get('authed'):
-            response.delete_cookie('authed')
+            response.delete_cookie('authed', domain=domain_name)
         return response
