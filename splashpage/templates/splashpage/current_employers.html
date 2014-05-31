@@ -6,24 +6,6 @@
 <!-- <link href="{{STATIC_URL}}css/dash.css" rel="stylesheet">
  -->{% endblock %}
 
-{% block sidebar %}
-<div class="sidebar">
-  <a class="navbar-brand" href="/"><span class="gray">book</span><span class="blue">work</span></a>
-  <div class="sidebar-wrap">
-  <div class="id">
-    <img id="profile_picture" src="{{ user.student.getPictureURL }}"/>
-    <h3 id="name">{{ user.first_name }} {{ user.last_name }}</h3>
-  </div>
-  <ul class="sidebar-list">
-    <a href="/"><li>PROFILE</li></a>
-    <a href="/current_employers/"><li class="active">CURRENT EMPLOYERS</li></a>
-    <a href="/edit/"><li>EDIT INFORMATION</li></a>
-    <a href="/accounts/logout"><li>LOGOUT</li></a>
-  </ul>
-  </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <div class="page_header" id="skills-head">Here are some of the employers currently looking for students!</div>
