@@ -27,7 +27,11 @@ class AuthenticationFormWithEmail(AuthenticationForm):
         self.fields['username'].label = 'Email'
 
 class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
+    
+
     def __init__(self, *args, **kwargs):
+  
+
         super (RegistrationFormUniqueEmailNoUsername, self).__init__(*args, **kwargs)
         #self.fields.pop('username')
         self.fields['username'].widget = forms.HiddenInput()
