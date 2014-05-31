@@ -1,5 +1,6 @@
 from django.contrib import admin
-from student.models import Student, Skill, Employer
+from student.models import Student, Skill
+from employer.models import Employer
 from django.contrib.auth.models import User
 
 # Register your models here.

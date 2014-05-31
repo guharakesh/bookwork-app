@@ -637,7 +637,7 @@ label {
 	margin-top:3px;
 	width:200px;
 	text-align: right;
-	line-height: 55px;
+	line-height: 63px;
 	font-size:20px;
 }
 input,
@@ -680,11 +680,12 @@ select:focus{
 fieldset >p{
 	float:left;
 	clear:left;
+	margin: 0;
 }
 select{
 	/*padding: .5em .6em;*/
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 27px;
 	border-radius: 0;
 	-webkit-appearance: none;
 	overflow: hidden;
@@ -700,7 +701,14 @@ select{
 	padding-bottom: 10px;
 	border: 2px solid rgba(204, 204, 204, 0.5);
 }
-
+/*select#id_type{
+	width: 130px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+label[for=id_type]{
+	width: 420px;
+}*/
 label#skill_add_note{
 	clear: none;
 	width: 606px;
@@ -708,7 +716,6 @@ label#skill_add_note{
 ul.chosen-choices,
 .chosen-container-multi .chosen-choices,
 .chosen-container-active .chosen-choices
-{
 	border-radius: 0px;
 	height: 50px !important;
 	width: 400px !important;

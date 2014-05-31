@@ -102,6 +102,8 @@ INSTALLED_APPS = (
     'select2',
     'south',
     'social_auth',
+    'employer',
+    'custom',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -109,6 +111,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 SITE_ID = 1;
 
 MIDDLEWARE_CLASSES = (
+    'custom.middleware.cookies.UserCookieMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

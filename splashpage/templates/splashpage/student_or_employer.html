@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+
+{% block extrastyle %}
+<style type="text/css">
+#content,#new-acct-head {
+    margin-top:0;
+}
+</style>
+{% endblock %}
+
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}What are you?{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container text-center" id="new-acct-head"><h1>What are you?</h1></div>
+
+<div class="container text-center" id="signup-type"><h4>Like, seriously?</h4></div>
+
+
+    {% if messages %}
+  {% for message in messages %}
+    <h2 class="text-error" id="saved_message">
+      {{ message }}
+    </h2>
+  {% endfor %}
+{% endif %}
+
+<div class="container"> <!-- Container for form -->
+    <div id="registration_form" class="display_delay">
+    <form class="form-horizontal" action="" method="post">
+    {% csrf_token %}
+        <fieldset>
+            {{ form.as_p }}
+        </fieldset>
+            <label></label><input class="btn btn-primary" type="submit" value="Create the account">
+    </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
