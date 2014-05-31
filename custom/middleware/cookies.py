@@ -13,7 +13,8 @@ class UserCookieMiddleware(object):
 
         if 'localhost' in domain_name:
             domain_name = ''
-        else domain_name = '.bookwork.co'
+        else:
+            domain_name = '.bookwork.co'
 
         if not hasattr(request, 'user'):
             if request.COOKIES.get('authed'):
