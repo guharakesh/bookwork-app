@@ -1,13 +1,12 @@
-{% extends "base/base.html" %}
+{% extends "base/base_external.html" %}
 
 {% block extrahead %}
 {% endblock %}
 
 {% block title %}You have logged out{% endblock %}
 
-{% block content %}
-<div class="container text-center" id="new-acct-head"><h1>kthxbye</h1></div>
+{% block primary%}kthxbye{% endblock%}
+{% block secondar%}You have successfully logged out of bookwork. We can't wait for you to come back!{% endblock%}
 
-<div class="container text-center" id="signup-type"><h4>You have successfully logged out of bookwork. We can't wait for you to come back!</h4></div>
-
+{% block body %}
 {% endblock %}

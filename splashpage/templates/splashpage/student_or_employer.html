@@ -1,8 +1,8 @@
-{% extends "base/base.html" %}
+{% extends "base/base_external.html" %}
 
 {% block extrastyle %}
 <style type="text/css">
-#content,#new-acct-head {
+#content,.container.primary{
     margin-top:0;
 }
 </style>
@@ -14,13 +14,11 @@
 
 {% block title %}What are you?{% endblock %}
 
-{% block content %}
 
+{% block primary%}What are you?{% endblock%}
+{% block secondar%}Like, seriously?{% endblock%}
 
-
-<div class="container text-center" id="new-acct-head"><h1>What are you?</h1></div>
-
-<div class="container text-center" id="signup-type"><h4>Like, seriously?</h4></div>
+{% block body %}
 
 
     {% if messages %}
@@ -38,7 +36,7 @@
         <fieldset>
             {{ form.as_p }}
         </fieldset>
-            <label></label><input class="btn btn-primary" type="submit" value="Create the account">
+            <label></label><input class="btn btn-primary" type="submit" value="Continue to account">
     </div>
     </form>
 </div>
