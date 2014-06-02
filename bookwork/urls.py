@@ -11,11 +11,13 @@ from django.contrib.sites.models import RequestSite
 from registration.models import RegistrationProfile
 from registration import signals
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 import splashpage, string, random
 
 admin.autodiscover()
 
 login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
+
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for x in range(size))
@@ -43,6 +45,7 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
+    allow_anon = True
 
     def register(self, request, **cleaned_data):
         username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
@@ -72,7 +75,7 @@ urlpatterns = patterns('',
     url(r'^next/', include('splashpage.urls', namespace='splash')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('social_auth.urls')),
-    url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
+    url(r'^accounts/login$', login_forbidden(login.as_view(allow_anon=None)),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
     url(r'^settings/$', 'splashpage.views.user_settings'),
     url(r'^settings/password/change/$', 'django.contrib.auth.views.password_change', {'template_name': 'registration/password_change_form.html'}, name='password_change'),

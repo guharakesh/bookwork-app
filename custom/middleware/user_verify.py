@@ -5,13 +5,15 @@ from splashpage.forms import TypeForm
 from django.shortcuts import render
 
 class UserVerifyMiddleware(object):
-    def process_request(self, request):
+    def process_view(self, request, view_func, view_args, view_kwargs):
         user = request.user;
-        if user.is_anonymous():
-            if "accounts" in request.path:
-                return None
-            else:
-                return HttpResponseRedirect('/accounts/login')
+
+
+        #if user.is_anonymous():
+            #if "accounts" in request.path:
+                #return None
+            #else:
+                #return HttpResponseRedirect('/accounts/login')
 
         if (not Student.objects.filter(user=user) and not Employer.objects.filter(user=user)):
             if request.method == 'POST': # If the form has been submitted...
