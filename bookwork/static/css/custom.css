@@ -449,7 +449,7 @@ End base_loggedin.html
 /*******************
 login.html and registraion_form.html
 *******************/
-#registration_form, #login_form{
+#registration_form, #login_form,#pass_reset_form{
 	max-width: 831px;
 	margin: 0 auto;
 }
