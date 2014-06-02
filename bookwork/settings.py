@@ -114,11 +114,11 @@ MIDDLEWARE_CLASSES = (
     'custom.middleware.cookies.UserCookieMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'custom.middleware.user_verify.UserVerifyMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'custom.middleware.user_verify.UserVerifyMiddleware',
 )
 
 if os.environ.get('FORCE_SSL', False):
