@@ -422,9 +422,9 @@ a:focus {
 End base.html
 *******************/
 /*******************
-base_loggedin.html
+base_loggedin.html, password_change_form.html
 *******************/
-#update_form{
+#update_form, #pass_change_form{
 	margin: 0 auto;
 	margin-top: 20px;
 	max-width: 800px;
