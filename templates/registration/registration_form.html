@@ -1,18 +1,14 @@
-{% extends "base/base.html" %}
+{% extends "base/base_external.html" %}
 
 {% block extrahead %}
 {% endblock %}
 
 {% block title %}Create an account{% endblock %}
 
-{% block content %}
+{% block primary%}Create a New Account{% endblock%}
+{% block secondar%}Sign up with your <strong>email</strong> or with <strong>Facebook</strong> or <strong>Linked-in</strong>{% endblock%}
 
-
-
-<div class="container text-center" id="new-acct-head"><h1>Create a New Account</h1></div>
-
-<div class="container text-center" id="signup-type"><h4>Sign up with your <strong>email</strong> or with <strong>Facebook</strong> or <strong>Linked-in</strong></h4></div>
-
+{% block body %}
 
     {% if messages %}
   {% for message in messages %}
