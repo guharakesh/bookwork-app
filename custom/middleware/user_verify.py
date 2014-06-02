@@ -7,7 +7,7 @@ from django.shortcuts import render
 class UserVerifyMiddleware(object):
     def process_request(self, request):
 
-        user = request.user.id
+        user = request.user
         if request.user.is_authenticated():
             if (not Student.objects.filter(user=user) and not Employer.objects.filter(user=user)):
                 if request.method == 'POST': # If the form has been submitted...
@@ -23,6 +23,7 @@ class UserVerifyMiddleware(object):
                             return None
                 else:
                     form = TypeForm(request.POST or None)
-                    return render(request, 'splashpage/student_or_employer.html',{'form':form})
+                    context = RequestContext(request, {'form':form})
+                    return render(request, 'splashpage/student_or_employer.html',context)
             else:
                 return None
