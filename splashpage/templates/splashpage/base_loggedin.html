@@ -3,10 +3,8 @@
 {% block title %}Update Profile{% endblock %}
 
 {% block extrahead %}
-<!-- <link href="{{STATIC_URL}}css/dash.css" rel="stylesheet"> -->
 <link href="{{STATIC_URL}}js/select2-3.4.6/select2.css" rel="stylesheet">
 <script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
-
 {% endblock %}
 
 {% block content %}
@@ -40,8 +38,10 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
-<script>
+<!--[if lt IE 9]><script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
+<script type="text/javascript" src="{{STATIC_URL}}js/standalone/selectize.js"></script>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/selectize.css" />
+  <script>
   // $(document).ready(function(){
   //   $("#id_skills").data("placeholder","Select Frameworks...").chosen();
   // });
@@ -50,8 +50,15 @@
     $("#id_skills")[0].style.width="400px";
     $("#id_skills")[0].style.marginLeft="20px";
 
-    $("#id_skills").select2({
-    });
+    $("#id_school")[0].style.width="400px";
+    $("#id_school")[0].style.marginLeft="20px";
+
+    // $("#id_skills").select2({});
   });
+  $(function() {
+    $("#id_skills").selectize({});
+    $("#id_school").selectize();
+});
 </script>
 {% endblock %}
+  
