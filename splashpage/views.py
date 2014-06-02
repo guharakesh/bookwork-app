@@ -11,7 +11,6 @@ from django.forms import ModelForm
 from django.contrib.auth.views import login
 from django.contrib import messages
 from django.db.models import Q
-import pdb
 
 # Create your views here.
 
