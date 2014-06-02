@@ -4,18 +4,20 @@ from django.contrib import admin
 from registration.backends.default.views import RegistrationView
 from registration.backends.default.views import ActivationView
 from registration.forms import RegistrationFormUniqueEmail
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django import forms
 from django.contrib.sites.models import Site
 from django.contrib.sites.models import RequestSite
 from registration.models import RegistrationProfile
 from registration import signals
 from django.contrib.auth.forms import AuthenticationForm
-import splashpage, string, random
+from splashpage.views import dash, user_settings, splash, current_employers
+import string, random
 
 admin.autodiscover()
 
 login_forbidden = user_passes_test(lambda u: u.is_anonymous(), '/')
+
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for x in range(size))
@@ -43,6 +45,7 @@ class RegistrationFormUniqueEmailNoUsername(RegistrationFormUniqueEmail):
 
 class RegistrationViewUniqueEmailNoUsername(RegistrationView):
     form_class = RegistrationFormUniqueEmailNoUsername
+    allow_anon = True
 
     def register(self, request, **cleaned_data):
         username, email, password, first_name, last_name = cleaned_data['email'], cleaned_data['email'], cleaned_data['password1'], cleaned_data['first_name'], cleaned_data['last_name']
@@ -68,15 +71,20 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     # url(r'^polls/', include('polls.urls', namespace="polls")),
     # url(r'^$', 'splashpage.views.splash', name='splash'),
-    url(r'^$', 'splashpage.views.dash', name='dash'),
+    url(r'^$', login_required(dash), name='dash'),
     url(r'^next/', include('splashpage.urls', namespace='splash')),
+
     url(r'^admin/', include(admin.site.urls)),
+
     url(r'', include('social_auth.urls')),
+
     url(r'^accounts/login$', login_forbidden(login),{'template_name':'registration/login.html','authentication_form':AuthenticationFormWithEmail}, name='login'),
     url(r'^accounts/register$', login_forbidden(RegistrationViewUniqueEmailNoUsername.as_view()), name='registration_register'),
-    url(r'^settings/$', 'splashpage.views.user_settings'),
+
+    url(r'^settings/$', login_required(user_settings)),
     url(r'^settings/password/change/$', 'django.contrib.auth.views.password_change', {'template_name': 'registration/password_change_form.html'}, name='password_change'),
     url(r'^settings/password/change/done/$', 'django.contrib.auth.views.password_change_done', {'template_name': 'registration/password_change_done.html'}, name='password_change_done'),
+
     url(r'^accounts/password/reset/$', 'django.contrib.auth.views.password_reset', {'template_name': 'registration/password_reset_form.html'}, name='password_reset'),
     url(r'^accounts/password/reset/done/$', 'django.contrib.auth.views.password_reset_done', {'template_name': 'registration/password_reset_done.html'}, name='password_reset_done'),
     url(r'^accounts/password/reset/(?P<uidb36>[0-9A-Za-z]{1,13})-(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
@@ -85,8 +93,10 @@ urlpatterns = patterns('',
         'django.contrib.auth.views.password_reset_confirm', {'template_name': 'registration/password_reset_confirm.html'},
         name='password_reset_confirm'),
     url(r'^accounts/password/reset/done/$', 'django.contrib.auth.views.password_reset_complete', {'template_name': 'registration/password_reset_complete.html'}, name='password_reset_complete'),
+
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^dash/','splashpage.views.dash',name='dash'),
-    url(r'^edit/','splashpage.views.splash',name='splash'),
-    url(r'^current_employers/','splashpage.views.current_employers',name='current_employers'),
+
+    url(r'^dash/', login_required(dash), name='dash'),
+    url(r'^edit/', login_required(splash),name='splash'),
+    url(r'^current_employers/',login_required(current_employers),name='current_employers'),
 )

@@ -24,7 +24,7 @@ except:
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/login-form/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_ERROR_URL = '/accounts/login/'
 
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID','218166651721097')

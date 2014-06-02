@@ -4,9 +4,10 @@ from social_auth import exceptions as social_exceptions
 from splashpage import views
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
-    url(r'^$', views.next, name='next'),
+    url(r'^$', login_required(views.next), name='next'),
 )
 
 class SocialAuthExceptionMiddleware(SocialAuthExceptionMiddleware):
