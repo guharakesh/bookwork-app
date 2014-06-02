@@ -385,6 +385,12 @@ login.html
 	text-align: center;
 	clear: left;
 }
+.password-reset-link{
+	display:inline-block;
+	margin-left: 105px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
 /*******************
 End login.html
 *******************/
