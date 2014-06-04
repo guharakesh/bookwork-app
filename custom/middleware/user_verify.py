@@ -2,7 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from student.models import Student
 from employer.models import Employer
 from splashpage.forms import TypeForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.middleware.csrf import rotate_token
 
 class UserVerifyMiddleware(object):
     def process_request(self, request):
@@ -23,7 +24,8 @@ class UserVerifyMiddleware(object):
                             return None
                 else:
                     form = TypeForm(request.POST or None)
-                    context = RequestContext(request, {'form':form})
-                    return render(request, 'splashpage/student_or_employer.html',context)
+                    rotate_token(request)
+                    return render(request, 'splashpage/student_or_employer.html', {'form':form})
+                    
             else:
                 return None

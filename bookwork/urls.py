@@ -11,7 +11,7 @@ from django.contrib.sites.models import RequestSite
 from registration.models import RegistrationProfile
 from registration import signals
 from django.contrib.auth.forms import AuthenticationForm
-from splashpage.views import dash, user_settings, splash, current_employers
+from splashpage.views import dash, user_settings, splash, current_employers, student_employer_select
 import string, random
 
 admin.autodiscover()
@@ -99,4 +99,5 @@ urlpatterns = patterns('',
     url(r'^dash/', login_required(dash), name='dash'),
     url(r'^edit/', login_required(splash),name='splash'),
     url(r'^current_employers/',login_required(current_employers),name='current_employers'),
+
 )
