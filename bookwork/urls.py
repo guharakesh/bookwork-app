@@ -11,7 +11,7 @@ from django.contrib.sites.models import RequestSite
 from registration.models import RegistrationProfile
 from registration import signals
 from django.contrib.auth.forms import AuthenticationForm
-from splashpage.views import dash, user_settings, splash, current_employers, student_employer_select
+from splashpage.views import dash, user_settings, splash, current_employers
 import string, random
 
 admin.autodiscover()
