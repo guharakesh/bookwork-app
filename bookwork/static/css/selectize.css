@@ -116,9 +116,13 @@
 .selectize-input,
 .selectize-input input {
   color: #303030;
-  font-family: inherit;
-  font-size: 13px;
-  line-height: 18px;
+  /*font-family: inherit;*/
+  /*font-size: 13px;*/
+  /*line-height: 18px;*/
+  line-height: 27px;
+  font-family: open_sanslight, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+
   -webkit-font-smoothing: inherit;
 }
 .selectize-input,
@@ -313,4 +317,38 @@
 .selectize-control .selectize-input.disabled {
   opacity: 0.5;
   background-color: #fafafa;
+}
+
+
+/* Selectize overrides*/
+
+.selectize-control {
+
+}
+
+.selectize-input {
+  height: 49px;
+  padding: 10px 20px;
+}
+.selectize-input > input {
+  height: 30px;
+}
+.selectize-control > div>div,.selectize-control.multi .selectize-input > div{
+  float:left;
+}
+/*.selectize-control.single,*/
+/*.selectize-input,*/
+/*.selectize-control.single,*/
+/*.selectize-input,*/
+.selectize-control{
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.selectize-input.itemshas-options.full.has-items{
+  height: 55px;s
+}
+.selectize-control.single.selectize-input{
+  height: 55px;
 }

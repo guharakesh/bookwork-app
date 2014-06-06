@@ -3,6 +3,8 @@
 {% block title %}Update Profile{% endblock %}
 
 {% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/selectize.css" />
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/selectize-customize.css" />
 <link href="{{STATIC_URL}}js/select2-3.4.6/select2.css" rel="stylesheet">
 <script src="{{STATIC_URL}}js/select2-3.4.6/select2.js"></script>
 {% endblock %}
@@ -40,7 +42,6 @@
 {% block scripts %}
 <!--[if lt IE 9]><script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
 <script type="text/javascript" src="{{STATIC_URL}}js/standalone/selectize.js"></script>
-<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/selectize.css" />
   <script>
   // $(document).ready(function(){
   //   $("#id_skills").data("placeholder","Select Frameworks...").chosen();
@@ -55,10 +56,13 @@
 
     // $("#id_skills").select2({});
   });
+  
   $(function() {
-    $("#id_skills").selectize({});
-    $("#id_school").selectize();
-});
+    document.getElementById("id_school").remove(0);
+    document.getElementById("id_school").value = -1;
+    $("#id_skills").selectize({placeholder:"Enter your skills..."});
+    $("#id_school").selectize({placeholder:"Select your school..."});
+  });
 </script>
 {% endblock %}
   
